@@ -9,66 +9,112 @@
 </head>
 
 <body>
-    <div class="location">
+    <div class="location f_b">
         <span>현위치 : 서초구 서초동</span>
-        <button>
-            <img src="img/ic_location.png" alt="">
-            업데이트
+        <button class="f_a">
+            <img src="img/ic_location.png" alt=""> 업데이트
         </button>
     </div>
-    <div class="searchbox">
-        <div class="inputarea">
-            <input type="text" value placeholer="내 주변 밀롱가 찾기">
-            <div>
-                <img src="img/ic_search.png" alt="">
+    <div class="background">
+        <div class="searchbox">
+            <div class="inputarea f_b">
+                <input type="text" value placeholder="내 주변 밀롱가 찾기">
+                <div>
+                    <img src="img/ic_search.png" alt="">
+                </div>
             </div>
         </div>
         <div class="nearbox">
+            <div class="nearby">
             <h3>내주변 밀롱가</h3>
-            <span>
-                <span>10</span><span>곳의 밀롱가(내주변</span><span> 500m</span>
-                )</span>
+            <p>
+                <span id="nearby_count">10</span><span>곳의 밀롱가 (내주변 </span><span id="nearby_dis">500m</span>)
+            </p>
         </div>
-        <div class="mapbox">
-            <div class="distance">
-                <a href="#">100m</a>
-                <a href="#">300m</a>
-                <a href="#">500m</a>
-                <a href="#">1km</a>
-                <a href="#">5km</a>
-                <a href="#">10km</a>
+            <div class="mapbox">
+                <div class="distance f_a">
+                    <a href="#">100m</a>
+                    <a href="#">300m</a>
+                    <a href="#">500m</a>
+                    <a href="#">1km</a>
+                    <a href="#">5km</a>
+                    <a href="#">10km</a>
+                </div>
+
+                <div class="map"></div>
             </div>
-          
-           <div>map</div>
-        </div>
-        <div class="listbox">
-            <ul>
-                <li>
-                    <div class="leftsec"></div>
-                    <div class="rightsec">
-                        <h4>
-                            1. 탱고카페
-                            <span class="location">충무로역</span>
-                        </h4>
-                        <p class="info">
-                            밀롱가, 탱고레슨
-                            <span class="location">362m</span>
-                        </p>
-                       <div class="appraisal">
-                           <span class="like">371</span>
-                           <span class="write">39</span>
+            <div class="listbox">
+                <ul>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
 
-                       </div>
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
 
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="morelink">
-            <a href="#">
-                리스트로 더보기
-            </a>
-            <a href="#">지도로 더보기</a>
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
+
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="morebox f_b">
+                <a class="morelist" href="#">
+                    리스트로 더보기
+                </a>
+                <a class="moremap" href="#">지도로 더보기</a>
+            </div>
+            <div class="footLink f_b">
+                <a class="home" href="index.html">with milonga</a>
+                <a class="search" href="map.html">검색</a>
+                <a  class="about" href="#">도움말</a>
+            </div>
         </div>
     </div>
 </body>
