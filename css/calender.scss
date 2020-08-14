@@ -4,6 +4,7 @@ $bc: #e6e6eb;
 $borc: #e6e6eb;
 
 %list_fomat{
+    //page fomat- margin: 6vw 4vw;
     border-radius: 4vw;
     box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
     background: #fff;
@@ -40,15 +41,7 @@ $borc: #e6e6eb;
     height: 10vh;
     background: #fff;
     opacity: 0;
-    a {
-        display: block;
-        float: left;
-        width: 24vw;
-
-        img {
-            width: 100%;
-        }
-    }
+   
 }
 .background {
     background: $bc;
@@ -173,7 +166,7 @@ $borc: #e6e6eb;
     }
     .search {
         &:before {
-            background: url(../img/ic_glass-off.png) no-repeat;
+            background: url(../img/ic_person-off.png) no-repeat;
             background-size: 100% 100%;
             width: 32px;
             height: 32px;
@@ -186,8 +179,8 @@ $borc: #e6e6eb;
     }
     .about {
         &:before {
-            background: url(../img/ic_Guide-Off.png) center no-repeat;
-            background-size: 70% 70%;
+            background: url(../img/ic_guide-off.png) center no-repeat;
+            background-size: 80% 80%;
             width: 32px;
             height: 32px;
             content: "";
@@ -218,43 +211,6 @@ $borc: #e6e6eb;
         vertical-align: top;
         position: relative;
     }
-    .home {
-        &:before {
-            background: url(../img/ic_logo.png) no-repeat;
-            background-size: 100% 100%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
+    
     }
-    .search {
-        &:before {
-            background: url(../img/ic_glass-off.png) no-repeat;
-            background-size: 100% 100%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
-    }
-    .about {
-        &:before {
-            background: url(../img/ic_Guide-Off.png) center no-repeat;
-            background-size: 70% 70%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
-    }
-}
+
