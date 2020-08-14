@@ -1,0 +1,258 @@
+@import url("common.css");
+.background {
+  background: #e6e6eb;
+  position: relative;
+}
+
+.background .searchbox {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 3vw 5vw;
+  background: #fff;
+}
+
+.background .searchbox .back {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 2%;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: url(../img/ic_back.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.background .searchbox .inputarea {
+  position: relative;
+  padding: 10px 0;
+  margin-left: 5%;
+  width: 95%;
+  border-bottom: 1px solid #222228;
+}
+
+.background .searchbox .inputarea:before {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  content: "";
+  width: 19px;
+  height: 19px;
+  background: url(../img/ic_glass-on.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.background .searchbox .inputarea input {
+  border: none;
+  margin-left: 5%;
+  padding-left: 5%;
+  width: 90%;
+  height: 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  margin: auto;
+  font-size: 18px;
+}
+
+.background .searchbox .inputarea div img {
+  width: 20px;
+}
+
+.background .searchbox-back {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 95%;
+  opacity: 0;
+  height: 80px;
+  padding: 3vw 5vw;
+  background: #fff;
+}
+
+.background .searchbox-back .inputarea {
+  position: relative;
+  padding: 10px 0;
+  margin: 0 auto;
+  border-bottom: 1px solid #222228;
+}
+
+.background .searchbox-back .inputarea:before {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  content: "";
+  width: 19px;
+  height: 19px;
+  background: url(../img/ic_glass-on.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.background .searchbox-back .inputarea input {
+  border: none;
+  margin-left: 5%;
+  padding-left: 5%;
+  width: 90%;
+  height: 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  margin: auto;
+  font-size: 18px;
+}
+
+.background .searchbox-back .inputarea div img {
+  width: 20px;
+}
+
+.background .nearbox {
+  background: #fff;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.background .nearbox .nearby {
+  padding: 0 15px;
+}
+
+.background .nearbox .nearby h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.background .nearbox .nearby p {
+  color: #9999a0;
+}
+
+.background .nearbox .nearby p span {
+  font-size: 14px;
+}
+
+.background .nearbox .mapbox {
+  border-top: 1px solid #e6e6eb;
+  margin-top: 20px;
+}
+
+.background .nearbox .mapbox .distance {
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+.background .nearbox .mapbox .map {
+  height: 138px;
+}
+
+.slider {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: 50vw;
+  overflow: hidden;
+}
+
+.slider .listbox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.slider .listbox .list-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  border-radius: 2px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.slider .listbox .list-con li {
+  border: 1px solid rgba(34, 34, 40, 0.15);
+  margin-right: 4vw;
+  padding: 16px 15px;
+  border: 1px solid #e6e6eb;
+  width: 440px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.slider .listbox .list-con li .con {
+  width: 100%;
+}
+
+.slider .listbox .list-con li .con .leftsec {
+  display: inline-block;
+  width: 20%;
+  font-size: 0;
+  vertical-align: top;
+  height: 90px;
+  overflow: hidden;
+  background: url(../img/tangocafe.jpg) center no-repeat;
+  background-size: auto 100%;
+}
+
+.slider .listbox .list-con li .con .rightsec {
+  width: 80%;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 0 5% 5%;
+  font-size: 0;
+}
+
+.slider .listbox .list-con li .con .rightsec h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.slider .listbox .list-con li .con .rightsec h4 .list_lo {
+  font-size: 12px;
+  color: #999999;
+}
+
+.slider .listbox .list-con li .con .rightsec .info {
+  font-size: 12px;
+  color: #9999a0;
+  margin-bottom: 6px;
+}
+
+.slider .listbox .list-con li .con .rightsec .address {
+  font-size: 12px;
+  color: #9999a0;
+}
+
+.slider .listbox .list-con li a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider .listbox .list-con .appraisal {
+  margin: 10px auto 0;
+  padding-top: 10px;
+  width: 94%;
+  text-align: left;
+  border-top: 1px solid  #f0f0f3;
+}
+
+.slider .listbox .list-con .appraisal .like {
+  background: url(../img/ic_like.png) no-repeat;
+  background-size: 16px 16px;
+  padding-left: 21px;
+}
+
+.slider .listbox .list-con .appraisal .write {
+  margin-left: 14px;
+  background: url(../img/ic_write.png) no-repeat;
+  background-size: 16px 16px;
+  padding-left: 21px;
+}
+/*# sourceMappingURL=map.css.map */

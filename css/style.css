@@ -363,7 +363,7 @@
 }
 
 .footLink .search:before {
-  background: url(../img/ic_glass-off.png) no-repeat;
+  background: url(../img/ic_person-off.png) no-repeat;
   background-size: 100% 100%;
   width: 32px;
   height: 32px;
@@ -375,8 +375,8 @@
 }
 
 .footLink .about:before {
-  background: url(../img/ic_Guide-Off.png) center no-repeat;
-  background-size: 70% 70%;
+  background: url(../img/ic_guide-off.png) center no-repeat;
+  background-size: 80% 80%;
   width: 32px;
   height: 32px;
   content: "";
@@ -407,41 +407,5 @@
   padding-top: 36px;
   vertical-align: top;
   position: relative;
-}
-
-.footLink-back .home:before {
-  background: url(../img/ic_logo.png) no-repeat;
-  background-size: 100% 100%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
-}
-
-.footLink-back .search:before {
-  background: url(../img/ic_glass-off.png) no-repeat;
-  background-size: 100% 100%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
-}
-
-.footLink-back .about:before {
-  background: url(../img/ic_Guide-Off.png) center no-repeat;
-  background-size: 70% 70%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
 }
 /*# sourceMappingURL=style.css.map */
