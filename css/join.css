@@ -17,34 +17,79 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 2vw 0 0 2vw;
+  padding: 2vw;
   z-index: 100;
   width: 100%;
   height: auto;
   background: #fff;
+  border-bottom: 1px solid #e6e6eb;
 }
 
-.header a {
-  display: block;
-  float: left;
-  width: 24vw;
-}
-
-.header a img {
-  width: 100%;
+.header p {
+  text-align: center;
 }
 
 .headerback {
   position: relative;
   padding: 2vw 0 0 2vw;
   width: 100%;
-  height: 10vh;
+  height: 10vw;
   background: #fff;
   opacity: 0;
 }
 
 .background {
   background: #e6e6eb;
+}
+
+.background .profile {
+  background: #fff;
+  height: 77vw;
+}
+
+.background .profile .pf_img {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.background .profile .pf_img a {
+  width: 50vw;
+  height: 50vw;
+  background: conic-gradient(#f00, #ffff00 70%, #ffae00, #f00);
+  border-radius: 100%;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.background .profile .pf_img a:after {
+  position: absolute;
+  z-index: 0;
+  width: 98%;
+  height: 98%;
+  background: #fff;
+  background-size: 100% 100%;
+  content: '';
+  left: 1%;
+  top: 1%;
+  border-radius: 100%;
+}
+
+.background .profile .pf_img a img {
+  z-index: 2;
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  width: 96%;
+  height: 96%;
+  border-radius: 100%;
+}
+
+.background .profile .pf_img a p {
+  white-space: nowrap;
+  font-size: 4.7vw;
 }
 
 .background .look {
