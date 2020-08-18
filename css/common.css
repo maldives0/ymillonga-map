@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6,a,div,p{
 
 *{
     box-sizing: border-box;
-    color:#555;
+    
 }
 
 h2{color:#222; font-size:60px;}

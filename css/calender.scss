@@ -115,14 +115,16 @@ $borc: #e6e6eb;
         h2{
             @extend %list_h2;
         }
-        .calender{
+        .calendar{
            
             background: #fff;
             padding: 4vw;
             width: 100%;
             height: 77vw;
             margin:0 auto;
-          
+            .fc-toolbar-title{
+                font-size:6vw;
+            }
          
         }
         
