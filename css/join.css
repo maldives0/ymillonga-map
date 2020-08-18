@@ -88,17 +88,10 @@
   border-radius: 100%;
 }
 
-<<<<<<< HEAD
 .background .profile .pf_img .name {
   white-space: nowrap;
   font-size: 30px;
   padding-bottom: 4vw;
-=======
-.background .profile .pf_img a .name {
-  white-space: nowrap;
-  font-size: 50px;
-  padding: 4vw;
->>>>>>> d518ce7c3949551231f9916d3bf85b77b1ef54c3
 }
 
 .background .profile .myinfo {
