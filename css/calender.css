@@ -114,12 +114,16 @@
   margin: 6vw 4vw;
 }
 
-.background .calbox .calby .calender {
+.background .calbox .calby .calendar {
   background: #fff;
   padding: 4vw;
   width: 100%;
   height: 77vw;
   margin: 0 auto;
+}
+
+.background .calbox .calby .calendar .fc-toolbar-title {
+  font-size: 6vw;
 }
 
 .footLink {

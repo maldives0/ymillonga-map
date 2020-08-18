@@ -6,13 +6,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/calender.css" text="text/css">
-   
+
     <link href='css/main.css' rel='stylesheet'>
     <script src='js/main.js'></script>
+    <script src='js/calender.js'></script>
 
+    <style>
+        .fc-daygrid-day {
+            position: relative;
+        }
+
+        .fc-daygrid-more-link {
+            position: absolute !important;
+            left: 0;
+            top: 0;
+            transform: translate(20%, 60%)
+        }
+
+        .fc-daygrid-more-link em {
+            font-size: 10px;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #000;
+            color: #fff;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 16px;
+        }
+
+        .fc-popover-header {
+            background: #f6b37f !important;
+        }
+
+        .fc .fc-button-primary {
+            background: #f6b37f;
+            border-color: #fff;
+        }
+
+      
+    </style>
 </head>
 
 <body>
+
+
     <div class="background">
         <div class="header">
             <a>
@@ -160,10 +198,10 @@
         <div class="calbox">
             <div class="calby">
                 <h2>이번 달 밀롱가</h2>
-                <div class="calender" id="calender"></div>
+                <div class="calendar" id="calendar"></div>
             </div>
         </div>
-         <div class="footLink f_b">
+        <div class="footLink f_b">
             <a class="home" href="index.html">&milonga</a>
             <a class="search" href="join.html">나의 밀롱가</a>
             <a class="about" href="help.html">도움말</a>
