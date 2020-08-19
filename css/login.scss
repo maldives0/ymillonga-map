@@ -1,0 +1,261 @@
+@import url("common.css");
+$mc: #f25170;
+$bc: #e6e6eb;
+$borc: #e6e6eb;
+
+%list_fomat {
+    //page fomat- margin: 6vw 4vw;
+    border-radius: 4vw;
+    box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
+    background: #fff;
+    padding: 6vw 0;
+}
+%list_h2 {
+    font-size: 7vw;
+    font-weight: 900;
+    padding: 0 4vw;
+}
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 2vw;
+    z-index: 100;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-bottom: 1px solid $borc;
+
+    p {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    a {
+        &:before {
+            content: "";
+            background: url("../img/ic_close.png") no-repeat;
+            background-size: 100% 100%;
+            width: 44px;
+            height: 44px;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+.headerback {
+    position: relative;
+    padding: 2vw 0 0 2vw;
+    width: 100%;
+    height: 10vh;
+    background: #fff;
+    opacity: 0;
+    a {
+        display: block;
+        float: left;
+        width: 24vw;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+.content_login {
+    width: 84%;
+    box-sizing: border-box;
+    padding: 50px 0 30px 0;
+    margin: 0 auto;
+    position:relative;
+    img {
+        display: block;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 25px;
+    }
+    form {
+        div {
+            margin-top:20px;
+            border-bottom:1px solid $borc;
+            padding:10px 0;
+            margin:0 auto;
+            input {
+                display: block;
+                border:none;
+                margin: 0;
+                padding: 0;
+                width: 94%;
+                height: 28px;
+                font-size: 20px;
+                box-sizing: border-box;
+               
+            }
+        }
+        div {
+            margin-top:20px;
+            border-bottom:1px solid $borc;
+            padding:10px 0;
+            margin:0 auto 30px;
+            position:relative;
+            input {
+                margin: 0;
+                padding: 0;
+                width: 94%;
+                height: 28px;
+                font-size: 20px;
+                box-sizing: border-box;
+                display: block;
+                border:none;
+            }
+            .eyeIc{
+                position:absolute;
+                right:0;
+                top:50%;
+                transform:translateY(-50%);
+                font-size:0;
+                background:url('../img/ic_pwview-off.png') no-repeat;
+                background-size:100%;
+                width:30px; height:30px;
+
+            }
+        }
+       .btn_login{
+           position:absolute;
+           right:0;
+           width:66px; height:66px;
+           border-radius:50%;
+           font-size:0;
+           background:url('../img/ic_next-off.png') no-repeat;
+           background-size:100%;
+          border:none;
+
+        }
+        p{
+            font-size:14px;
+            color:#9999a0;
+            a{
+                text-decoration:underline;
+                font-size:14px;
+            color:#9999a0;
+            }
+        }
+    }
+    .facebook{
+        p{
+            margin-top:109px;
+            border-top:1px solid $borc;
+            span{
+                display:block;
+                margin:-15px auto 0;
+                width:30px;
+                font-size:20px;
+                text-align:center;
+                background:#fff;
+            }
+        }
+        .fcLogin{
+            margin-top:15px;
+            color:#fff;
+            background:#3b5998;
+            text-align:center;
+            font-size:16px;
+            height:44px;
+            width:100%;
+            display:block;
+            border-radius:2px;
+           
+            }
+            div{
+                margin-top:15px;
+                text-align:center;
+                a{ text-decoration:underline;
+                    font-size:14px;
+                    color: #9999a0;
+                }
+        }
+        
+    }
+}
+.footLink {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    padding: 1% 0;
+    width: 100%;
+    height: auto;
+
+    text-align: center;
+    border-top: 1px solid $borc;
+    background: #fff;
+    a {
+        display: inline-block;
+        font-size: 10px;
+        box-sizing: border-box;
+        width: 33%;
+        height: 100%;
+        padding-top: 36px;
+        vertical-align: top;
+        position: relative;
+    }
+    .home {
+        &:before {
+            background: url(../img/ic_logo-on.png) no-repeat;
+            background-size: 100% 100%;
+            width: 32px;
+            height: 32px;
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            margin-left: -16px;
+        }
+    }
+    .search {
+        &:before {
+            background: url(../img/ic_person-off.png) no-repeat;
+            background-size: 100% 100%;
+            width: 32px;
+            height: 32px;
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            margin-left: -16px;
+        }
+    }
+    .about {
+        &:before {
+            background: url(../img/ic_guide-off.png) center no-repeat;
+            background-size: 80% 80%;
+            width: 32px;
+            height: 32px;
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 50%;
+            margin-left: -16px;
+        }
+    }
+}
+.footLink-back {
+    position: relative;
+    opacity: 0;
+    padding: 1% 0;
+    width: 100%;
+    height: auto;
+
+    text-align: center;
+    border-top: 1px solid $borc;
+    background: #fff;
+    a {
+        display: inline-block;
+        font-size: 10px;
+        box-sizing: border-box;
+        width: 33%;
+        height: 100%;
+        padding-top: 36px;
+        vertical-align: top;
+        position: relative;
+    }
+}

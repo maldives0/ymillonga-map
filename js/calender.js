@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialDate: '2020-08-12',
+    initialDate: '2020-08-01',
     editable: true,
     selectable: true,
     businessHours: true,
@@ -14,52 +14,52 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       {
         title: 'milonga',
-        start: '2020-08-07',
-        end: '2020-08-10'
+        start: '2020-08-01',
+        end: '2020-08-29'
       },
       {
         groupId: 999,
         title: 'milonga',
-        start: '2020-08-09T16:00:00'
+        start: '2020-07-26T16:00:00'
       },
       {
         groupId: 999,
         title: 'milonga',
-        start: '2020-08-16T16:00:00'
+        start: '2020-07-28T16:00:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-11',
-        end: '2020-08-13'
+        start: '2020-07-20',
+        end: '2020-08-29'
       },
       {
         title: 'milonga',
-        start: '2020-08-12T10:30:00',
-        end: '2020-08-12T12:30:00'
+        start: '2020-07-22T10:30:00',
+        end: '2020-08-25T12:30:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-12T12:00:00'
+        start: '2020-08-29T12:00:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-12T14:30:00'
+        start: '2020-07-01T14:30:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-12T17:30:00'
+        start: '2020-08-03T17:30:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-12T20:00:00'
+        start: '2020-08-02T20:00:00'
       },
       {
         title: 'milonga',
-        start: '2020-08-13T07:00:00'
+        start: '2020-08-08T07:00:00'
       },
       {
         title: 'milonga',
-               start: '2020-08-28'
+        start: '2020-08-01'
       }
     ]
   });
@@ -67,17 +67,20 @@ document.addEventListener('DOMContentLoaded', function() {
   calendar.render();
 
   var eTxt = document.querySelectorAll('.fc-daygrid-more-link');
-  var eColor = ['#cce198','#89c997','#7ecef4','#8f82bc','#f19ec2','#f19149'];
+  var eColor = ['#f19ec2','#cfa972','#7ecef4','#8f82bc','#5f52a0','#88abda'];
   var eArr = [];
 
   eTxt.forEach(function(s,idx){
     eArr.push(s.textContent);
+    
   });
 
   function update(){
     eArr.forEach(function(s,idx){
         var eNum = eArr[idx].indexOf('+')+1;
-        eNum = eArr[idx].substr(eNum,1);    
+      
+        eNum = eArr[idx].substr(eNum,1);   
+        console.log(eNum) 
         var c;
         switch(eNum){
           case '1': c = eColor[0];break;

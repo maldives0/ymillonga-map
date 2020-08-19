@@ -34,16 +34,51 @@
   position: relative;
   padding: 2vw 0 0 2vw;
   width: 100%;
-  height: 10vw;
+  height: 10vh;
   background: #fff;
   opacity: 0;
+}
+
+.headerback a {
+  display: block;
+  float: left;
+  width: 24vw;
+}
+
+.headerback a img {
+  width: 100%;
 }
 
 .background {
   background: #e6e6eb;
 }
 
+.background .login {
+  padding: 0 4vw 4vw;
+  background: #fff;
+  text-align: center;
+  white-space: pre-line;
+  width: 100%;
+}
+
+.background .login p {
+  line-height: 1.5em;
+}
+
+.background .login a {
+  width: 100%;
+}
+
+.background .login a span {
+  background: #f25170;
+  border-radius: 10px;
+  width: 80vw;
+  height: 7vw;
+  color: #fff;
+}
+
 .background .profile {
+  display: none;
   background: #fff;
 }
 
@@ -192,7 +227,7 @@
   display: block;
   margin-top: 1.5vw;
   color: #898989;
-  width: 60%;
+  width: 55%;
   height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -255,7 +290,7 @@
   display: block;
   margin-top: 1.5vw;
   color: #898989;
-  width: 60%;
+  width: 55%;
   height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -318,7 +353,7 @@
   display: block;
   margin-top: 1.5vw;
   color: #898989;
-  width: 60%;
+  width: 55%;
   height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
