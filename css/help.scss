@@ -15,6 +15,7 @@ $borc: #e6e6eb;
     font-weight: 900;
     padding: 0 4vw;
 }
+
 .header {
     position: fixed;
     left: 0;
@@ -36,13 +37,13 @@ $borc: #e6e6eb;
     position: relative;
     padding: 2vw 0 0 2vw;
     width: 100%;
-    height:10vw;
+    height:auto;
         background: #fff;
     opacity: 0;
 }
 .background {
     background: $bc;
-  
+    margin-top:2vw;
    .intro{
    
     ul{ 
@@ -73,14 +74,14 @@ $borc: #e6e6eb;
     }
    }
    .data{
-       padding-top:10vw;
+       padding-top:5vw;
        ul{ 
         background:#fff;
 
         li{
-            border-top:1px solid $borc;
+            border-bottom:1px solid $borc;
           height:48px;
-          padding-left:2vw;
+          padding-left:4vw;
          display:flex;
          align-items:center;
             a{
@@ -97,7 +98,7 @@ $borc: #e6e6eb;
 .footLink {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom:0%;
     z-index: 100;
     padding: 1% 0;
     width: 100%;

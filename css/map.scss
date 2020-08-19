@@ -65,8 +65,12 @@ $borc: #e6e6eb;
                 font-size: 18px;
             }
             div {
-                img {
+                a {
                     width: 20px;
+                    display:block;
+                    img {
+                        width: 20px;
+                    }
                 }
             }
         }

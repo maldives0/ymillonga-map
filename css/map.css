@@ -59,7 +59,12 @@
   font-size: 18px;
 }
 
-.background .searchbox .inputarea div img {
+.background .searchbox .inputarea div a {
+  width: 20px;
+  display: block;
+}
+
+.background .searchbox .inputarea div a img {
   width: 20px;
 }
 
