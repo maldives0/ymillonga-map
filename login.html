@@ -6,6 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css" text="text/css">
+    <script>
+        window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '330122884751952',
+      cookie     : true,                     // Enable cookies to allow the server to access the session.
+      xfbml      : true,                     // Parse social plugins on this webpage.
+      version    : 'v8.0'           // Use this Graph API version for this call.
+    });
+
+    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+        console.log(response);
+        if(response.status === 'connected'){
+            document.querySelector('#btn_fb').value ='Logout';
+        }else{
+            document.querySelector('#btn_fb').value ='Login';
+        }
+      //statusChangeCallback(response);        // Returns the login status.
+    });
+   
+   
+};
+
+    </script>
 
 </head>
 
@@ -60,8 +83,10 @@
     </div>
 
 
+
+<!-- Load the JS SDK asynchronously -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
 </body>
-
-
 
 </html>
