@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" text="text/css">
+    <script src="js/drag.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="header">
-        <a>
+        <a href="index.html">
             <img src="img/logo.png" alt="">
         </a>
     </div>
@@ -39,128 +40,7 @@
             <div class="today-list">
                 <h2>오늘의 밀롱가</h2>
                 <div class="data-wrap">
-                    <ul class="today-wrap">
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/onada.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>1.Tango O Nada 1,2</h3>
-                                    <small>서울특별시 마포구 동교동 동교로 193(193, Donggyo-ro, Mapo-gu,Seoul, Korea)/서울특별시 마포구 연남동
-                                        성미산로 81(187 Seongmisan-ro, Seoul,Korea)</small>
-
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/eltango.png" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>2.El Tango Cafe</h3>
-                                    <small>서울특별시 서초구 강남대로95길 12 (12, Gangnam-daero 95-gil, Seocho-gu, Seoul,
-                                        Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/tango-young.png" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>3.Tango Young Seoul</h3>
-                                    <small>서울특별시 강남구 논현2동 선릉로 705 청운빌딩 B1(705, Seolleung-ro, Gangnam-gu, Seoul, Korea)
-                                    </small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/limetango.png" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>4.Lime Tango Cafe</h3>
-                                    <small>서울특별시 강남구 역삼동 830-6(Yeoksam-Dong 830-6, Gangnam-Gu, Seoul,Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/elbulin.png" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>5.El Bulin</h3>
-                                    <small>서울특별시 강남구 도산대로 155(155, Dosan-daero, Gangnam-gu, Seoul,Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/ataniche.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>6.Ataniche</h3>
-                                    <small>서울특별시 강남구 도산대로 15길 25 (25, Dosan-daero 15-gil, Gangnam-gu,
-                                        Seoul,Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/royal-tango.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>7.Royal Tango</h3>
-                                    <small>서울특별시 강남구 도산대로55길 26(26, Dosan-daero 55-gil, Gangnam-gu, Seoul,Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/todo.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>8.Todo Tango</h3>
-                                    <small>
-                                        서울특별시 강남구 신사동 637-15 대명빌딩 B1(7, Eonju-ro 172-gil, Gangnam-gu, Seoul, Korea)
-                                    </small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/tangocafe.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>9.Tango Cafe</h3>
-                                    <small> 서울특별시 중구 필동 퇴계로 202 풍산빌딩 B3F
-                                        (202, Toegye-ro, Jung-gu, Seoul, Korea)</small>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <div class="thumb">
-                                    <img src="img/tango-pan.jpg" alt="">
-                                </div>
-                                <div class="summary">
-                                    <h3>10.Gangnam Tango PAN</h3>
-                                    <small>서울특별시 강남구 논현로67길 50 (50, Nonhyeon-ro 67-gil, Gangnam-gu, Seoul, Korea)
-                                    </small>
-
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
+                    <ul class="items"></ul>
                 </div>
             </div>
 
@@ -183,7 +63,58 @@
                     <a href="#">10km</a>
                 </div>
 
-                <div class="map"></div>
+        
+                <div class="map">
+                    <p style="margin-top:-12px">
+                        <em class="link">
+                            <a href="javascript:void(0);"
+                                onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+                                혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+                            </a>
+                        </em>
+                    </p>
+                    <div id="map" style="width:100%;height:350px;"></div>
+                    <script type="text/javascript"
+                        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services"></script>
+                    <script>
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                            mapOption = {
+                                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                                level: 3 // 지도의 확대 레벨
+                            };
+
+                        // 지도를 생성합니다    
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                        // 주소-좌표 변환 객체를 생성합니다
+                        var geocoder = new kakao.maps.services.Geocoder();
+
+                        // 주소로 좌표를 검색합니다
+                        geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function (result, status) {
+
+                            // 정상적으로 검색이 완료됐으면 
+                            if (status === kakao.maps.services.Status.OK) {
+
+                                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                                // 결과값으로 받은 위치를 마커로 표시합니다
+                                var marker = new kakao.maps.Marker({
+                                    map: map,
+                                    position: coords
+                                });
+
+                                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                                var infowindow = new kakao.maps.InfoWindow({
+                                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                                });
+                                infowindow.open(map, marker);
+
+                                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                map.setCenter(coords);
+                            }
+                        });    
+                    </script>
+                </div>
             </div>
             <div class="listbox">
                 <ul>
