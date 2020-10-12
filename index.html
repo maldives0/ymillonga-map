@@ -5,12 +5,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" text="text/css">
-    <title>Y milonga</title>
+    <script src="js/drag.js"></script>
+    <title>Document</title>
 </head>
 
 <body>
-    <div id="#root"></div>
-    
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="headerback">
+        <a>
+            <img src="img/logo.png" alt="">
+        </a>
+    </div>
+
+    <div class="location f_b">
+        <span>현위치 : 서초구 서초동</span>
+        <button class="f_a">
+            <img src="img/ic_location.png" alt=""> 업데이트
+        </button>
+    </div>
+    <div class="background">
+        <div class="searchbox">
+            <div class="inputarea f_b">
+                <input type="text" value placeholder="밀롱가 검색하기">
+                <div>
+                    <a href="#"><img src="img/ic_search.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="today-list">
+                <h2>오늘의 밀롱가</h2>
+                <div class="data-wrap">
+                    <ul class="items"></ul>
+                </div>
+            </div>
+
+        </div>
+       
+        <div class="nearbox">
+            <div class="nearby">
+            <h3>내주변 밀롱가</h3>
+            <p>
+                <span id="nearby_count">10</span><span>곳의 밀롱가 (내주변 </span><span id="nearby_dis">500m</span>)
+            </p>
+        </div>
+            <div class="mapbox">
+                <div class="distance f_a">
+                    <a href="#">100m</a>
+                    <a href="#">300m</a>
+                    <a href="#">500m</a>
+                    <a href="#">1km</a>
+                    <a href="#">5km</a>
+                    <a href="#">10km</a>
+                </div>
+
+        
+                <div class="map">
+                    <p style="margin-top:-12px">
+                        <em class="link">
+                            <a href="javascript:void(0);"
+                                onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+                                혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+                            </a>
+                        </em>
+                    </p>
+                    <div id="map" style="width:100%;height:350px;"></div>
+                    <script type="text/javascript"
+                        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services"></script>
+                    <script>
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                            mapOption = {
+                                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                                level: 3 // 지도의 확대 레벨
+                            };
+
+                        // 지도를 생성합니다    
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                        // 주소-좌표 변환 객체를 생성합니다
+                        var geocoder = new kakao.maps.services.Geocoder();
+
+                        // 주소로 좌표를 검색합니다
+                        geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function (result, status) {
+
+                            // 정상적으로 검색이 완료됐으면 
+                            if (status === kakao.maps.services.Status.OK) {
+
+                                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                                // 결과값으로 받은 위치를 마커로 표시합니다
+                                var marker = new kakao.maps.Marker({
+                                    map: map,
+                                    position: coords
+                                });
+
+                                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                                var infowindow = new kakao.maps.InfoWindow({
+                                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                                });
+                                infowindow.open(map, marker);
+
+                                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                map.setCenter(coords);
+                            }
+                        });    
+                    </script>
+                </div>
+            </div>
+            <div class="listbox">
+                <ul>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
+
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
+
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                    <li class="f_b" >
+                        <div class="leftsec"></div>
+                        <div class="rightsec">
+                            <h4 class="f_b">
+                                1. 탱고카페
+                                <span class="list_lo">충무로역</span>
+                            </h4>
+                            <p class="info f_b">
+                                밀롱가, 탱고레슨
+                                <span class="list_dis">362m</span>
+                            </p>
+                            <div class="appraisal">
+                                <span class="like">371</span>
+                                <span class="write">39</span>
+
+                            </div>
+                        </div>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="morebox f_b">
+                <a class="morelist" href="calender.html">
+                    달력으로 더보기
+                </a>
+                <a class="moremap" href="map.html">지도로 더보기</a>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="footLink f_b">
+        <a class="home" href="index.html">&milonga</a>
+        <a class="search" href="join.html">나의 밀롱가</a>
+        <a class="about" href="help.html">도움말</a>
+    </div>
+    <div class="footLink-back f_b">
+        <a class="home" href="index.html">&milonga</a>
+        <a class="search" href="join.html">나의 밀롱가</a>
+        <a class="about" href="help.html">도움말</a>
+    </div>
 </body>
 
 </html>

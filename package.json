@@ -2,7 +2,7 @@
   "name": "ymilonga",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index_R.js",
   "scripts": {
     "dev": "webpack-dev-server --hot"
   },
