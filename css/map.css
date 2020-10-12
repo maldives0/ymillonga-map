@@ -165,82 +165,101 @@
   left: 0;
 }
 
-.slider .listbox .list-con {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+.slider .listbox .items {
   border-radius: 2px;
   padding: 10px 0;
   font-size: 14px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  will-change: transform;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: move;
+  margin-left: 5vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.slider .listbox .list-con li {
+.slider .listbox .items.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.slider .listbox .items .item {
   border: 1px solid rgba(34, 34, 40, 0.15);
   margin-right: 4vw;
   padding: 16px 15px;
   border: 1px solid #e6e6eb;
-  width: 440px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.slider .listbox .list-con li .con {
-  width: 100%;
-}
-
-.slider .listbox .list-con li .con .leftsec {
+  width: 400px;
+  height: 200px;
   display: inline-block;
-  width: 20%;
-  font-size: 0;
-  vertical-align: top;
-  height: 90px;
-  overflow: hidden;
-  background: url(../img/tangocafe.jpg) center no-repeat;
-  background-size: auto 100%;
 }
 
-.slider .listbox .list-con li .con .rightsec {
-  width: 80%;
+.slider .listbox .items .item .con .leftsec {
+  display: inline-block;
+  width: 30%;
+  font-size: 0;
+  padding: 1%;
+  overflow: hidden;
+}
+
+.slider .listbox .items .item .con .leftsec .thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.slider .listbox .items .item .con .leftsec .thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3vw;
+}
+
+.slider .listbox .items .item .con .rightsec {
+  width: 70%;
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 0 5% 5%;
+  margin-left: 20px;
   font-size: 0;
 }
 
-.slider .listbox .list-con li .con .rightsec h4 {
+.slider .listbox .items .item .con .rightsec h4 {
   font-size: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 20px;
 }
 
-.slider .listbox .list-con li .con .rightsec h4 .list_lo {
-  font-size: 12px;
+.slider .listbox .items .item .con .rightsec h4 .list_lo {
+  font-size: 15px;
   color: #999999;
 }
 
-.slider .listbox .list-con li .con .rightsec .info {
+.slider .listbox .items .item .con .rightsec .info {
   font-size: 12px;
   color: #9999a0;
   margin-bottom: 6px;
 }
 
-.slider .listbox .list-con li .con .rightsec .address {
-  font-size: 12px;
+.slider .listbox .items .item .con .rightsec .address {
+  font-size: 13px;
   color: #9999a0;
+  white-space: pre-wrap;
 }
 
-.slider .listbox .list-con li a {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.slider .listbox .list-con .appraisal {
+.slider .listbox .items .item .appraisal {
   margin: 10px auto 0;
   padding-top: 10px;
   width: 94%;
@@ -248,13 +267,13 @@
   border-top: 1px solid  #f0f0f3;
 }
 
-.slider .listbox .list-con .appraisal .like {
+.slider .listbox .items .item .appraisal .like {
   background: url(../img/ic_like.png) no-repeat;
   background-size: 16px 16px;
   padding-left: 21px;
 }
 
-.slider .listbox .list-con .appraisal .write {
+.slider .listbox .items .item .appraisal .write {
   margin-left: 14px;
   background: url(../img/ic_write.png) no-repeat;
   background-size: 16px 16px;

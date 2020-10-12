@@ -95,15 +95,13 @@
   width: 100%;
   height: 77vw;
   position: relative;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .background .page .today-list .data-wrap .items {
   position: relative;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
   white-space: nowrap;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -114,21 +112,22 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  cursor: pointer;
-  margin-left: 4vw;
+  cursor: move;
+  margin-left: 5vw;
 }
 
-.background .page .today-list .data-wrap .items:active {
+.background .page .today-list .data-wrap .items.active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
   -webkit-transform: scale(1);
           transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .background .page .today-list .data-wrap .items .item {
   display: inline-block;
   width: 53vw;
-  margin-right: 4vw;
+  margin-right: 10vw;
 }
 
 .background .page .today-list .data-wrap .items .item .thumb {

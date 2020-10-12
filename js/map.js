@@ -1,10 +1,4 @@
 window.addEventListener('DOMContentLoaded',function(){
-
-
- 
-
-
-//data
 const data = new XMLHttpRequest();
 let response;
 const ulEle = document.querySelector('.items');
@@ -21,39 +15,36 @@ function dataFun(){
        const name = el.name;
        const location = el.location;
      
-     liEle += "<li class='item item"+idx+"'>";
-     liEle += "<div class='thumb'><a class='linkA link"+idx+"' href='"+url+"'><img src='"+thumb+"' alt='"+name+"'></a></div>";
-     liEle += "<div class='summary'><h3>"+name+"</h3>";
-     liEle += "<small>"+location+"</small></div></li>";
+     liEle += "<li class='item item "+idx+" f_b'>";
+     liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link"+idx+"' href='"+url+"'><img src='"+thumb+"' alt='"+name+"'></a></div></div>";
+     liEle += " <div class='rightsec'> <h4 class='f_b'>"+name+"<span class='far'>거리m</span></h4>";
+     liEle += " <p class='address'>"+location+"</p></div> </div>";
+     liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
+     
      
      ulEle.innerHTML = liEle;
-    
-           
+                
+                               
     })
-    link();
-    console.log(itemA)
 }//datafun
 
+//map
 
 
-   //a link
-   let isDown = false;
-   let startX;
-   let scrollLeft;
-   const itemA = document.querySelectorAll('.linkA');
-  
-    function link(){
-          itemA.forEach((el) => {
-            el.addEventListener((e) => {
-              e.preventDefault();
-           });
-   });   
-};
+//drag
 
-//  
+let isDown = false;
+let startX;
+let scrollLeft;
+const itemA = document.querySelectorAll('.linkA');
+console.log(itemA)
+itemA.forEach((el) => {
+   
+    el.addEventListener((e) => {
+           e.preventDefault();
+        });
+});
 
-
-   //drag
 
 ulEle.addEventListener('mousedown',(e) => {
 isDown = true;
