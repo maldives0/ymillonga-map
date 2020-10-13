@@ -33,7 +33,7 @@ function dataFun(){
 }//datafun
 
 
- //a link
+ //a link question
 
  const itemA = document.querySelectorAll('.linkA');
 
