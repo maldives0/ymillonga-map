@@ -37,10 +37,11 @@ let isDown = false;
 let startX;
 let scrollLeft;
 const itemA = document.querySelectorAll('.linkA');
-console.log(itemA)
+
 itemA.forEach((el) => {
    
     el.addEventListener((e) => {
+        console.log(itemA);
            e.preventDefault();
         });
 });
