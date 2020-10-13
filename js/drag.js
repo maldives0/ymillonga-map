@@ -28,33 +28,36 @@ function dataFun(){
      
      ulEle.innerHTML = liEle;
     
-           
-    })
+    });
     link();
-    console.log(itemA)
 }//datafun
 
 
+ //a link
 
-   //a link
-   let isDown = false;
-   let startX;
-   let scrollLeft;
-   const itemA = document.querySelectorAll('.linkA');
-  
-    function link(){
-          itemA.forEach((el) => {
-            el.addEventListener((e) => {
-              e.preventDefault();
-           });
-   });   
+ const itemA = document.querySelectorAll('.linkA');
+
+  function link(){  
+   console.log(itemA)  
+         itemA.forEach((el) => {
+          el.addEventListener((e) => {
+            e.preventDefault();
+         });
+       
+ });
+ 
 };
+
+
+  
 
 //  
 
 
    //drag
-
+   let isDown = false;
+   let startX;
+   let scrollLeft;
 ulEle.addEventListener('mousedown',(e) => {
 isDown = true;
 ulEle.classList.add('active');
