@@ -4,62 +4,74 @@
             "thumb": "img/onada.jpg",
             "name":"Tango O Nada 1",
             "location":"서울특별시 마포구 동교동 동교로 193(193, Donggyo-ro, Mapo-gu,Seoul, Korea)",
+            "lat":"37.557851",
+            "long":"126.922549",
             "url":"https://www.facebook.com/tangoonada/"
 
         },
-        {
-            "thumb": "img/onada.jpg",
-            "name":"Tango O Nada 2",
-            "location":"서울특별시 마포구 연남동 성미산로 81(187 Seongmisan-ro, Seoul,Korea)",
-            "url":"https://www.facebook.com/tangoonada/"
-
-        },
+       
         {
             "thumb": "img/eltango.png",
             "name":"El Tango Cafe",
             "location":"서울특별시 서초구 강남대로95길 12 (12, Gangnam-daero 95-gil, Seocho-gu, Seoul, Korea)",
+            "lat":"37.514078",
+            "long":"127.019163",
              "url":"https://www.facebook.com/eltangocafe/"
 
         }, {
             "thumb": "img/tango-young.png",
             "name":"Tango Young Seoul",
             "location":"서울특별시 강남구 논현2동 선릉로 705 청운빌딩 B1(705, Seolleung-ro, Gangnam-gu, Seoul, Korea)",
+            "lat":"37.518006",
+            "long":"127.040777",
            "url":"https://www.facebook.com/TangoYoungSeoul/"
 
         }, {
             "thumb": "img/limetango.png",
             "name":"Lime Tango Cafe",
             "location":"서울특별시 강남구 역삼동 830-6(Yeoksam-Dong 830-6, Gangnam-Gu, Seoul,Korea)",
+            "lat":"37.495221",
+            "long":"127.031262",
             "url":"https://www.facebook.com/limetangocafe/"
 
         }, {
             "thumb": "img/elbulin.png",
             "name":"El Bulin",
             "location":"서울특별시 강남구 도산대로 155(155, Dosan-daero, Gangnam-gu, Seoul,Korea)",
+            "lat":"37.519097",
+            "long":"127.025353",
             "url":"https://www.facebook.com/elbulin/"
         }, 
        {
             "thumb": "img/royal-tango.jpg",
             "name":"Royal Tango",
-            "location":"서울특별시 강남구 도산대로55길 26(26, Dosan-daero 55-gil, Gangnam-gu, Seoul,Korea)",
+            "location":"서울특별시 강남구 논현2동 선릉로 711(711, Seolleung-ro, Gangnam-gu, Seoul,Korea)",
+            "lat":"37.518231",
+            "long":"127.040649",
             "url":"https://www.facebook.com/ROYALTANGO/"
 
         }, {
             "thumb": "img/todo.jpg",
             "name":"Todo Tango",
             "location":"서울특별시 강남구 신사동 637-15 대명빌딩 B1(7, Eonju-ro 172-gil, Gangnam-gu, Seoul, Korea)",
+            "lat":"37.528093",
+            "long":"127.034507",
             "url":"https://www.facebook.com/TodoTangoStudio/"
 
         }, {
             "thumb": "img/tangocafe.jpg",
             "name":"Tango Cafe",
             "location":"서울특별시 중구 필동 퇴계로 202 풍산빌딩 B3F (202, Toegye-ro, Jung-gu, Seoul, Korea)",
+            "lat":"37.564932",
+            "long":"126.995089",
             "url":"https://www.facebook.com/tangocafein/"
 
         }, {
             "thumb": "img/tango-pan.jpg",
             "name":"Gangnam Tango PAN",
             "location":"서울특별시 강남구 논현로67길 50 (50, Nonhyeon-ro 67-gil, Gangnam-gu, Seoul, Korea)",
+            "lat":"37.493352",
+            "long":"127.035917",
             "url":"https://www.facebook.com/gangnamtango/"
 
         }
