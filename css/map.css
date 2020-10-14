@@ -153,16 +153,20 @@
 
 .slider {
   position: relative;
+  bottom: -350px;
+  left: 0px;
   z-index: 100;
   width: 100%;
-  height: 50vw;
+  height: auto;
   overflow: hidden;
 }
 
-.slider .listbox {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.slider .listbox.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .slider .listbox .items {
@@ -170,8 +174,16 @@
   padding: 10px 0;
   font-size: 14px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 100;
   width: 100%;
-  overflow: hidden;
+  height: 200px;
+  -webkit-transition: -webkit-transform 3s ease-in-out;
+  transition: -webkit-transform 3s ease-in-out;
+  transition: transform 3s ease-in-out;
+  transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
   white-space: nowrap;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -183,29 +195,23 @@
       -ms-user-select: none;
           user-select: none;
   cursor: move;
-  margin-left: 5vw;
+  margin-left: 20px;
+}
+
+.slider .listbox .items .item {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.slider .listbox .items.active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.slider .listbox .items .item {
   border: 1px solid rgba(34, 34, 40, 0.15);
-  margin-right: 4vw;
+  background: #fff;
+  margin-right: 20px;
   padding: 16px 15px;
   border: 1px solid #e6e6eb;
-  width: 400px;
-  height: 200px;
-  display: inline-block;
+  width: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .slider .listbox .items .item .con .leftsec {
@@ -217,8 +223,8 @@
 }
 
 .slider .listbox .items .item .con .leftsec .thumb {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
 }
 
 .slider .listbox .items .item .con .leftsec .thumb img {
@@ -228,7 +234,7 @@
 }
 
 .slider .listbox .items .item .con .rightsec {
-  width: 70%;
+  width: 300px;
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
