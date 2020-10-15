@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/map.css" text="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
     <script type="text/javascript"
     src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services"></script>
     <script src="js/map.js"></script>
@@ -18,18 +17,23 @@
     <div class="background">
         <div class="searchbox">
             <a class="back" href="index.html"></a>
+            <form>
             <div class="inputarea f_b">
-                <input type="text" value placeholder="밀롱가 이름으로 검색해보세요">
+                <input type="text" placeholder="밀롱가 이름으로 검색해보세요"
+               
+                >
+                <button type="submit" style="display:none"></button>
                 <div>
                     <a href="#">
                         <img src="img/ic_search.png" alt="">
                     </a>
                 </div>
             </div>
+        </form>
         </div>
         <div class="searchbox-back">
             <div class="inputarea f_b">
-                <input type="text" value placeholder="밀롱가 이름으로 검색해보세요">
+                <input type="text" value placeholder="밀롱가 이름으로 검색해보세요" >
                 <div>
                     <img src="img/ic_search.png" alt="">
                 </div>

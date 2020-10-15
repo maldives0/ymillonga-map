@@ -2,6 +2,8 @@
 .background {
   background: #e6e6eb;
   position: relative;
+  width: 100%;
+  height: 100vh;
 }
 
 .background .searchbox {
@@ -48,6 +50,7 @@
 
 .background .searchbox .inputarea input {
   border: none;
+  outline-style: none;
   margin-left: 5%;
   padding-left: 5%;
   width: 90%;
@@ -148,12 +151,12 @@
 }
 
 .background .nearbox .mapbox .map {
-  height: 138px;
+  height: auto;
 }
 
 .slider {
   position: relative;
-  bottom: -350px;
+  bottom: 0px;
   left: 0px;
   z-index: 100;
   width: 100%;
@@ -208,7 +211,7 @@
   margin-right: 20px;
   padding: 16px 15px;
   border: 1px solid #e6e6eb;
-  width: 450px;
+  width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,20 +246,24 @@
   font-size: 0;
 }
 
-.slider .listbox .items .item .con .rightsec h4 {
-  font-size: 16px;
-  margin-bottom: 20px;
+.slider .listbox .items .item .con .rightsec > div {
+  margin-bottom: 6px;
 }
 
-.slider .listbox .items .item .con .rightsec h4 .list_lo {
+.slider .listbox .items .item .con .rightsec > div > h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.slider .listbox .items .item .con .rightsec > div > span {
   font-size: 15px;
   color: #999999;
+  margin-right: 15px;
 }
 
-.slider .listbox .items .item .con .rightsec .info {
-  font-size: 12px;
+.slider .listbox .items .item .con .rightsec > h6 {
   color: #9999a0;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .slider .listbox .items .item .con .rightsec .address {

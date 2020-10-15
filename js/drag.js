@@ -18,12 +18,12 @@ function dataFun(){
     response.millonga.forEach(function(el,idx){
        const thumb = el.thumb;
        const url = el.url;
-       const name = el.name;
+       const en = el.en;
        const location = el.location;
      
      liEle += "<li class='item item"+idx+"'>";
-     liEle += "<div class='thumb'><a class='linkA link"+idx+"' href='"+url+"'><img src='"+thumb+"' alt='"+name+"'></a></div>";
-     liEle += "<div class='summary'><h3>"+name+"</h3>";
+     liEle += "<div class='thumb'><a class='linkA link"+idx+"' href='"+url+"'><img src='"+thumb+"' alt='"+en+"'></a></div>";
+     liEle += "<div class='summary'><h3>"+en+"</h3>";
      liEle += "<small>"+location+"</small></div></li>";
      
      ulEle.innerHTML = liEle;

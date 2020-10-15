@@ -4,50 +4,77 @@ window.addEventListener('DOMContentLoaded', function () {
     const ulEle = document.querySelector('.items');
     let liEle = '';
 
+    const form = document.querySelector('.searchbox form');
+     const inputSrc = document.querySelector('input');
+    let inputVal;
+
     data.open('Get', 'millonga.json', true);
     data.send(null);
     data.addEventListener('load', dataFun);
+    let thumb;
+    let url;
+    let en;
+    let ko;
+    let address;
+ function inputChange(){
+    inputVal = '';
+    inputSrc.focus();
+ };
+
+    //searching
     function dataFun() {
+        
         response = JSON.parse(data.responseText);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            inputVal =inputSrc.value;
+            console.log(inputVal);                           
         response.millonga.forEach(function (el, idx) {
-            const thumb = el.thumb;
-            const url = el.url;
-            const name = el.name;
-            const location = el.location;
+           
+             
+                                        
+                  if (el.en.match(inputVal) || el.ko.match(inputVal)) {
+                    thumb = el.thumb;
+                    url = el.url;
+                    en = el.en;
+                    address = el.address;
+                    ko = el.ko;
+        
+                     
+                    liEle += "<li class='item item" + idx + " f_b'>";
+                    liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div></div>";
+                    liEle += " <div class='rightsec'> <div class='f_b'><h4 class='f_b'>" + en + "</h4><span>거리m</span></div><h6>" + ko + "</h6>";
+                    liEle += " <p class='address'>" + address + "</p></div> </div>";
+                    liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
 
-            liEle += "<li class='item item" + idx + " f_b'>";
-            liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + name + "'></a></div></div>";
-            liEle += " <div class='rightsec'> <h4 class='f_b'>" + name + "<span class='far'>거리m</span></h4>";
-            liEle += " <p class='address'>" + location + "</p></div> </div>";
-            liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
-
-
-            ulEle.innerHTML = liEle;
+                  ulEle.innerHTML = liEle;
+                  inputChange();
+                  }
+                  else{
+                   
+                       ulEle.innerHTML = '';
+                       inputChange();
+                  }
+                 
+                           
+                           
+            });
 
 
         });
         listDrag();
-        link();
+
     }//datafun
 
 
 
 
-    //a Link
-
-    function link() {
-        const itemA = document.querySelectorAll('.linkA');
-        const aLen = itemA.length;
-        for (let i = 0; i < aLen; i++) {
-
-            itemA[i].addEventListener('click', function (e) {
-                e.preventDefault();
-            });
-
-        }
 
 
-    }
+
+
+
+
 
     //drag
     function listDrag() {
@@ -70,24 +97,19 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 
         listBox.addEventListener('mousemove', (e) => {
-             endX = e.pageX - ulEle.offsetLeft;
+            endX = e.pageX - ulEle.offsetLeft;
 
             if (!isDown) return endX;
             e.preventDefault();
 
-           
-
-            const walk = (endX - startX);
-
-            ulEle.scrollLeft = scrollLeft - walk;
 
         });
 
         listBox.addEventListener('mouseleave', (e) => {
-          
+
             isDown = false;
             listBox.classList.remove('active');
-           
+
         });
 
         listBox.addEventListener('mouseup', (e) => {
@@ -96,16 +118,17 @@ window.addEventListener('DOMContentLoaded', function () {
             endPos();
         });
 
-        function endPos(){  if (startX > endX) {
-            //next
-            if (idx != listLen - 1)  idx++;
-        } else {
-            //prev
-            if (idx != 0)  idx--;
-        }
-      
-       ulEle.style = "transform:translateX("+(-470 * idx)+"px);";
-    };
+        function endPos() {
+            if (startX > endX) {
+                //next
+                if (idx != listLen - 1) idx++;
+            } else {
+                //prev
+                if (idx != 0) idx--;
+            }
+
+            setTimeout(function () { ulEle.style = "transform:translateX(" + (-450 * idx) + "px);"; }, 100);
+        };
     }//list drag
 
 
