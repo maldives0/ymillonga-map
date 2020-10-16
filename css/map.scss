@@ -162,14 +162,10 @@ $borc: #e6e6eb;
     overflow:hidden;
 
     .listbox {
-        &.active{
-            cursor:grabbing;
-            transform:scale(1);
-            background:rgba(255,255,255,0.3);
-        }
+       
       
         .items {
-          
+            overflow:hidden;
             border-radius: 2px;
             padding: 10px 0;
             font-size: 14px;
@@ -187,7 +183,11 @@ $borc: #e6e6eb;
            cursor:move;
             margin-left: 20px;
           
-           
+            &.active{
+                cursor:grabbing;
+                transform:scale(1);
+                background:rgba(255,255,255,0.3);
+            }
            
            .item {
               
@@ -198,7 +198,7 @@ $borc: #e6e6eb;
                 padding: 16px 15px;
                 border: 1px solid $borc;
                 width: 430px; 
-               display:flex;
+            display:flex;
               .con{
                    
                 .leftsec {

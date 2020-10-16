@@ -5,8 +5,12 @@ window.addEventListener('DOMContentLoaded', function () {
     let liEle = '';
 
     const form = document.querySelector('.searchbox form');
-     const inputSrc = document.querySelector('input');
-    let inputVal;
+     const input = form.querySelector('input'); 
+    let inputVal = '';
+     
+   
+
+  
 
     data.open('Get', 'millonga.json', true);
     data.send(null);
@@ -16,55 +20,64 @@ window.addEventListener('DOMContentLoaded', function () {
     let en;
     let ko;
     let address;
- function inputChange(){
-    inputVal = '';
-    inputSrc.focus();
- };
-
+    
     //searching
-    function dataFun() {
-        
+   
+    form.addEventListener('submit',dataFun);
+   
+   
+     function dataFun(e) {
+    e.preventDefault();
         response = JSON.parse(data.responseText);
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            inputVal =inputSrc.value;
-            console.log(inputVal);                           
-        response.millonga.forEach(function (el, idx) {
-           
-             
-                                        
-                  if (el.en.match(inputVal) || el.ko.match(inputVal)) {
-                    thumb = el.thumb;
-                    url = el.url;
-                    en = el.en;
-                    address = el.address;
-                    ko = el.ko;
         
-                     
-                    liEle += "<li class='item item" + idx + " f_b'>";
+        ulEle.innerHTML = '';
+        input.addEventListener('change',function(e){
+            inputVal = e.target.value;
+           
+        });
+       
+       
+     
+        response.millonga.forEach(function (el, idx) {
+            thumb = el.thumb;
+            url = el.url;
+            en = el.en;
+            address = el.address;
+            ko = el.ko;
+           
+          
+            let a = en.match(inputVal);
+            let b = ko.match(inputVal);
+             console.log(a || b);
+                               
+                  if (a || b) {
+                 
+                    liEle = "<li class='item item" + idx + " f_b'>";
                     liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div></div>";
                     liEle += " <div class='rightsec'> <div class='f_b'><h4 class='f_b'>" + en + "</h4><span>거리m</span></div><h6>" + ko + "</h6>";
                     liEle += " <p class='address'>" + address + "</p></div> </div>";
                     liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
-
-                  ulEle.innerHTML = liEle;
-                  inputChange();
-                  }
-                  else{
+                    ulEle.innerHTML += liEle;
                    
-                       ulEle.innerHTML = '';
-                       inputChange();
+                    input.value = '';
+                    input.focus();  
+                  }else if(!a || !b){
+                    input.value = '';
+                    input.focus();  
                   }
+               
                  
-                           
-                           
+                
+                 
             });
-
-
-        });
-        listDrag();
+           
+               
+       
 
     }//datafun
+    
+
+ 
 
 
 
@@ -73,63 +86,36 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-    //drag
-    function listDrag() {
-        const list = ulEle.querySelectorAll('.item');
-        const listBox = document.querySelector('.listbox');
-        const listLen = list.length;
-        idx = 0;
-
-        let isDown = false;
-        let startX;
-        let endX;
-        let scrollLeft;
-
-        listBox.addEventListener('mousedown', (e) => {
-            isDown = true;
-            listBox.classList.add('active');
-            startX = e.pageX - ulEle.offsetLeft;
-            scrollLeft = ulEle.scrollLeft;
-
-        });
-
-        listBox.addEventListener('mousemove', (e) => {
-            endX = e.pageX - ulEle.offsetLeft;
-
-            if (!isDown) return endX;
-            e.preventDefault();
-
-
-        });
-
-        listBox.addEventListener('mouseleave', (e) => {
-
-            isDown = false;
-            listBox.classList.remove('active');
-
-        });
-
-        listBox.addEventListener('mouseup', (e) => {
-            isDown = false;
-            listBox.classList.remove('active');
-            endPos();
-        });
-
-        function endPos() {
-            if (startX > endX) {
-                //next
-                if (idx != listLen - 1) idx++;
-            } else {
-                //prev
-                if (idx != 0) idx--;
-            }
-
-            setTimeout(function () { ulEle.style = "transform:translateX(" + (-450 * idx) + "px);"; }, 100);
-        };
-    }//list drag
+     //drag
+     let isDown = false;
+     let startX;
+     let scrollLeft;
+  ulEle.addEventListener('mousedown',(e) => {
+  isDown = true;
+  ulEle.classList.add('active');
+  startX = e.pageX - ulEle.offsetLeft;
+  scrollLeft= ulEle.scrollLeft;
+  
+  });
+  ulEle.addEventListener('mouseleave',(e) => {
+  isDown = false;
+  ulEle.classList.remove('active');
+  });
+  ulEle.addEventListener('mouseup',(e) => {
+      isDown = false;
+      ulEle.classList.remove('active');
+  });
+  ulEle.addEventListener('mousemove',(e) => {
+      
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - ulEle.offsetLeft;
+  const walk = (x - startX) *3;
+  //console.log({x,startX})
+  ulEle.scrollLeft = scrollLeft-walk;
+  
+  });
+  
 
 
 

@@ -164,15 +164,8 @@
   overflow: hidden;
 }
 
-.slider .listbox.active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  background: rgba(255, 255, 255, 0.3);
-}
-
 .slider .listbox .items {
+  overflow: hidden;
   border-radius: 2px;
   padding: 10px 0;
   font-size: 14px;
@@ -199,6 +192,14 @@
           user-select: none;
   cursor: move;
   margin-left: 20px;
+}
+
+.slider .listbox .items.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .slider .listbox .items .item {
