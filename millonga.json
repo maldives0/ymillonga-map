@@ -3,10 +3,10 @@
         {
             "thumb": "img/onada.jpg",
             "en":"tango o nada 1",
-             "ko":"탱고 오나다",
+             "ko":"탱고 오나다 1",
             "address":"서울특별시 마포구 동교동 동교로 193(193, Donggyo-ro, Mapo-gu,Seoul, Korea)",
             "lat":"37.557851",
-            "long":"126.922549",
+            "lng":"126.922549",
             "url":"https://www.facebook.com/tangoonada/"
 
         },
@@ -14,45 +14,46 @@
         {
             "thumb": "img/eltango.png",
             "en":"el tango cafe",
-            "ko":"엘 탱고",
+            "ko":"엘 탱고 카페",
             "address":"서울특별시 서초구 강남대로95길 12 (12, Gangnam-daero 95-gil, Seocho-gu, Seoul, Korea)",
             "lat":"37.514078",
-            "long":"127.019163",
+            "lng":"127.019163",
              "url":"https://www.facebook.com/eltangocafe/"
 
         }, {
             "thumb": "img/tango-young.png",
             "en":"tango young seoul",
-            "ko":"영 탱고",
+            "ko":"서울 영 탱고",
             "address":"서울특별시 강남구 논현2동 선릉로 705 청운빌딩 B1(705, Seolleung-ro, Gangnam-gu, Seoul, Korea)",
             "lat":"37.518006",
-            "long":"127.040777",
+            "lng":"127.040777",
            "url":"https://www.facebook.com/TangoYoungSeoul/"
 
         }, {
             "thumb": "img/limetango.png",
             "en":"lime tango cafe",
-            "ko":"라임 탱고",
+            "ko":"라임 탱고 카페",
             "address":"서울특별시 강남구 역삼동 830-6(Yeoksam-Dong 830-6, Gangnam-Gu, Seoul,Korea)",
             "lat":"37.495221",
-            "long":"127.031262",
+            "lng":"127.031262",
             "url":"https://www.facebook.com/limetangocafe/"
 
         }, {
             "thumb": "img/elbulin.png",
             "en":"el bulin",
-            "ko":"앨불린",
+            "ko":"엘 블린",
             "address":"서울특별시 강남구 도산대로 155(155, Dosan-daero, Gangnam-gu, Seoul,Korea)",
             "lat":"37.519097",
-            "long":"127.025353",
+            "lng":"127.025353",
             "url":"https://www.facebook.com/elbulin/"
         }, 
        {
             "thumb": "img/royal-tango.jpg",
-            "en":"royal tango","ko":"로열 탱고",
+            "en":"royal tango",
+            "ko":"로열 탱고",
             "address":"서울특별시 강남구 논현2동 선릉로 711(711, Seolleung-ro, Gangnam-gu, Seoul,Korea)",
             "lat":"37.518231",
-            "long":"127.040649",
+            "lng":"127.040649",
             "url":"https://www.facebook.com/ROYALTANGO/"
 
         }, {
@@ -61,7 +62,7 @@
             "ko":"토도 탱고",
             "address":"서울특별시 강남구 신사동 637-15 대명빌딩 B1(7, Eonju-ro 172-gil, Gangnam-gu, Seoul, Korea)",
             "lat":"37.528093",
-            "long":"127.034507",
+            "lng":"127.034507",
             "url":"https://www.facebook.com/TodoTangoStudio/"
 
         }, {
@@ -69,8 +70,8 @@
             "en":"tango cafe",
             "ko":"탱고 카페",
             "address":"서울특별시 중구 필동 퇴계로 202 풍산빌딩 B3F (202, Toegye-ro, Jung-gu, Seoul, Korea)",
-            "lat":"37.564932",
-            "long":"126.995089",
+            "lat":"37.561123",
+            "lng":"126.993960",
             "url":"https://www.facebook.com/tangocafein/"
 
         }, {
@@ -79,7 +80,7 @@
             "ko":"강남 탱고 판",
             "address":"서울특별시 강남구 논현로67길 50 (50, Nonhyeon-ro 67-gil, Gangnam-gu, Seoul, Korea)",
             "lat":"37.493352",
-            "long":"127.035917",
+            "lng":"127.035917",
             "url":"https://www.facebook.com/gangnamtango/"
 
         }

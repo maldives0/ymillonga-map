@@ -35,9 +35,10 @@ function dataFun(){
 
  //a link question
 
- const itemA = document.querySelectorAll('.linkA');
+ 
 
   function link(){  
+    const itemA = document.querySelectorAll('.linkA');
    console.log(itemA)  
          itemA.forEach((el) => {
           el.addEventListener((e) => {
