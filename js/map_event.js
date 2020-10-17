@@ -8,7 +8,11 @@ window.addEventListener('DOMContentLoaded', function () {
      const input = form.querySelector('input'); 
     let inputVal = '';
      
-   
+    const item = document.querySelectorAll('.item');
+        const enChoice = document.querySelectorAll('#en');
+        const koChoice = document.querySelectorAll('#ko');
+        const addressChoice = document.querySelectorAll('#address');
+      console.log(enChoice.textContent)
 
   
 
@@ -52,15 +56,15 @@ window.addEventListener('DOMContentLoaded', function () {
                                
                   if (a || b) {
                  
-                    liEle = "<li class='item item" + idx + " f_b'>";
-                    liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div></div>";
-                    liEle += " <div class='rightsec'> <div class='f_b'><h4 class='f_b'>" + en + "</h4><span>거리m</span></div><h6>" + ko + "</h6>";
-                    liEle += " <p class='address'>" + address + "</p></div> </div>";
-                    liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
-                    ulEle.innerHTML += liEle;
-                   
-                    input.value = '';
-                    input.focus();  
+                     liEle = "<li class='item item" + idx + " f_b'>";
+                        liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a class='linkA link" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div></div>";
+                        liEle += " <div class='rightsec'> <div class='f_b'><h4 class='f_b'>" + en + "</h4><span id='location'>"+lat+","+lng+"</span></div><h6 id='ko'>" + ko + "</h6>";
+                        liEle += " <p class='address'>" + address + "</p></div> </div>";
+                        liEle += " <div class='appraisal'><span class='like'>371</span><span class='write'>39</span> </div></li>";
+                        ulEle.innerHTML += liEle;
+                        input.value = '';
+                        input.focus();
+                      
                   }else if(!a || !b){
                     input.value = '';
                     input.focus();  
