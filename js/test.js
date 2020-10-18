@@ -1,66 +1,90 @@
-var 바디 = document.body;
-var 숫자후보;
-var 숫자배열;
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
 
-function 숫자뽑기() {
-  숫자후보 = [1,2,3,4,5,6,7,8,9];
-  숫자배열 = [];
-  for (var i = 0; i < 4; i += 1) {
-    var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
-    숫자배열.push(뽑은것);
-  }
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+    {
+        content: '<div>카카오</div>', 
+        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+    },
+    {
+        content: '<div>생태연못</div>', 
+        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+    },
+    {
+        content: '<div>텃밭</div>', 
+        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+    },
+    {
+        content: '<div>근린공원</div>',
+        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+    }
+];
+
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng // 마커의 위치
+    });
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
 }
 
-숫자뽑기();
-console.log(숫자배열);
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
 
-var 결과 = document.createElement('h1');
-바디.append(결과);
-var 폼 = document.createElement('form');
-document.body.append(폼);
-var 입력창 = document.createElement('input');
-폼.append(입력창);
-입력창.type = 'text';
-입력창.maxLength = 4;
-var 버튼 = document.createElement('button');
-버튼.textContent = '입력!';
-폼.append(버튼);
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
 
-var 틀린횟수 = 0;
-폼.addEventListener('submit', function 비동기(이벤트) { // 엔터를 쳤을 때
-  이벤트.preventDefault();
-  var 답 = 입력창.value;
-  if (답 === 숫자배열.join('')) { // 답이 맞으면
-    결과.textContent = '홈런';
-    입력창.value = '';
-    입력창.focus();
-    숫자뽑기();
-    틀린횟수 = 0;
-  } else { // 답이 틀리면
-    var 답배열 = 답.split('');
-    var 스트라이크 = 0;
-    var 볼 = 0;
-    틀린횟수 += 1;
-    if (틀린횟수 > 10) { // 10번 넘게 틀린 경우
-      결과.textContent = '10번 넘게 틀려서 실패! 답은' + 숫자배열.join(',') + '였습니다!';
-      입력창.value = '';
-      입력창.focus();
-      숫자뽑기();
-      틀린횟수 = 0;
-    } else { // 10번 미만으로 틀린 경우
-      console.log('답이 틀리면', 답배열);
-      for (var i = 0; i <= 3; i += 1) {
-        if (Number(답배열[i]) === 숫자배열[i]) { // 같은 자리인지 확인
-          console.log('같은 자리?');
-          스트라이크 += 1;
-        } else if (숫자배열.indexOf(Number(답배열[i])) > -1) { // 같은 자리는 아니지만, 숫자가 겹치는지 확인
-          console.log('겹치는 숫자?');
-          볼 += 1;
-        }
-      }
-      결과.textContent = 스트라이크 + '스트라이크 ' + 볼 + '볼입니다.';
-      입력창.value = '';
-      입력창.focus();
-    }
-  }
-});
+/* 아래와 같이도 할 수 있습니다 */
+/*
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng // 마커의 위치
+    });
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만듭니다
+    // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    (function(marker, infowindow) {
+        // 마커에 mouseover 이벤트를 등록하고 마우스 오버 시 인포윈도우를 표시합니다 
+        kakao.maps.event.addListener(marker, 'mouseover', function() {
+            infowindow.open(map, marker);
+        });
+
+        // 마커에 mouseout 이벤트를 등록하고 마우스 아웃 시 인포윈도우를 닫습니다
+        kakao.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+    })(marker, infowindow);
+}
+*/
