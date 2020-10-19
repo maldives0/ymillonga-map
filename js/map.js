@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const data = new XMLHttpRequest();
     let response;
     const ulEle = document.querySelector('.items');
-
+   
     let liEle = '';
 
     const form = document.querySelector('.searchbox form');
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function () {
         ulEle.innerHTML = '';
         input.addEventListener('change', function (e) {
             inputVal = e.target.value;
-
+           
         });
 
 
@@ -64,7 +64,8 @@ window.addEventListener('DOMContentLoaded', function () {
                 ulEle.innerHTML += liEle;
                 input.value = '';
                 input.focus();
-                mapSearch();
+              
+              
 
             } else if (!a || !b) {
 
@@ -74,11 +75,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
         });//foreach
-    
-
+       
+        mapSearch();
     }//datafun
-
-
+   
+   
 
     //drag
     let isDown = false;
@@ -464,13 +465,15 @@ window.addEventListener('DOMContentLoaded', function () {
             let markers = []; // 툴팁을 노출하는 마커를 생성합니다.
             let markerTrackers = [];
            
-   function mapSearch(){
+  function mapSearch(){
+
     const item = document.querySelectorAll('.item');
+    //console.log(item);
     const latChoice = document.querySelectorAll('#lat');
     const lngChoice = document.querySelectorAll('#lng');
-    const enChoice = document.querySelectorAll('#en');
     const koChoice = document.querySelectorAll('#ko');
-    const addressChoice = document.querySelectorAll('.address');
+   
+   
 
     let latNum, lngNum = 0;
     let posChoice = [];
@@ -478,45 +481,53 @@ window.addEventListener('DOMContentLoaded', function () {
         this.lat = lat;
         this.lng = lng;
     };
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new kakao.maps.LatLng(0,0), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
   
-        for (let i = 0; i < item.length; i++) {
+        for (let i = 0; i < koChoice.length; i++) {
             latNum = Number(latChoice[i].textContent);
             lngNum = Number(lngChoice[i].textContent);
             posChoice.push(new PosChoice(latNum, lngNum));
             positions.push(new kakao.maps.LatLng(posChoice[i].lat, posChoice[i].lng));
-          
+         
+            mapOption.center = new kakao.maps.LatLng(posChoice[i].lat, posChoice[i].lng);
+            markers.push(new TooltipMarker(positions[i], koChoice[i].textContent));
+           // console.log(markers[i],koChoice[i]);
         }
        
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = {
-            center: new kakao.maps.LatLng(0,0), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        };
-        mapOption.center = new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng);
-      
-    // 지도를 생성합니다.
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-
-    for (let i = 0; i < item.length; i++) {
-      
-        markers.push(new TooltipMarker(positions[i], koChoice[i].textContent));
-        markerTrackers.push(new MarkerTracker(map, markers[i]));
- 
-       ( function(m){
-            markers[m].setMap(map);
-         
-        })(i);
-        ( function(m){
-             markerTrackers[m].run();
+       
+       
+       
+             // 지도를 생성합니다.
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+     
+       
+        for (let i = 0; i < markers.length; i++) {
+                       
+            ( (m) => {
+                 markers[m].setMap(map);
+                console.log(markers[m].node.innerHTML);
+             })(i);
+     
+                
+         };//foreach
+         for (let i = 0; i < markerTrackers.length; i++) {
+           
+              ( (m) => {
+                markerTrackers[m].run();
+              
             })(i);
-        
+                
+         };//foreach
+  
+  
+ 
+      };//mapsearch
        
-    }
    
-   
-      };
-       
-   
-
+  
 
 });//end
