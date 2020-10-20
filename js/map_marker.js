@@ -218,7 +218,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     var marker = new kakao.maps.Marker({
                         map: map,
                         position: position,
-                        image: normalImage
+                       
                     });
                  
 
