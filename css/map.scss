@@ -122,29 +122,54 @@ $borc: #e6e6eb;
     }
     .nearbox {
         background: #fff;
-        margin-top: 10px;
-        padding-top: 10px;
-        .nearby {
-            padding: 0 15px;
-            h3 {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-            p {
-                color: #9999a0;
-
-                span {
-                    font-size: 14px;
-                }
-            }
-        }
+        margin-top: 50px;
+        
+       
         .mapbox {
             border-top: 1px solid $borc;
-            margin-top: 20px;
+           
             .distance {
-                padding-top: 10px;
+                position:fixed;
+                left:0; top:80px;
+                width:100%;
+                z-index:10;
+                padding: 10px;
                 margin-bottom: 5px;
+                background:#fff;
+                flex-wrap:wrap;
+                .nearby {
+                    width:100%;
+                    padding: 0 15px;
+                    
+                    h3 {
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
+                    p {
+                        color: #9999a0;
+        
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .level {
+                  > a{
+                        text-align:center;
+                        padding:3px 5px;
+                        width:100%;
+                        flex:1;
+                        p{
+                            width:15vw;
+                         
+                       
+                        }
+                        }
+                }
+               
             }
+           
             .map {
                 height: auto;
                
@@ -203,7 +228,7 @@ $borc: #e6e6eb;
                 margin-left:1%;
                 .leftsec {
                     display: inline-block;
-                    width: 30%;
+                    flex:1;
                     font-size: 0;
                                
                     overflow: hidden;
@@ -220,7 +245,8 @@ $borc: #e6e6eb;
                       }
                     }
                 .rightsec {
-                    width: 300px;
+                    flex:2;
+                    width: 250px;
                     display: inline-block;
                     vertical-align: top;
                     box-sizing: border-box;
