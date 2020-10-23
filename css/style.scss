@@ -30,58 +30,88 @@ $borc: #e6e6eb;
             width: 100%;
         }
     }
-}
-.headerback {
-    position: relative;
-    padding: 2vw 0 0 2vw;
-    width: 100%;
-    background: #fff;
-    opacity: 0;
-    a {
-        display: block;
-        float: left;
-        width: 24vw;
-
-        img {
-            width: 100%;
+    .location {
+        width: 100%;
+        padding: 2vw;
+        position: relative;
+        background: linear-gradient(30deg, #000000,#e74c3c);
+        span {
+            margin-left: 15px;
+            display: inline-block;
+            color: #fff;
+            font-size: 17px;
+        }
+    
+        button {
+            margin-right: 15px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 4px 6px 2px;
+            font-size: 17px;
+            width: 102px;
+            height: 44px;
+    
+            img {
+                width: 4vw;
+            }
+        }
+    }
+    .searchbox {
+        width: 100%;
+        padding: 3vw 5vw;
+        background: #fff;
+        .inputarea {
+            position: relative;
+            padding: 10px 0;
+            margin: 0 auto;
+            border-bottom: 1px solid #222228;
+            &:before {
+                position: absolute;
+                top: 13px;
+                left: 0;
+                content: "";
+                width: 19px;
+                height: 19px;
+                background: url(../img/ic_glass-on.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            input {
+                outline-style: none;
+                border: none;
+                margin-left: 5%;
+                padding-left: 5%;
+                width: 90%;
+                height: 28px;
+                box-sizing: border-box;
+                display: block;
+                margin: auto;
+                font-size: 18px;
+            }
+            div {
+                a {
+                    width: 20px;
+                    display:block;
+                    img {
+                        width: 20px;
+                    }
+                }
+            }
         }
     }
 }
-.location {
-    width: 100%;
-    padding: 2vw;
-    position: relative;
-    background: linear-gradient(30deg, #000000,#e74c3c);
-    span {
-        margin-left: 15px;
-        display: inline-block;
-        color: #fff;
-        font-size: 17px;
-    }
 
-    button {
-        margin-right: 15px;
-        border-radius: 5px;
-        border: 1px solid #fff;
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0);
-        padding: 4px 6px 2px;
-        font-size: 17px;
-        width: 102px;
-        height: 44px;
 
-        img {
-            width: 4vw;
-        }
-    }
-}
 .background {
     background: $bc;
+    padding-top: 1vh;
+
     .page {
         margin: 6vw 4vw;
         .today-list {
             @extend %list_fomat;
-
+            
             h2 {
                 @extend %list_h2;
             }
@@ -131,6 +161,7 @@ $borc: #e6e6eb;
                                 margin-top: 2vw;
                                 font-weight: 500;
                                 width: 70%;
+                                text-transform:uppercase;
                             }
                             small {
                                 opacity: 0.7;
@@ -150,48 +181,7 @@ $borc: #e6e6eb;
             }
         }
     }
-    .searchbox {
-        width: 100%;
-        padding: 3vw 5vw;
-        background: #fff;
-        .inputarea {
-            position: relative;
-            padding: 10px 0;
-            margin: 0 auto;
 
-            border-bottom: 1px solid #222228;
-            &:before {
-                position: absolute;
-                top: 13px;
-                left: 0;
-                content: "";
-                width: 19px;
-                height: 19px;
-                background: url(../img/ic_glass-on.png) no-repeat;
-                background-size: 100% 100%;
-            }
-            input {
-                border: none;
-                margin-left: 5%;
-                padding-left: 5%;
-                width: 90%;
-                height: 28px;
-                box-sizing: border-box;
-                display: block;
-                margin: auto;
-                font-size: 18px;
-            }
-            div {
-                a {
-                    width: 20px;
-                    display:block;
-                    img {
-                        width: 20px;
-                    }
-                }
-            }
-        }
-    }
     .nearbox {
         background: #fff;
         margin-top: 10px;
@@ -309,7 +299,7 @@ $borc: #e6e6eb;
                 border-left: 1px solid $borc;
             }
         }
-    }
+    }//ne
 }
 .footLink {
     position: fixed;

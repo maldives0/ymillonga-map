@@ -71,52 +71,6 @@
   width: 20px;
 }
 
-.background .searchbox-back {
-  position: relative;
-  top: 0;
-  right: 0;
-  width: 95%;
-  opacity: 0;
-  height: 80px;
-  padding: 3vw 5vw;
-  background: #fff;
-}
-
-.background .searchbox-back .inputarea {
-  position: relative;
-  padding: 10px 0;
-  margin: 0 auto;
-  border-bottom: 1px solid #222228;
-}
-
-.background .searchbox-back .inputarea:before {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  content: "";
-  width: 19px;
-  height: 19px;
-  background: url(../img/ic_glass-on.png) no-repeat;
-  background-size: 100% 100%;
-}
-
-.background .searchbox-back .inputarea input {
-  border: none;
-  margin-left: 5%;
-  padding-left: 5%;
-  width: 90%;
-  height: 28px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  margin: auto;
-  font-size: 18px;
-}
-
-.background .searchbox-back .inputarea div img {
-  width: 20px;
-}
-
 .background .nearbox {
   background: #fff;
   margin-top: 50px;
@@ -157,9 +111,15 @@
   font-size: 14px;
 }
 
+.background .nearbox .mapbox .distance .level {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .background .nearbox .mapbox .distance .level > a {
+  cursor: pointer;
   text-align: center;
-  padding: 3px 5px;
+  padding: 3px 25px;
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -167,16 +127,26 @@
 }
 
 .background .nearbox .mapbox .distance .level > a p {
-  width: 15vw;
+  width: 100%;
 }
 
 .background .nearbox .mapbox .map {
   height: auto;
+  margin-top: 120px;
+}
+
+.background .nearbox .mapbox .map > p {
+  margin-top: 3px;
+  color: #9999a0;
+}
+
+.background .nearbox .mapbox .map > p a {
+  color: #9999a0;
 }
 
 .slider {
   position: relative;
-  bottom: 0px;
+  bottom: 85px;
   left: 0px;
   z-index: 100;
   width: 100%;
