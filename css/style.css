@@ -33,39 +33,21 @@
   width: 100%;
 }
 
-.headerback {
-  position: relative;
-  padding: 2vw 0 0 2vw;
-  width: 100%;
-  background: #fff;
-  opacity: 0;
-}
-
-.headerback a {
-  display: block;
-  float: left;
-  width: 24vw;
-}
-
-.headerback a img {
-  width: 100%;
-}
-
-.location {
+.header .location {
   width: 100%;
   padding: 2vw;
   position: relative;
   background: linear-gradient(30deg, #000000, #e74c3c);
 }
 
-.location span {
+.header .location span {
   margin-left: 15px;
   display: inline-block;
   color: #fff;
   font-size: 17px;
 }
 
-.location button {
+.header .location button {
   margin-right: 15px;
   border-radius: 5px;
   border: 1px solid #fff;
@@ -77,12 +59,60 @@
   height: 44px;
 }
 
-.location button img {
+.header .location button img {
   width: 4vw;
+}
+
+.header .searchbox {
+  width: 100%;
+  padding: 3vw 5vw;
+  background: #fff;
+}
+
+.header .searchbox .inputarea {
+  position: relative;
+  padding: 10px 0;
+  margin: 0 auto;
+  border-bottom: 1px solid #222228;
+}
+
+.header .searchbox .inputarea:before {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  content: "";
+  width: 19px;
+  height: 19px;
+  background: url(../img/ic_glass-on.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.header .searchbox .inputarea input {
+  outline-style: none;
+  border: none;
+  margin-left: 5%;
+  padding-left: 5%;
+  width: 90%;
+  height: 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  margin: auto;
+  font-size: 18px;
+}
+
+.header .searchbox .inputarea div a {
+  width: 20px;
+  display: block;
+}
+
+.header .searchbox .inputarea div a img {
+  width: 20px;
 }
 
 .background {
   background: #e6e6eb;
+  padding-top: 1vh;
 }
 
 .background .page {
@@ -147,6 +177,7 @@
   margin-top: 2vw;
   font-weight: 500;
   width: 70%;
+  text-transform: uppercase;
 }
 
 .background .page .today-list .data-wrap .items .item .summary small {
@@ -160,52 +191,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.background .searchbox {
-  width: 100%;
-  padding: 3vw 5vw;
-  background: #fff;
-}
-
-.background .searchbox .inputarea {
-  position: relative;
-  padding: 10px 0;
-  margin: 0 auto;
-  border-bottom: 1px solid #222228;
-}
-
-.background .searchbox .inputarea:before {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  content: "";
-  width: 19px;
-  height: 19px;
-  background: url(../img/ic_glass-on.png) no-repeat;
-  background-size: 100% 100%;
-}
-
-.background .searchbox .inputarea input {
-  border: none;
-  margin-left: 5%;
-  padding-left: 5%;
-  width: 90%;
-  height: 28px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  margin: auto;
-  font-size: 18px;
-}
-
-.background .searchbox .inputarea div a {
-  width: 20px;
-  display: block;
-}
-
-.background .searchbox .inputarea div a img {
-  width: 20px;
 }
 
 .background .nearbox {
