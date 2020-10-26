@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const item = document.querySelectorAll('.item');
         const listBox = document.querySelector('.listbox');
         const listLen = item.length;
-        console.log(listLen);
+       
         listBox.style = "transform:translateX(0px);";
 
 
@@ -188,9 +188,8 @@ window.addEventListener('DOMContentLoaded', function () {
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
 
-                findMeBtn.addEventListener('click', getFindMe);
                 markerEvent(posChoice);
-
+                findMeBtn.addEventListener('click', getFindMe);
             }//if
         });
 
@@ -198,9 +197,9 @@ window.addEventListener('DOMContentLoaded', function () {
     }//mapsearch
 
     //marker click
-
+    let mapContainer, mapOption, map;
     function markerEvent(posChoice) {
-        let mapContainer, mapOption, map;
+       
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 
             mapOption = {
@@ -210,7 +209,8 @@ window.addEventListener('DOMContentLoaded', function () {
                 level: 5 // 지도의 확대 레벨
             };
 
-        let levelA = document.querySelectorAll('.level a');
+        const levelA = document.querySelectorAll('.level a'),
+        levelInfo = document.querySelector('#mapLevel');
 
         levelA.forEach(function (a, i) {
 
@@ -219,7 +219,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
                     let changeLevel = 2 * (i + 1);
                     map.setLevel(changeLevel);
-
+                  
+                    levelInfo.innerHTML = `현재 지도 확대영역: ${this.textContent}`;
 
                 });
 
@@ -255,12 +256,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 title: posChoice[i].content, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                 image: markerImage, // 마커 이미지 
                 clickable: true,
-                zIndex: i
+                zIndex: i,
+                
             });
-            //console.log(i,marker.mc );
+          
 
             marker.normalImage = markerImage;
-           
+       
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 
 
@@ -272,9 +274,6 @@ window.addEventListener('DOMContentLoaded', function () {
             });
 
        
-         
-
-
             // 마커가 지도 위에 표시되도록 설정합니다
           
 
@@ -361,7 +360,7 @@ window.addEventListener('DOMContentLoaded', function () {
           
          }//for
         
-         
+        
          const item = document.querySelectorAll('.item');
          item.forEach(function(b,c){
             b.addEventListener('dblclick',function(){
@@ -377,7 +376,7 @@ window.addEventListener('DOMContentLoaded', function () {
                  infowindow.open(map, arrMarker[c]);
                  infowindow.setContent(posChoice[c].content);
                  arrMarker[c].setImage(markerClick);
-                    console.log( arrMarker[c]);
+                 
                  map.setCenter(new kakao.maps.LatLng(posChoice[c].lat, posChoice[c].lng));
                 
                  setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * c) + "px);"; }, 100);
@@ -442,9 +441,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-
-                map.setCenter(locPosition);
                 markerEvent(posFilter);
+                map.setCenter(locPosition);
+                
 
             });
 
@@ -457,31 +456,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        // 지도에 마커와 인포윈도우를 표시하는 함수입니다
-        function displayMarker(locPosition, message) {
-
-            // //마커를 생성합니다
-            // var marker = new kakao.maps.Marker({
-            //     map: map,
-            //     position: locPosition
-            // });
-
-            // var iwContent = message, // 인포윈도우에 표시할 내용
-            //     iwRemoveable = true;
-
-            // // 인포윈도우를 생성합니다
-            // var infowindow = new kakao.maps.InfoWindow({
-            //     content: iwContent,
-            //     removable: iwRemoveable
-            // });
-
-            // // 인포윈도우를 마커위에 표시합니다 
-            // infowindow.open(map, marker);
-
-            // 지도 중심좌표를 접속위치로 변경합니다
-
-
-        }
+     
+       
 
     }
 

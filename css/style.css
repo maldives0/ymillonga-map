@@ -17,7 +17,6 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 2vw 0 0 2vw;
   z-index: 100;
   width: 100%;
   background: #fff;
@@ -27,6 +26,7 @@
   display: block;
   float: left;
   width: 24vw;
+  padding: 2vw 0 0 2vw;
 }
 
 .header a img {
@@ -64,9 +64,14 @@
 }
 
 .header .searchbox {
+  display: none;
   width: 100%;
   padding: 3vw 5vw;
   background: #fff;
+}
+
+.header .searchbox.active {
+  display: block;
 }
 
 .header .searchbox .inputarea {
@@ -112,7 +117,7 @@
 
 .background {
   background: #e6e6eb;
-  padding-top: 1vh;
+  padding-top: 20vh;
 }
 
 .background .page {
@@ -123,15 +128,29 @@
   background: #fff;
   padding: 4vw;
   width: 100%;
-  height: 77vw;
+  height: 73vw;
   position: relative;
   overflow: hidden;
+}
+
+.background .page .today-list .data-wrap.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .background .page .today-list .data-wrap .items {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 3s ease-in-out;
+  transition: -webkit-transform 3s ease-in-out;
+  transition: transform 3s ease-in-out;
+  transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
   white-space: nowrap;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -146,27 +165,25 @@
   margin-left: 5vw;
 }
 
-.background .page .today-list .data-wrap .items.active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  background: rgba(255, 255, 255, 0.3);
-}
-
 .background .page .today-list .data-wrap .items .item {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 53vw;
   margin-right: 10vw;
 }
 
 .background .page .today-list .data-wrap .items .item .thumb {
   width: 100%;
-  height: 53vw;
+  height: 50vw;
 }
 
 .background .page .today-list .data-wrap .items .item .thumb img {
-  width: 100%;
+  width: 300px;
   height: 100%;
   border-radius: 3vw;
 }
@@ -195,116 +212,197 @@
 
 .background .nearbox {
   background: #fff;
-  margin-top: 10px;
-  padding-top: 10px;
-}
-
-.background .nearbox .nearby {
-  padding: 0 15px;
-}
-
-.background .nearbox .nearby h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.background .nearbox .nearby p {
-  color: #9999a0;
-}
-
-.background .nearbox .nearby p span {
-  font-size: 14px;
+  margin-top: 50px;
 }
 
 .background .nearbox .mapbox {
   border-top: 1px solid #e6e6eb;
-  margin-top: 20px;
 }
 
 .background .nearbox .mapbox .distance {
-  padding-top: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: #fff;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.background .nearbox .mapbox .distance .nearby {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.background .nearbox .mapbox .distance .nearby h3 {
+  font-size: 18px;
   margin-bottom: 5px;
 }
 
-.background .nearbox .mapbox .map {
-  height: 138px;
+.background .nearbox .mapbox .distance .nearby p {
+  color: #9999a0;
 }
 
-.background .nearbox .listbox ul {
-  font-size: 14px;
+.background .nearbox .mapbox .distance .level {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.background .nearbox .listbox ul li {
-  position: relative;
-  padding: 16px 15px;
-  border-bottom: 1px solid #e6e6eb;
+.background .nearbox .mapbox .distance .level > a {
+  cursor: pointer;
+  text-align: center;
+  padding: 3px 25px;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.background .nearbox .mapbox .distance .level > a p {
   width: 100%;
 }
 
-.background .nearbox .listbox ul li .leftsec {
-  display: inline-block;
-  width: 20%;
-  font-size: 0;
-  vertical-align: top;
-  height: 70px;
-  overflow: hidden;
-  background: url(../img/tangocafe.jpg) center no-repeat;
-  background-size: auto 100%;
+.background .nearbox .mapbox .map {
+  height: auto;
 }
 
-.background .nearbox .listbox ul li .rightsec {
-  width: 80%;
+.background .nearbox .mapbox .map > p {
+  margin-top: 3px;
+  color: #9999a0;
+  font-size: 10px;
+}
+
+.background .nearbox .mapbox .map > p a {
+  font-size: 10px;
+  color: #9999a0;
+}
+
+.background .nearbox .listbox {
+  overflow-y: auto;
+  width: 100%;
+  height: 30vh;
+}
+
+.background .nearbox .listbox .items {
+  border-radius: 2px;
+  padding: 10px 0;
+  font-size: 14px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 200px;
+  -webkit-transition: -webkit-transform 3s ease-in-out;
+  transition: -webkit-transform 3s ease-in-out;
+  transition: transform 3s ease-in-out;
+  transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
+  white-space: nowrap;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  will-change: transform;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: move;
+}
+
+.background .nearbox .listbox .items.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.background .nearbox .listbox .items .item {
+  border: 1px solid rgba(34, 34, 40, 0.15);
+  background: #fff;
+  padding: 2px 3px;
+  border: 1px solid #e6e6eb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.background .nearbox .listbox .items .item .con {
+  width: 100%;
+}
+
+.background .nearbox .listbox .items .item .con .leftsec {
+  display: inline-block;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  font-size: 0;
+}
+
+.background .nearbox .listbox .items .item .con .leftsec .thumb {
+  width: 100%;
+  height: 100px;
+}
+
+.background .nearbox .listbox .items .item .con .leftsec .thumb > a {
+  width: 100%;
+  height: 100%;
+}
+
+.background .nearbox .listbox .items .item .con .leftsec .thumb img {
+  width: 100px;
+  height: 100px;
+  border-radius: 3vw;
+}
+
+.background .nearbox .listbox .items .item .con .rightsec {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 10px;
+  margin-left: 50px;
   font-size: 0;
 }
 
-.background .nearbox .listbox ul li .rightsec h4 {
+.background .nearbox .listbox .items .item .con .rightsec > div {
+  margin-bottom: 6px;
+}
+
+.background .nearbox .listbox .items .item .con .rightsec > div > h4 {
   font-size: 16px;
-  margin-bottom: 6px;
-  position: relative;
+  text-transform: uppercase;
 }
 
-.background .nearbox .listbox ul li .rightsec h4 .list_lo {
-  font-size: 12px;
-  color: #999999;
+.background .nearbox .listbox .items .item .con .rightsec > div > span {
+  display: none;
 }
 
-.background .nearbox .listbox ul li .rightsec .info {
+.background .nearbox .listbox .items .item .con .rightsec > h6 {
   color: #9999a0;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
-.background .nearbox .listbox ul li .rightsec .info .list_dis {
-  font-size: 12px;
-  color: #999999;
+.background .nearbox .listbox .items .item .con .rightsec .address {
+  font-size: 13px;
+  color: #9999a0;
+  white-space: pre-wrap;
 }
 
-.background .nearbox .listbox ul li .rightsec .appraisal .like {
-  background: url(../img/ic_like.png) no-repeat;
-  background-size: 16px 16px;
-  padding-left: 21px;
+.background .morebox {
+  border-top: 1px solid #e6e6eb;
 }
 
-.background .nearbox .listbox ul li .rightsec .appraisal .write {
-  margin-left: 14px;
-  background: url(../img/ic_write.png) no-repeat;
-  background-size: 16px 16px;
-  padding-left: 21px;
-}
-
-.background .nearbox .listbox ul li a {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.background .nearbox .morebox a {
+.background .morebox a {
   display: inline-block;
   padding-right: 22px;
   width: 50%;
@@ -317,12 +415,12 @@
           box-sizing: border-box;
 }
 
-.background .nearbox .morebox .morelist {
+.background .morebox .morelist {
   background: url(../img/ic_list.png) 80% 50% no-repeat;
   background-size: 17px 24px;
 }
 
-.background .nearbox .morebox .moremap {
+.background .morebox .moremap {
   background: url(../img/ic_map.png) 80% 50% no-repeat;
   background-size: 17px 24px;
   border-left: 1px solid #e6e6eb;
