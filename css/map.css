@@ -254,6 +254,15 @@
   text-transform: uppercase;
 }
 
+.slider .listbox .items .item .con .rightsec > div #idx {
+  text-align: center;
+  vertical-align: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  border: 2px solid #4aa0ec;
+}
+
 .slider .listbox .items .item .con .rightsec > div > span {
   display: none;
 }

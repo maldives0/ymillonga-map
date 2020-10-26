@@ -188,7 +188,11 @@
   border-radius: 3vw;
 }
 
-.background .page .today-list .data-wrap .items .item .summary h3 {
+.background .page .today-list .data-wrap .items .item .summary {
+  margin-left: 5px;
+}
+
+.background .page .today-list .data-wrap .items .item .summary > h3 {
   white-space: nowrap;
   font-size: 4.7vw;
   margin-top: 2vw;
@@ -197,7 +201,7 @@
   text-transform: uppercase;
 }
 
-.background .page .today-list .data-wrap .items .item .summary small {
+.background .page .today-list .data-wrap .items .item .summary > small {
   opacity: 0.7;
   font-size: 3.1vw;
   display: block;
@@ -277,9 +281,8 @@
 }
 
 .background .nearbox .listbox {
-  overflow-y: auto;
+  overflow: hidden;
   width: 100%;
-  height: 30vh;
 }
 
 .background .nearbox .listbox .items {
@@ -290,11 +293,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 200px;
+  z-index: 100;
+  width: 100%;
   -webkit-transition: -webkit-transform 3s ease-in-out;
   transition: -webkit-transform 3s ease-in-out;
   transition: transform 3s ease-in-out;
@@ -310,6 +310,7 @@
       -ms-user-select: none;
           user-select: none;
   cursor: move;
+  margin-left: 20px;
 }
 
 .background .nearbox .listbox .items.active {
@@ -321,9 +322,9 @@
 }
 
 .background .nearbox .listbox .items .item {
-  border: 1px solid rgba(34, 34, 40, 0.15);
   background: #fff;
-  padding: 2px 3px;
+  margin-right: 20px;
+  padding: 3px 5px;
   border: 1px solid #e6e6eb;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -335,7 +336,7 @@
 }
 
 .background .nearbox .listbox .items .item .con {
-  width: 100%;
+  width: 330px;
 }
 
 .background .nearbox .listbox .items .item .con .leftsec {
@@ -348,7 +349,7 @@
 
 .background .nearbox .listbox .items .item .con .leftsec .thumb {
   width: 100%;
-  height: 100px;
+  height: 100%;
 }
 
 .background .nearbox .listbox .items .item .con .leftsec .thumb > a {
@@ -363,14 +364,15 @@
 }
 
 .background .nearbox .listbox .items .item .con .rightsec {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  height: 110px;
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-left: 50px;
+  margin-left: 3px;
   font-size: 0;
 }
 
@@ -381,6 +383,15 @@
 .background .nearbox .listbox .items .item .con .rightsec > div > h4 {
   font-size: 16px;
   text-transform: uppercase;
+}
+
+.background .nearbox .listbox .items .item .con .rightsec > div #idx {
+  text-align: center;
+  vertical-align: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 2px solid #4aa0ec;
 }
 
 .background .nearbox .listbox .items .item .con .rightsec > div > span {
@@ -398,11 +409,12 @@
   white-space: pre-wrap;
 }
 
-.background .morebox {
+.background .nearbox .morebox {
   border-top: 1px solid #e6e6eb;
+  margin-bottom: 9vh;
 }
 
-.background .morebox a {
+.background .nearbox .morebox a {
   display: inline-block;
   padding-right: 22px;
   width: 50%;
@@ -415,21 +427,26 @@
           box-sizing: border-box;
 }
 
-.background .morebox .morelist {
+.background .nearbox .morebox .morelist {
   background: url(../img/ic_list.png) 80% 50% no-repeat;
   background-size: 17px 24px;
 }
 
-.background .morebox .moremap {
+.background .nearbox .morebox .moremap {
   background: url(../img/ic_map.png) 80% 50% no-repeat;
   background-size: 17px 24px;
   border-left: 1px solid #e6e6eb;
 }
 
 .footLink {
+  opacity: 0;
+}
+
+.footLink.active {
+  opacity: 1;
   position: fixed;
-  left: 0;
   bottom: 0;
+  left: 0;
   z-index: 100;
   padding: 1% 0;
   width: 100%;
@@ -485,28 +502,5 @@
   top: 3px;
   left: 50%;
   margin-left: -16px;
-}
-
-.footLink-back {
-  position: relative;
-  opacity: 0;
-  padding: 1% 0;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  border-top: 1px solid #e6e6eb;
-  background: #fff;
-}
-
-.footLink-back a {
-  display: inline-block;
-  font-size: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 33%;
-  height: 100%;
-  padding-top: 36px;
-  vertical-align: top;
-  position: relative;
 }
 /*# sourceMappingURL=style.css.map */
