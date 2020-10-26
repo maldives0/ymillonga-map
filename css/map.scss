@@ -179,7 +179,6 @@ $borc: #e6e6eb;
            
            .item {
               
-         
                 border: 1px solid rgba(34, 34, 40, 0.15);
                 background:#fff;
                 margin-right: 20px;
@@ -223,6 +222,13 @@ $borc: #e6e6eb;
                            
                             text-transform:uppercase;
                            
+                        }
+                        #idx{
+                            text-align:center;
+                            vertical-align: center;
+                            width:25px; height:25px;
+                            border-radius:100%;
+                            border: 2px solid #4aa0ec;
                         }
                         > span {
                            display:none;

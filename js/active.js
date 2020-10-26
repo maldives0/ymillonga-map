@@ -56,7 +56,7 @@
             ko = el.ko;
            
      
-        liToday += "<li class='item f_b' id='" + idx + "'>";
+        liToday += "<li class='item' id='" + idx + "'>";
         liToday += "<div class='thumb'><a class='linkA' id='"+idx+"' href='"+url+"'><img src='"+thumb+"' alt='"+en+"'></a></div>";
         liToday += "<div class='summary'><h3>"+en+"</h3>";
         liToday += "<small>"+address+"</small></div></li>";
@@ -66,7 +66,9 @@
         });
        
         listLink();
-        drag();
+        const listBox = document.querySelector('.data-wrap'),
+         item = listBox.querySelectorAll('.item');
+        drag(item,listBox,ulToday);
      }//todaylist
 
      function listLink(){  
@@ -87,16 +89,24 @@
      
     };
    
-   const nearBox = document.querySelector('.nearbox') 
+   const nearBox = document.querySelector('.nearbox'),
+   moreBox = document.querySelector('.morebox'),
+   footLink = document.querySelector('.footLink');
    ;
-    const nH = nearBox.offsetHeight;
-   
+    const nH = nearBox.offsetTop,
+    mH = moreBox.offsetTop;
+  
     window.addEventListener('scroll',function(){
-        console.log(window.scrollY);
-        if(nH-100 < window.scrollY){
+      
+        if(nH-400 <= window.scrollY){
             searchBox.classList.add('active');
         }else{
             searchBox.classList.remove('active');
+        }
+        if(mH/2 < window.scrollY){
+            footLink.classList.add('active');
+        }else{
+            footLink.classList.remove('active');
         }
     });
    
@@ -148,12 +158,14 @@
         
         mapSearch();
         
+        const listBox = document.querySelector('.listbox'),
+         item = listBox.querySelectorAll('.item');
+        drag(item,listBox,ulEle);
     }//datafun
 
        //drag
-    function drag() {
-        const item = document.querySelectorAll('.item');
-        const listBox = document.querySelector('.data-wrap');
+    function drag(item,listBox,ulDiv) {
+       
         const listLen = item.length;
      
         listBox.style = "transform:translateX(0px);";
@@ -205,8 +217,8 @@
                 //prev
                 if (idxList != 0) idxList--;
             }
-            console.log(idxList);
-            setTimeout(function () { ulToday.style = "transform:translateX(" + (-360 * idxList) + "px);"; }, 100);
+           
+            setTimeout(function () { ulDiv.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
 
         };
 
@@ -402,6 +414,8 @@
 
                     map.setCenter(new kakao.maps.LatLng(posChoice[idxMarker].lat, posChoice[idxMarker].lng));
                     //리스트 드래그 좌표 움직이기
+                    setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxMarker) + "px);"; }, 100);
+                    idxList = idxMarker;
                    
 
                 }
@@ -427,6 +441,8 @@
          const item = document.querySelectorAll('.listbox .item');
          item.forEach(function(b,c){
             b.addEventListener('dblclick',function(){
+               
+                 window.scrollTo(0,nH-200);
                 if (!selectedMarker || selectedMarker !== arrMarker[c]) {
 
                     // 클릭된 마커 객체가 null이 아니면
@@ -441,7 +457,8 @@
                  arrMarker[c].setImage(markerClick);
                  
                  map.setCenter(new kakao.maps.LatLng(posChoice[c].lat, posChoice[c].lng));
-                
+                 setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * c) + "px);"; }, 100);
+                    idxList = c;
                
                 } else {
                     // 클릭된 마커가 있고, 전 click 마커가 현 클릭된 마커와 같다면
