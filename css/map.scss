@@ -105,11 +105,7 @@ $borc: #e6e6eb;
                     }
                     p {
                         color: #9999a0;
-        
-                        span {
-                            font-size: 14px;
-                        }
-                    }
+                                     }
                 }
 
                 .level {
@@ -183,14 +179,15 @@ $borc: #e6e6eb;
            
            .item {
               
-            flex-direction: column;
+         
                 border: 1px solid rgba(34, 34, 40, 0.15);
                 background:#fff;
                 margin-right: 20px;
                 padding: 16px 15px;
                 border: 1px solid $borc;
                 width: 430px; 
-            display:flex;
+                display:flex;
+                flex-direction: column;
               .con{
                 margin-left:1%;
                 .leftsec {

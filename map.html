@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/map.css" text="text/css">
-   
+
     <script type="text/javascript"
-    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services"></script>
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae"></script>
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services"></script>
+    <script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae"></script>
     <script src="js/map.js"></script>
     <title>Document</title>
 </head>
@@ -18,45 +19,50 @@
     <div class="background">
         <div class="searchbox">
             <a class="back" href="index.html"></a>
-           <form>
-            <div class="inputarea f_b">
-                <input type="text" placeholder="밀롱가 이름으로 검색해보세요" 
-                >
-                <button style="display:none"></button>
-                <div>
-                    <a id="findMe" href="#">
-                        <img src="img/ic_search.png" alt="">
-                    </a>
+            <form>
+                <div class="inputarea f_b">
+                    <input type="text" placeholder="밀롱가 이름으로 검색해보세요">
+                    <button style="display:none"></button>
+                    <div>
+                        <a id="findMe">
+                            <img src="img/ic_search.png" alt="">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
-       
+
         <div class="nearbox">
-           
             <div class="mapbox">
-                
+
                 <div class="distance f_a">
                     <div class="nearby">
                         <h3>내주변 밀롱가</h3>
                         <p>
-                            <span id="nearby_count">10</span><span>곳의 밀롱가 (내주변 </span><span id="nearby_dis">500m</span>)
+                            <span id="mapLevel">현재 지도 확대영역 : 250m</span>
                         </p>
                     </div>
                     <div class="level f_a">
-                    <a><p>30m</p></a>
-                    
-                    <a><p>100m</p></a>
-                  
-                    <a><p>500m</p></a>
-                   
-                    <a><p>2km</p> </a>
-                    <a><p>8km</p> </a>
-                </div>
+                        <a>
+                            <p>30m</p>
+                        </a>
+                        <a>
+                            <p>100m</p>
+                        </a>
+                        <a>
+                            <p>500m</p>
+                        </a>
+                        <a>
+                            <p>2km</p>
+                        </a>
+                        <a>
+                            <p>8km</p>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="map">
-                
+
                     <div id="map" style="width:100%;height:100vh;"></div>
                     <p style="margin-top:12px">
                         <em class="link">
@@ -69,15 +75,12 @@
                     <p>
                         <b>Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
                     </p>
-                   
+
                 </div>
             </div>
-
         </div>
-
     </div>
     <div class="slider">
-
         <div class="listbox">
             <ul class="items"></ul>
         </div>

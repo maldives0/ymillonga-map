@@ -17,7 +17,7 @@ $borc: #e6e6eb;
     position: fixed;
     left: 0;
     top: 0;
-    padding: 2vw 0 0 2vw;
+    
     z-index: 100;
     width: 100%;
     background: #fff;
@@ -25,7 +25,7 @@ $borc: #e6e6eb;
         display: block;
         float: left;
         width: 24vw;
-
+        padding: 2vw 0 0 2vw;
         img {
             width: 100%;
         }
@@ -59,9 +59,13 @@ $borc: #e6e6eb;
         }
     }
     .searchbox {
+        display:none;
         width: 100%;
         padding: 3vw 5vw;
         background: #fff;
+        &.active{
+            display:block;
+        }
         .inputarea {
             position: relative;
             padding: 10px 0;
@@ -105,8 +109,8 @@ $borc: #e6e6eb;
 
 .background {
     background: $bc;
-    padding-top: 1vh;
-
+    padding-top: 20vh;
+  
     .page {
         margin: 6vw 4vw;
         .today-list {
@@ -119,14 +123,19 @@ $borc: #e6e6eb;
                 background: #fff;
                 padding: 4vw;
                 width: 100%;
-                height: 77vw;
+                height: 73vw;
                 position: relative;
                 overflow:hidden;
-
+                &.active{
+                    cursor:grabbing;
+                    transform:scale(1);
+                    background:rgba(255,255,255,0.3);
+                }
                 .items {
                     position: relative;
                     width:100%;
-                    overflow:hidden;
+                    display:flex;
+                    transition:transform 3s ease-in-out;
                    white-space:nowrap;
                    transition:all .2s;
                    transform:scale(0.98);
@@ -134,22 +143,17 @@ $borc: #e6e6eb;
                    user-select:none;
                    cursor:move;
                     margin-left: 5vw;
-                    
-                    &.active{
-                        cursor:grabbing;
-                        transform:scale(1);
-                        background:rgba(255,255,255,0.3);
-                    }
-
+                   
                     .item {
-                      display:inline-block;
+                        display:flex;
+                        flex-direction: column;
                         width: 53vw;
                         margin-right: 10vw;
                         .thumb {
                             width: 100%;
-                            height: 53vw;
+                            height: 50vw;
                             img {
-                                width: 100%;
+                                width: 300px;
                                 height: 100%;
                                 border-radius: 3vw;
                             }
@@ -181,103 +185,156 @@ $borc: #e6e6eb;
             }
         }
     }
-
     .nearbox {
         background: #fff;
-        margin-top: 10px;
-        padding-top: 10px;
-        .nearby {
-            padding: 0 15px;
-            h3 {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-            p {
-                color: #9999a0;
-
-                span {
-                    font-size: 14px;
-                }
-            }
-        }
+        margin-top: 50px;
+        
+       
         .mapbox {
             border-top: 1px solid $borc;
-            margin-top: 20px;
+           
             .distance {
-                padding-top: 10px;
+                
+                width:100%;
+                padding: 10px;
                 margin-bottom: 5px;
+                background:#fff;
+                flex-wrap:wrap;
+                .nearby {
+                    width:100%;
+                    padding: 0 15px;
+                    
+                    h3 {
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
+                    p {
+                        color: #9999a0;
+                                     }
+                }
+
+                .level {
+                    flex-wrap:wrap;
+                  > a{
+                       cursor:pointer;
+                        text-align:center;
+                        padding:3px 25px;
+                        width:100%;
+                        flex:1;
+                        p{
+                            width:100%;
+                         
+                       
+                        }
+                        }
+                }
+               
             }
             .map {
-                height: 138px;
+                height: auto;
+              
+               > p{
+                margin-top:3px;
+                color: #9999a0;
+                font-size:10px;
+                a{
+                    font-size:10px;
+                    color: #9999a0;
+                }
+               }
             }
+           
         }
         .listbox {
-            ul {
+            overflow-y:auto;
+            width:100%;
+            height:30vh;
+            .items {
+                border-radius: 2px;
+                padding: 10px 0;
                 font-size: 14px;
-                li {
-                    position: relative;
-                    padding: 16px 15px;
-                    border-bottom: 1px solid $borc;
-                    width: 100%;
+                position: relative;
+               display:flex;
+               flex-direction:column;
+                height:200px;
+                transition:transform 3s ease-in-out;
+               white-space:nowrap;
+               transition:all .2s;
+               transform:scale(0.98);
+               will-change:transform;
+               user-select:none;
+               cursor:move;
+                
+              
+                &.active{
+                    cursor:grabbing;
+                    transform:scale(1);
+                    background:rgba(255,255,255,0.3);
+                }
+               
+               .item {
+                   border: 1px solid rgba(34, 34, 40, 0.15);
+                    background:#fff;
+                    padding: 2px 3px;
+                    border: 1px solid $borc;
+                    display:flex;
+                    flex-direction: column;
+                  .con{
+                    width:100%;
                     .leftsec {
                         display: inline-block;
-                        width: 20%;
+                       flex:2;
                         font-size: 0;
-                        vertical-align: top;
-                        height: 70px;
-                        overflow: hidden;
-                        background: url(../img/tangocafe.jpg) center no-repeat;
-                        background-size: auto 100%;
-                    }
+                           
+                        .thumb {
+                            width:100%; height:100px;
+                           > a{
+                               width:100%; height:100%;
+                            }
+                            img {
+                                width:100px; height:100px;
+                              
+                                border-radius: 3vw;
+                            }
+                          }
+                        }
                     .rightsec {
-                        width: 80%;
+                        flex:5;
                         display: inline-block;
                         vertical-align: top;
                         box-sizing: border-box;
-                        padding: 0 10px;
+                       margin-left:50px;
                         font-size: 0;
-                        h4 {
-                            font-size: 16px;
+                         > div{
                             margin-bottom: 6px;
-                            position: relative;
-                            .list_lo {
-                                font-size: 12px;
-                                color: #999999;
+                            > h4 {
+                                font-size: 16px;
+                                text-transform:uppercase;
+                            }
+                            > span {
+                               display:none;
                             }
                         }
-                        .info {
+                       
+                       > h6 {
+                       
                             color: #9999a0;
-                            margin-bottom: 6px;
-                            .list_dis {
-                                font-size: 12px;
-                                color: #999999;
-                            }
+                            margin-bottom: 10px;
                         }
-                        .appraisal {
-                            .like {
-                                background: url(../img/ic_like.png) no-repeat;
-                                background-size: 16px 16px;
-                                padding-left: 21px;
-                            }
-                            .write {
-                                margin-left: 14px;
-                                background: url(../img/ic_write.png) no-repeat;
-                                background-size: 16px 16px;
-                                padding-left: 21px;
-                            }
+                        
+                        .address {
+                            font-size: 13px;
+                            color: #9999a0;
+                            white-space:pre-wrap;
                         }
-                    }
-                    a {
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
+                     }
+                   }
                 }
+              }
             }
-        }
-        .morebox {
+         }
+         .morebox {
+             border-top:1px solid $borc;
             a {
                 display: inline-block;
                 padding-right: 22px;
@@ -299,8 +356,12 @@ $borc: #e6e6eb;
                 border-left: 1px solid $borc;
             }
         }
-    }//ne
-}
+    }
+
+    
+    
+  
+
 .footLink {
     position: fixed;
     left: 0;
