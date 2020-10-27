@@ -1,4 +1,15 @@
 window.addEventListener('DOMContentLoaded', function () {
+   
+    
+// function includeJs(jsFilePath){
+//     const js = document.createElement('script');
+//     js.type="text/javascript";
+//     js.src = jsFilePath;
+//     document.head.appendChild(js);
+// }
+
+// includeJs("https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services");
+// includeJs("https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae");
     const data = new XMLHttpRequest();
     let response;
     const ulEle = document.querySelector('.items');
