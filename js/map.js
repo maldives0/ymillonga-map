@@ -1,15 +1,7 @@
 window.addEventListener('DOMContentLoaded', function () {
    
     
-// function includeJs(jsFilePath){
-//     const js = document.createElement('script');
-//     js.type="text/javascript";
-//     js.src = jsFilePath;
-//     document.head.appendChild(js);
-// }
 
-// includeJs("https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae&libraries=services");
-// includeJs("https://dapi.kakao.com/v2/maps/sdk.js?appkey=8b6e7d1febec2531cf530da029f11dae");
     const data = new XMLHttpRequest();
     let response;
     const ulEle = document.querySelector('.items');
@@ -29,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
         this.content = content;
     };
 
-
+   
 
     data.open('Get', 'millonga.json', true);
     data.send(null);
@@ -51,12 +43,14 @@ window.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         response = JSON.parse(data.responseText);
-
+       
         ulEle.innerHTML = '';
         input.addEventListener('change', function (e) {
             inputVal = e.target.value;
             posChoice = [];
             getFindMe();
+            listLen=0,idxList=0;
+            ulEle.style = "transform:translateX(0px);";
         });
 
         response.millonga.forEach(function (el, idx) {
@@ -83,29 +77,28 @@ window.addEventListener('DOMContentLoaded', function () {
                 input.value = '';
                 input.focus();
 
-            } else if (!a || !b) {
-
+            } 
+           else if (!a || !b) {
                 input.value = '';
                 input.focus();
+                       
             }
 
 
         });//foreach
-
+        
+      
         mapSearch();
-        drag();
+      
     }//datafun
 
 
 
     //drag
-    function drag() {
-        const item = document.querySelectorAll('.item');
+    function drag(item) {
+     
         const listBox = document.querySelector('.listbox');
-        const listLen = item.length;
-       
-        listBox.style = "transform:translateX(0px);";
-
+        listLen = item.length;
 
         let isDown = false;
         let startX;
@@ -115,14 +108,15 @@ window.addEventListener('DOMContentLoaded', function () {
         listBox.addEventListener('mousedown', (e) => {
             isDown = true;
             listBox.classList.add('active');
-            startX = e.pageX - ulEle.offsetLeft;
+            startX = e.pageX - listBox.offsetLeft;
+           
             scrollLeft = ulEle.scrollLeft;
 
         });
 
         listBox.addEventListener('mousemove', (e) => {
-            endX = e.pageX - ulEle.offsetLeft;
-
+            endX = e.pageX - listBox.offsetLeft;
+           
             if (!isDown) return endX;
             e.preventDefault();
 
@@ -136,26 +130,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
         });
 
-        listBox.addEventListener('mouseup', (e) => {
-
-            isDown = false;
-            listBox.classList.remove('active');
-            endPos();
-
-        });
-
+        item.forEach(function(el){
+            el.addEventListener('mouseup', (e) => {
+                console.log(e.currentTarget);
+                 isDown = false;
+                 listBox.classList.remove('active');
+                 endPos();
+     
+             });
+        })
+      
         function endPos() {
+          
             if (startX > endX) {
                 //next
 
-                if (idxList != listLen - 1) idxList++;
+                if (idxList < listLen - 1) idxList++;
+               
             } else {
                 //prev
                 if (idxList != 0) idxList--;
             }
-
+           
+          
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxList) + "px);"; }, 100);
-
+           
         };
 
     }//list drag
@@ -168,7 +167,10 @@ window.addEventListener('DOMContentLoaded', function () {
     //map
 
     function mapSearch() {
-
+        const item = document.querySelectorAll('.item');
+      
+      
+        drag(item);
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
         const enChoice = document.querySelectorAll('#en');
@@ -199,8 +201,9 @@ window.addEventListener('DOMContentLoaded', function () {
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
 
-                markerEvent(posChoice);
+               
                 findMeBtn.addEventListener('click', getFindMe);
+                markerEvent(posChoice);
             }//if
         });
 
@@ -210,7 +213,7 @@ window.addEventListener('DOMContentLoaded', function () {
     //marker click
     let mapContainer, mapOption, map;
     function markerEvent(posChoice) {
-       
+      
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 
             mapOption = {
@@ -351,7 +354,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     //리스트 드래그 좌표 움직이기
                     setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxMarker) + "px);"; }, 100);
                     idxList = idxMarker;
-
+                   
                 }
 
                 else {
@@ -392,6 +395,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 
                  setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * c) + "px);"; }, 100);
                  idxList = c;
+                
                 } else {
                     // 클릭된 마커가 있고, 전 click 마커가 현 클릭된 마커와 같다면
                     selectedMarker.setImage(selectedMarker.normalImage);
