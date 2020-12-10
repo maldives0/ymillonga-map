@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 node_modules
 <<<<<<< HEAD
 test/
 =======
 >>>>>>> 551422d... fixed untracked files
+=======
+node_modules/
+test/
+
+>>>>>>> fb83488... mapPointer

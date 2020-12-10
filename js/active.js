@@ -121,6 +121,8 @@ window.addEventListener('DOMContentLoaded', function () {
             inputVal = e.target.value;
             posChoice = [];
             getFindMe();
+            listLen=0,idxList=0;
+            ulEle.style = "transform:translateX(0px);";
         });
 
         response.millonga.forEach(function (el, idx) {
@@ -158,18 +160,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
         mapSearch();
 
-        const listBox = document.querySelector('.listbox'),
-            item = listBox.querySelectorAll('.item');
-        drag(item, listBox, ulEle);
+       
     }//datafun
 
-    //drag
-    function drag(item, listBox, ulDiv) {
-
-        const listLen = item.length;
-
-        listBox.style = "transform:translateX(0px);";
-
+    function drag(item, listBox, ulEle) {
+     
+      
+        listLen = item.length;
 
         let isDown = false;
         let startX;
@@ -179,14 +176,15 @@ window.addEventListener('DOMContentLoaded', function () {
         listBox.addEventListener('mousedown', (e) => {
             isDown = true;
             listBox.classList.add('active');
-            startX = e.pageX - ulEle.offsetLeft;
+            startX = e.pageX - listBox.offsetLeft;
+           
             scrollLeft = ulEle.scrollLeft;
 
         });
 
         listBox.addEventListener('mousemove', (e) => {
-            endX = e.pageX - ulEle.offsetLeft;
-
+            endX = e.pageX - listBox.offsetLeft;
+           
             if (!isDown) return endX;
             e.preventDefault();
 
@@ -200,26 +198,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
         });
 
-        listBox.addEventListener('mouseup', (e) => {
-
-            isDown = false;
-            listBox.classList.remove('active');
-            endPos();
-
-        });
-
+        item.forEach(function(el){
+            el.addEventListener('mouseup', (e) => {
+                console.log(e.currentTarget);
+                 isDown = false;
+                 listBox.classList.remove('active');
+                 endPos();
+     
+             });
+        })
+      
         function endPos() {
+          
             if (startX > endX) {
                 //next
 
-                if (idxList != listLen - 1) idxList++;
+                if (idxList < listLen - 1) idxList++;
+               
             } else {
                 //prev
                 if (idxList != 0) idxList--;
             }
-
-            setTimeout(function () { ulDiv.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
-
+           
+          
+            setTimeout(function () { ulEle.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
+           
         };
 
     }//list drag
@@ -232,6 +235,10 @@ window.addEventListener('DOMContentLoaded', function () {
     //map
     let mapContainer, mapOption, map, geocoder;
     function mapSearch() {
+        const listBox = document.querySelector('.listbox'),
+        item = listBox.querySelectorAll('.item');
+      
+    drag(item, listBox, ulEle);
 
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
@@ -442,7 +449,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         const item = document.querySelectorAll('.listbox .item');
         item.forEach(function (b, c) {
-            b.addEventListener('click', function () {
+            b.addEventListener('dblclick', function () {
 
                 window.scrollTo(0, nH - 200);
                 if (!selectedMarker || selectedMarker !== arrMarker[c]) {
@@ -579,5 +586,4 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
 });//end
-
 
