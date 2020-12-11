@@ -54,8 +54,8 @@
 }
 
 .header .morebox .moremap .desc img {
-  width: 64px;
-  height: 64px;
+  width: 50%;
+  height: 50%;
 }
 
 .header .location {

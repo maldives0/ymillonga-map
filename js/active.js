@@ -292,13 +292,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
         let markerImage, markerClick, infowindow, marker;
 
-        const imageSrc = "/img/map-marker-point.png",
+        const imageSrc = "img/map-marker-point.png",
             // 마커 이미지의 이미지 크기 입니다
             imageSize = new kakao.maps.Size(40, 55);
 
         // 마커 이미지를 생성합니다    
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-        const imageClick = "/img/map-marker-click.png", // 마커이미지의 주소입니다    
+        const imageClick = "img/map-marker-click.png", // 마커이미지의 주소입니다    
             clickSize = new kakao.maps.Size(34, 43), // 마커이미지의 크기입니다
             clickOption = { offset: new kakao.maps.Point(15, 55) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
