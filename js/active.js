@@ -1,6 +1,4 @@
 
-
-
 window.addEventListener('DOMContentLoaded', function () {
     const data = new XMLHttpRequest();
     const ulToday = document.querySelector('.today-list .items');
@@ -42,8 +40,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const findMeBtn = document.querySelector('#findMe');
 
     function todayList() {
-
-
         resToday = JSON.parse(data.responseText);
 
         ulToday.innerHTML = '';
@@ -80,7 +76,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
             });
             el.addEventListener('dblclick', function (e) {
-                console.log(this.href);
                 location.href = this.href;
             });
 
@@ -93,17 +88,15 @@ window.addEventListener('DOMContentLoaded', function () {
         moreBox = document.querySelector('.morebox'),
         footLink = document.querySelector('.footLink');
     ;
-    const nH = nearBox.offsetTop,
-        mH = moreBox.offsetTop;
+    const nH = nearBox.offsetTop;
 
     window.addEventListener('scroll', function () {
-
         if (nH - 400 <= window.scrollY) {
             searchBox.classList.add('active');
         } else {
             searchBox.classList.remove('active');
         }
-        if (mH / 2 < window.scrollY) {
+        if (nH - 200 <= window.scrollY) {
             footLink.classList.add('active');
         } else {
             footLink.classList.remove('active');
@@ -121,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
             inputVal = e.target.value;
             posChoice = [];
             getFindMe();
-            listLen=0,idxList=0;
+            listLen = 0, idxList = 0;
             ulEle.style = "transform:translateX(0px);";
         });
 
@@ -160,12 +153,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
         mapSearch();
 
-       
+
     }//datafun
 
     function drag(item, listBox, ulEle) {
-     
-      
+
+
         listLen = item.length;
 
         let isDown = false;
@@ -177,14 +170,14 @@ window.addEventListener('DOMContentLoaded', function () {
             isDown = true;
             listBox.classList.add('active');
             startX = e.pageX - listBox.offsetLeft;
-           
+
             scrollLeft = ulEle.scrollLeft;
 
         });
 
         listBox.addEventListener('mousemove', (e) => {
             endX = e.pageX - listBox.offsetLeft;
-           
+
             if (!isDown) return endX;
             e.preventDefault();
 
@@ -198,47 +191,43 @@ window.addEventListener('DOMContentLoaded', function () {
 
         });
 
-        item.forEach(function(el){
+        item.forEach(function (el) {
             el.addEventListener('mouseup', (e) => {
                 console.log(e.currentTarget);
-                 isDown = false;
-                 listBox.classList.remove('active');
-                 endPos();
-     
-             });
+                isDown = false;
+                listBox.classList.remove('active');
+                endPos();
+
+            });
         })
-      
+
         function endPos() {
-          
+
             if (startX > endX) {
                 //next
 
                 if (idxList < listLen - 1) idxList++;
-               
+
             } else {
                 //prev
                 if (idxList != 0) idxList--;
             }
-           
-          
+
+
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
-           
+
         };
 
     }//list drag
-
-
-
-
 
 
     //map
     let mapContainer, mapOption, map, geocoder;
     function mapSearch() {
         const listBox = document.querySelector('.listbox'),
-        item = listBox.querySelectorAll('.item');
-      
-    drag(item, listBox, ulEle);
+            item = listBox.querySelectorAll('.item');
+
+        drag(item, listBox, ulEle);
 
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
@@ -437,8 +426,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-
-
             });//click
 
             arrMarker.push(marker);
@@ -480,9 +467,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
             });
         });
-
-
-
 
     }//markerevent
 

@@ -449,9 +449,12 @@
   bottom: 0;
   left: 0;
   z-index: 100;
-  padding: 1% 0;
+  padding: 1.7% 0;
   width: 100%;
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-align: center;
   border-top: 1px solid #e6e6eb;
   background: #fff;
