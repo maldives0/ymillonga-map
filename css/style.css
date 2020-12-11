@@ -22,15 +22,40 @@
   background: #fff;
 }
 
-.header a {
+.header .morebox {
+  padding: 2vw;
+}
+
+.header .morebox a {
+  display: inline-block;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header .morebox .logo {
   display: block;
   float: left;
   width: 24vw;
-  padding: 2vw 0 0 2vw;
 }
 
-.header a img {
+.header .morebox .logo img {
   width: 100%;
+}
+
+.header .morebox .moremap {
+  display: block;
+  width: 25%;
+}
+
+.header .morebox .moremap .desc {
+  font-size: 10px;
+  text-align: center;
+}
+
+.header .morebox .moremap .desc img {
+  width: 64px;
+  height: 64px;
 }
 
 .header .location {
@@ -408,100 +433,5 @@
 .background .nearbox .mapInfo > p a {
   font-size: 10px;
   color: #9999a0;
-}
-
-.background .nearbox .morebox {
-  border-top: 1px solid #e6e6eb;
-  margin-bottom: 9vh;
-}
-
-.background .nearbox .morebox a {
-  display: inline-block;
-  padding-right: 22px;
-  width: 50%;
-  height: 45px;
-  font-size: 14px;
-  line-height: 45px;
-  text-align: center;
-  background: #f9f9fa;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.background .nearbox .morebox .morelist {
-  background: url(../img/ic_list.png) 80% 50% no-repeat;
-  background-size: 17px 24px;
-}
-
-.background .nearbox .morebox .moremap {
-  background: url(../img/ic_map.png) 80% 50% no-repeat;
-  background-size: 17px 24px;
-  border-left: 1px solid #e6e6eb;
-}
-
-.footLink {
-  opacity: 0;
-}
-
-.footLink.active {
-  opacity: 1;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  padding: 1% 0;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  border-top: 1px solid #e6e6eb;
-  background: #fff;
-}
-
-.footLink a {
-  display: inline-block;
-  font-size: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 33%;
-  height: 100%;
-  padding-top: 36px;
-  vertical-align: top;
-  position: relative;
-}
-
-.footLink .home:before {
-  background: url(../img/ic_logo-on.png) no-repeat;
-  background-size: 100% 100%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
-}
-
-.footLink .search:before {
-  background: url(../img/ic_person-off.png) no-repeat;
-  background-size: 100% 100%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
-}
-
-.footLink .about:before {
-  background: url(../img/ic_guide-off.png) center no-repeat;
-  background-size: 80% 80%;
-  width: 32px;
-  height: 32px;
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  margin-left: -16px;
 }
 /*# sourceMappingURL=style.css.map */

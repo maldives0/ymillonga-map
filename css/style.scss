@@ -17,18 +17,39 @@ $borc: #e6e6eb;
     position: fixed;
     left: 0;
     top: 0;
-    
-    z-index: 100;
+        z-index: 100;
     width: 100%;
     background: #fff;
-    a {
+    
+        .morebox {
+            padding: 2vw;
+                 a {
+               display: inline-block;
+               width: 50%;             
+             box-sizing: border-box;
+           }
+           .logo {
+            display: block;
+            float: left;
+            width: 24vw;
+            
+            img {
+                width: 100%;
+            }           
+       }
+       .moremap {
         display: block;
-        float: left;
-        width: 24vw;
-        padding: 2vw 0 0 2vw;
-        img {
-            width: 100%;
-        }
+       width:25%;
+       .desc{
+           font-size: 10px;
+           text-align: center;
+           img{
+            width: 64px;
+            height: 64px;
+                }  
+       }
+       
+    }
     }
     .location {
         width: 100%;
@@ -350,98 +371,9 @@ $borc: #e6e6eb;
                 }
          }
         }
-         .morebox {
-             border-top:1px solid $borc;
-             margin-bottom:9vh;
-            a {
-                display: inline-block;
-                padding-right: 22px;
-                width: 50%;
-                height: 45px;
-                font-size: 14px;
-                line-height: 45px;
-                text-align: center;
-                background: #f9f9fa;
-                box-sizing: border-box;
-            }
-            .morelist {
-                background: url(../img/ic_list.png) 80% 50% no-repeat;
-                background-size: 17px 24px;
-            }
-            .moremap {
-                background: url(../img/ic_map.png) 80% 50% no-repeat;
-                background-size: 17px 24px;
-                border-left: 1px solid $borc;
-            }
-        }
+    
     }
 
     
 }
   
-
-.footLink {
-    opacity:0;
-   
-    &.active{
-        opacity:1;
-        position:fixed;
-        bottom:0;left:0;
-        z-index: 100;
-        padding: 1% 0;
-        width: 100%;
-        height: auto;
-        text-align: center;
-        border-top: 1px solid $borc;
-        background: #fff;
-    }
-    a {
-        display: inline-block;
-        font-size: 10px;
-        box-sizing: border-box;
-        width: 33%;
-        height: 100%;
-        padding-top: 36px;
-        vertical-align: top;
-        position: relative;
-    }
-    .home {
-        &:before {
-            background: url(../img/ic_logo-on.png) no-repeat;
-            background-size: 100% 100%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
-    }
-    .search {
-        &:before {
-            background: url(../img/ic_person-off.png) no-repeat;
-            background-size: 100% 100%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
-    }
-    .about {
-        &:before {
-            background: url(../img/ic_guide-off.png) center no-repeat;
-            background-size: 80% 80%;
-            width: 32px;
-            height: 32px;
-            content: "";
-            position: absolute;
-            top: 3px;
-            left: 50%;
-            margin-left: -16px;
-        }
-    }
-}

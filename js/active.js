@@ -89,12 +89,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
     };
 
-    const nearBox = document.querySelector('.nearbox'),
-        moreBox = document.querySelector('.morebox'),
-        footLink = document.querySelector('.footLink');
+    const nearBox = document.querySelector('.nearbox');
     ;
-    const nH = nearBox.offsetTop,
-        mH = moreBox.offsetTop;
+    const nH = nearBox.offsetTop;
+
 
     window.addEventListener('scroll', function () {
 
@@ -103,15 +101,10 @@ window.addEventListener('DOMContentLoaded', function () {
         } else {
             searchBox.classList.remove('active');
         }
-        if (mH / 2 < window.scrollY) {
-            footLink.classList.add('active');
-        } else {
-            footLink.classList.remove('active');
-        }
+
     });
 
     function dataFun(e) {
-
         e.preventDefault();
 
         response = JSON.parse(data.responseText);
@@ -121,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
             inputVal = e.target.value;
             posChoice = [];
             getFindMe();
-            listLen=0,idxList=0;
+            listLen = 0, idxList = 0;
             ulEle.style = "transform:translateX(0px);";
         });
 
@@ -154,18 +147,14 @@ window.addEventListener('DOMContentLoaded', function () {
                 input.value = '';
                 input.focus();
             }
-
-
         });//foreach
 
         mapSearch();
 
-       
+
     }//datafun
 
     function drag(item, listBox, ulEle) {
-     
-      
         listLen = item.length;
 
         let isDown = false;
@@ -177,14 +166,14 @@ window.addEventListener('DOMContentLoaded', function () {
             isDown = true;
             listBox.classList.add('active');
             startX = e.pageX - listBox.offsetLeft;
-           
+
             scrollLeft = ulEle.scrollLeft;
 
         });
 
         listBox.addEventListener('mousemove', (e) => {
             endX = e.pageX - listBox.offsetLeft;
-           
+
             if (!isDown) return endX;
             e.preventDefault();
 
@@ -192,53 +181,48 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 
         listBox.addEventListener('mouseleave', (e) => {
-
             isDown = false;
             listBox.classList.remove('active');
 
         });
 
-        item.forEach(function(el){
+        item.forEach(function (el) {
             el.addEventListener('mouseup', (e) => {
                 console.log(e.currentTarget);
-                 isDown = false;
-                 listBox.classList.remove('active');
-                 endPos();
-     
-             });
+                isDown = false;
+                listBox.classList.remove('active');
+                endPos();
+
+            });
         })
-      
+
         function endPos() {
-          
+
             if (startX > endX) {
                 //next
 
                 if (idxList < listLen - 1) idxList++;
-               
+
             } else {
                 //prev
                 if (idxList != 0) idxList--;
             }
-           
-          
+
+
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
-           
+
         };
 
     }//list drag
-
-
-
-
 
 
     //map
     let mapContainer, mapOption, map, geocoder;
     function mapSearch() {
         const listBox = document.querySelector('.listbox'),
-        item = listBox.querySelectorAll('.item');
-      
-    drag(item, listBox, ulEle);
+            item = listBox.querySelectorAll('.item');
+
+        drag(item, listBox, ulEle);
 
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
@@ -260,8 +244,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-
         // 주소-좌표 변환 객체를 생성합니다
         geocoder = new kakao.maps.services.Geocoder();
         // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
@@ -278,7 +260,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
             }//if
         });
-
 
     }//mapsearch
 
@@ -306,12 +287,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     map.setLevel(changeLevel);
 
                     levelInfo.innerHTML = `현재 지도 확대영역: ${this.textContent}`;
-
                 });
-
         });
-
-
 
         let markerImage, markerClick, infowindow, marker;
 
@@ -358,13 +335,8 @@ window.addEventListener('DOMContentLoaded', function () {
                 // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             });
 
-
             // 마커가 지도 위에 표시되도록 설정합니다
-
-
             // 마커에 mouseover 이벤트를 등록합니다
-
-
             kakao.maps.event.addListener(marker, 'mouseover', function () {
 
                 // 클릭된 마커가 없고, mouseover된 마커가 클릭된 마커가 아니면
@@ -434,10 +406,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = null;
                     infowindow.close();
-
                 }
-
-
 
             });//click
 
@@ -545,9 +514,6 @@ window.addEventListener('DOMContentLoaded', function () {
             map.setCenter(locPosition);
 
         }
-
-
-
 
     }
     const regionBtn = document.querySelector('.hereBtn');
