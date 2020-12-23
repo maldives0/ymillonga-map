@@ -10,11 +10,11 @@
 
 .header .morebox {
   padding: 10px;
+  margin-right: 2%;
 }
 
 .header .morebox a {
   display: inline-block;
-  width: 20%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -31,7 +31,6 @@
 
 .header .morebox .moremap {
   display: block;
-  width: 25%;
 }
 
 .header .morebox .moremap .desc {
@@ -241,7 +240,7 @@
 
 .background .nearbox {
   background: #fff;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .background .nearbox .mapbox {
@@ -251,7 +250,7 @@
 .background .nearbox .mapbox .distance {
   width: 100%;
   padding: 10px;
-  margin-bottom: 5px;
+  margin: 2% 0;
   background: #fff;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;

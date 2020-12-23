@@ -12,9 +12,10 @@ $borc: #e6e6eb;
     background: #fff;    
         .morebox {
             padding: 10px;
+            margin-right: 2%;
                  a {
                display: inline-block;
-               width: 20%;             
+                  
              box-sizing: border-box;
            }
            .logo {
@@ -28,8 +29,7 @@ $borc: #e6e6eb;
        }
        .moremap {
         display: block;
-        width:25%;
-       .desc{
+              .desc{
            font-size: 10px;
            text-align: center;
            img{
@@ -200,19 +200,19 @@ $borc: #e6e6eb;
     }
     .nearbox {
         background: #fff;
-        margin-top: 40px;     
+        margin-top: 60px;     
         .mapbox {
             border-top: 1px solid $borc;           
             .distance {
                 width:100%;
                 padding: 10px;
-                margin-bottom: 5px;
+                margin: 2% 0;
                 background:#fff;
                 flex-wrap:wrap;
                 .nearby {
                     width:100%;
                     padding: 0 15px;
-                                        h3 {
+                    h3 {
                         font-size: 18px;
                         margin-bottom: 5px;
                     }
