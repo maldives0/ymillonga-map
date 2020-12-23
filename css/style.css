@@ -1,18 +1,4 @@
 @import url("common.css");
-.background .page .today-list {
-  border-radius: 4vw;
-  -webkit-box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
-          box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
-  background: #fff;
-  padding: 6vw 0;
-}
-
-.background .page .today-list h2 {
-  font-size: 7vw;
-  font-weight: 900;
-  padding: 0 4vw;
-}
-
 .header {
   position: fixed;
   left: 0;
@@ -23,12 +9,12 @@
 }
 
 .header .morebox {
-  padding: 2vw;
+  padding: 10px;
 }
 
 .header .morebox a {
   display: inline-block;
-  width: 50%;
+  width: 20%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -36,7 +22,7 @@
 .header .morebox .logo {
   display: block;
   float: left;
-  width: 24vw;
+  width: 10vw;
 }
 
 .header .morebox .logo img {
@@ -54,13 +40,13 @@
 }
 
 .header .morebox .moremap .desc img {
-  width: 50%;
-  height: 50%;
+  widows: 50px;
+  height: 50px;
 }
 
 .header .location {
   width: 100%;
-  padding: 2vw;
+  padding: 20px;
   position: relative;
   background: linear-gradient(30deg, #000000, #e74c3c);
 }
@@ -91,7 +77,7 @@
 .header .searchbox {
   display: none;
   width: 100%;
-  padding: 3vw 5vw;
+  padding: 2vw;
   background: #fff;
 }
 
@@ -146,14 +132,28 @@
 }
 
 .background .page {
-  margin: 6vw 4vw;
+  margin: 3vw 2vw;
+}
+
+.background .page .today-list {
+  border-radius: 4vw;
+  -webkit-box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
+          box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
+  background: #fff;
+  padding: 2vw;
+}
+
+.background .page .today-list h2 {
+  font-size: 30px;
+  font-weight: 900;
+  padding: 0 4vw;
 }
 
 .background .page .today-list .data-wrap {
   background: #fff;
-  padding: 4vw;
+  padding: 2vw;
   width: 100%;
-  height: 73vw;
+  height: 30vw;
   position: relative;
   overflow: hidden;
 }
@@ -187,7 +187,6 @@
       -ms-user-select: none;
           user-select: none;
   cursor: move;
-  margin-left: 5vw;
 }
 
 .background .page .today-list .data-wrap .items .item {
@@ -198,17 +197,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 53vw;
-  margin-right: 10vw;
+  width: 20vw;
+  margin-right: 7vw;
+  text-align: center;
 }
 
 .background .page .today-list .data-wrap .items .item .thumb {
-  width: 100%;
-  height: 50vw;
+  width: 200px;
+  height: 20vw;
 }
 
 .background .page .today-list .data-wrap .items .item .thumb img {
-  width: 300px;
+  width: 100%;
   height: 100%;
   border-radius: 3vw;
 }
@@ -219,21 +219,21 @@
 
 .background .page .today-list .data-wrap .items .item .summary > h3 {
   white-space: nowrap;
-  font-size: 4.7vw;
+  font-size: 14px;
   margin-top: 2vw;
   font-weight: 500;
-  width: 70%;
+  width: 100%;
   text-transform: uppercase;
 }
 
 .background .page .today-list .data-wrap .items .item .summary > small {
   opacity: 0.7;
-  font-size: 3.1vw;
+  font-size: 13px;
   display: block;
   margin-top: 1.5vw;
   color: #898989;
-  width: 55%;
-  height: 30px;
+  width: 100%;
+  height: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -241,7 +241,7 @@
 
 .background .nearbox {
   background: #fff;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .background .nearbox .mapbox {
@@ -433,5 +433,216 @@
 .background .nearbox .mapInfo > p a {
   font-size: 10px;
   color: #9999a0;
+}
+
+@media (max-width: 768px) {
+  .header .morebox .logo {
+    width: 16vw;
+  }
+  .header .location {
+    padding: 2vw;
+  }
+  .header .searchbox {
+    padding: 3vw 5vw;
+  }
+  .background .page {
+    margin: 6vw 4vw;
+  }
+  .background .page .today-list {
+    padding: 3vw;
+  }
+  .background .page .today-list h2 {
+    font-size: 5vw;
+  }
+  .background .page .today-list .data-wrap {
+    padding: 4vw;
+    height: 60vw;
+  }
+  .background .page .today-list .data-wrap .items {
+    margin-left: 3vw;
+  }
+  .background .page .today-list .data-wrap .items .item {
+    width: 43vw;
+    margin-right: 10vw;
+  }
+  .background .page .today-list .data-wrap .items .item .thumb {
+    width: 100%;
+    height: 40vw;
+  }
+  .background .page .today-list .data-wrap .items .item .summary > h3 {
+    font-size: 4vw;
+  }
+  .background .page .today-list .data-wrap .items .item .summary > small {
+    font-size: 2.5vw;
+    height: 25px;
+  }
+  .background .nearbox {
+    background: #fff;
+    margin-top: 50px;
+  }
+  .background .nearbox .mapbox {
+    border-top: 1px solid #e6e6eb;
+  }
+  .background .nearbox .mapbox .distance {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #fff;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .background .nearbox .mapbox .distance .nearby {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .background .nearbox .mapbox .distance .nearby h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .background .nearbox .mapbox .distance .nearby p {
+    color: #9999a0;
+  }
+  .background .nearbox .mapbox .distance .level {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .background .nearbox .mapbox .distance .level > a {
+    cursor: pointer;
+    text-align: center;
+    padding: 3px 25px;
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .background .nearbox .mapbox .distance .level > a p {
+    width: 100%;
+  }
+  .background .nearbox .mapbox .map {
+    height: auto;
+  }
+  .background .nearbox .listbox {
+    overflow: hidden;
+    width: 100%;
+    height: 20vh;
+  }
+  .background .nearbox .listbox .items {
+    border-radius: 2px;
+    padding: 10px 0;
+    font-size: 14px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 100;
+    width: 100%;
+    -webkit-transition: -webkit-transform 3s ease-in-out;
+    transition: -webkit-transform 3s ease-in-out;
+    transition: transform 3s ease-in-out;
+    transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
+    white-space: nowrap;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    will-change: transform;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: move;
+    margin-left: 20px;
+  }
+  .background .nearbox .listbox .items.active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .background .nearbox .listbox .items .item {
+    background: #fff;
+    margin-right: 20px;
+    padding: 3px 5px;
+    border: 1px solid #e6e6eb;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .background .nearbox .listbox .items .item .con {
+    width: 330px;
+  }
+  .background .nearbox .listbox .items .item .con .leftsec {
+    display: inline-block;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    font-size: 0;
+  }
+  .background .nearbox .listbox .items .item .con .leftsec .thumb {
+    width: 100%;
+    height: 100%;
+  }
+  .background .nearbox .listbox .items .item .con .leftsec .thumb > a {
+    width: 100%;
+    height: 100%;
+  }
+  .background .nearbox .listbox .items .item .con .leftsec .thumb img {
+    width: 100px;
+    height: 100px;
+    border-radius: 3vw;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+    height: 110px;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-left: 3px;
+    font-size: 0;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec > div {
+    margin-bottom: 6px;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec > div > h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec > div #idx {
+    text-align: center;
+    vertical-align: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 2px solid #4aa0ec;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec > div > span {
+    display: none;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec > h6 {
+    color: #9999a0;
+    margin-bottom: 10px;
+  }
+  .background .nearbox .listbox .items .item .con .rightsec .address {
+    font-size: 13px;
+    color: #9999a0;
+    white-space: pre-wrap;
+  }
+  .background .nearbox .mapInfo > p {
+    margin-top: 3px;
+    color: #9999a0;
+    font-size: 10px;
+  }
+  .background .nearbox .mapInfo > p a {
+    font-size: 10px;
+    color: #9999a0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

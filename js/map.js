@@ -274,12 +274,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
             });
 
-
             marker.normalImage = markerImage;
-
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-
-
 
             // 인포윈도우를 생성합니다
             infowindow = new kakao.maps.InfoWindow({
@@ -287,13 +283,8 @@ window.addEventListener('DOMContentLoaded', function () {
                 // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             });
 
-
             // 마커가 지도 위에 표시되도록 설정합니다
-
-
             // 마커에 mouseover 이벤트를 등록합니다
-
-
             kakao.maps.event.addListener(marker, 'mouseover', function () {
 
                 // 클릭된 마커가 없고, mouseover된 마커가 클릭된 마커가 아니면
@@ -303,7 +294,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     this.setImage(markerClick);
                     infowindow.open(map, this);
                     infowindow.setContent('<div style="padding:5px;">' + posChoice[idxMarker].content + '</div>');
-
                 }
 
             });
@@ -319,7 +309,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
                     this.setImage(markerImage);
                     infowindow.close();
-
                 }
 
             });
@@ -332,7 +321,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 // 클릭된 마커가 없거나, 전 click 마커가 현 클릭된 마커가 아니면
                 // 마커의 이미지를 클릭 이미지로 변경합니다
-
 
                 if (!selectedMarker || selectedMarker !== this) {
 
@@ -362,18 +350,13 @@ window.addEventListener('DOMContentLoaded', function () {
                     selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = null;
                     infowindow.close();
-
                 }
-
-
 
             });//click
 
             arrMarker.push(marker);
 
-
         }//for
-
 
         const item = document.querySelectorAll('.item');
         item.forEach(function (b, c) {
@@ -408,12 +391,9 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 
 
-
-
     }//markerevent
 
     function getFindMe() {
-
         // 
         map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -470,10 +450,6 @@ window.addEventListener('DOMContentLoaded', function () {
             map.setCenter(locPosition);
 
         }
-
-
-
-
     }
 
 
