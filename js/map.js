@@ -141,28 +141,16 @@ window.addEventListener('DOMContentLoaded', function () {
         })
 
         function endPos() {
-
-            if (startX > endX) {
-                //next
-
+            if (startX > endX) {                //next
                 if (idxList < listLen - 1) idxList++;
-
             } else {
                 //prev
                 if (idxList != 0) idxList--;
             }
-
-
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxList) + "px);"; }, 100);
-
         };
 
     }//list drag
-
-
-
-
-
 
     //map
 
@@ -200,7 +188,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
-
 
                 findMeBtn.addEventListener('click', getFindMe);
                 markerEvent(posChoice);
@@ -384,7 +371,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = null;
                     infowindow.close();
-
                 }
 
             });
@@ -397,9 +383,7 @@ window.addEventListener('DOMContentLoaded', function () {
         // 
         map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-
         let locPosition, message;
-
 
         // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
         if (navigator.geolocation) {

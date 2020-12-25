@@ -1,6 +1,4 @@
 
-
-
 window.addEventListener('DOMContentLoaded', function () {
     const data = new XMLHttpRequest();
     const ulToday = document.querySelector('.today-list .items');
