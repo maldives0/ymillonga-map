@@ -43,25 +43,23 @@ window.addEventListener('DOMContentLoaded', function () {
             ko = el.ko;
 
             liToday += "<li class='item' id='" + idx + "'>";
-            liToday += "<div class='thumb'><a class='linkA' id='" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div>";
+            liToday += "<div class='thumb'><a class='thumbLink' id='" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div>";
             liToday += "<div class='summary'><h3>" + en + "</h3>";
             liToday += "<small>" + address + "</small></div></li>";
 
             ulToday.innerHTML = liToday;
-
         });
 
         listLink();
-
         const listBox = document.querySelector('.data-wrap'),
             item = listBox.querySelectorAll('.item');
         drag(item, listBox, ulToday);
     }//todaylist
 
     function listLink() {
-        const itemA = document.querySelectorAll('.today-list .linkA');
+        const itemLink = document.querySelectorAll('.today-list .thumbLink');
 
-        itemA.forEach((el) => {
+        itemLink.forEach((el) => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
             });
@@ -75,7 +73,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const nearBox = document.querySelector('.nearbox');
     ;
     const nH = nearBox.offsetTop;
-
     window.addEventListener('scroll', function () {
         if (nH - 400 <= window.scrollY) {
             searchBox.classList.add('active');
@@ -156,10 +153,9 @@ window.addEventListener('DOMContentLoaded', function () {
                 listBox.classList.remove('active');
                 endPos();
             });
-        })
+        });
 
         function endPos() {
-
             if (startX > endX) {
                 //next
                 if (idxList < listLen - 1) idxList++;
@@ -167,7 +163,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 //prev
                 if (idxList != 0) idxList--;
             }
-
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-350 * idxList) + "px);"; }, 100);
         };
     }//list drag

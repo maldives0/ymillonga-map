@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 listBox.classList.remove('active');
                 endPos();
             });
-        })
+        });
 
         function endPos() {
             if (startX > endX) {
