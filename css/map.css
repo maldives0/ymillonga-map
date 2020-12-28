@@ -3,7 +3,7 @@
   background: #e6e6eb;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 .background .searchbox {
@@ -12,7 +12,7 @@
   top: 0;
   right: 0;
   width: 100%;
-  padding: 3vw 5vw;
+  padding: 2vw 5vw;
   background: #fff;
 }
 
@@ -73,11 +73,13 @@
 
 .background .nearbox {
   background: #fff;
-  margin-top: 50px;
 }
 
 .background .nearbox .mapbox {
   border-top: 1px solid #e6e6eb;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .background .nearbox .mapbox .distance {
@@ -95,15 +97,18 @@
 
 .background .nearbox .mapbox .distance .nearby {
   width: 100%;
-  padding: 0 15px;
+  padding-top: 15px;
 }
 
 .background .nearbox .mapbox .distance .nearby h3 {
   font-size: 18px;
   margin-bottom: 5px;
+  display: inline-block;
 }
 
 .background .nearbox .mapbox .distance .nearby p {
+  margin-left: 5px;
+  display: inline-block;
   color: #9999a0;
 }
 
@@ -128,21 +133,34 @@
 
 .background .nearbox .mapbox .map {
   height: auto;
-  margin-top: 120px;
+  margin-top: 19vh;
 }
 
-.background .nearbox .mapbox .map > p {
-  margin-top: 3px;
-  color: #9999a0;
+.background .nearbox .mapbox .mapInfo {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
 }
 
-.background .nearbox .mapbox .map > p a {
-  color: #9999a0;
+.background .nearbox .mapbox .mapInfo > p {
+  display: inline-block;
+  margin-top: 2px;
+  color: #000;
+  font-size: 10px;
+}
+
+.background .nearbox .mapbox .mapInfo > p a {
+  font-size: 10px;
+  color: #000;
 }
 
 .slider {
   position: relative;
-  bottom: 85px;
+  bottom: 200px;
   left: 0px;
   z-index: 100;
   width: 100%;
@@ -160,7 +178,6 @@
   display: flex;
   z-index: 100;
   width: 100%;
-  height: 200px;
   -webkit-transition: -webkit-transform 3s ease-in-out;
   transition: -webkit-transform 3s ease-in-out;
   transition: transform 3s ease-in-out;
@@ -191,7 +208,7 @@
   border: 1px solid rgba(34, 34, 40, 0.15);
   background: #fff;
   margin-right: 20px;
-  padding: 16px 15px;
+  padding: 10px;
   border: 1px solid #e6e6eb;
   width: 430px;
   display: -webkit-box;

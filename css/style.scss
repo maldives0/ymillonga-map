@@ -162,7 +162,7 @@ $borc: #e6e6eb;
                         margin-right: 7vw;
                         text-align:center;
                         .thumb {
-                            width: 200px;
+                            width: 20vw;
                             height: 20vw;
                             img {
                                 width: 100%;
@@ -236,8 +236,7 @@ $borc: #e6e6eb;
                
             }
             .map {
-                height: auto;
-              
+                height: auto;                      
                }
             }
            
@@ -271,7 +270,6 @@ $borc: #e6e6eb;
                 }
                
                 .item {
-                  
                     background:#fff;
                     margin-right: 20px;
                     padding: 3px 5px;
@@ -340,22 +338,21 @@ $borc: #e6e6eb;
                 }
               }
             }
-         }
+         }   
          .mapInfo{
-            > p{
-                margin-top:3px;
-                color: #9999a0;
-                font-size:10px;
-                a{
-                    font-size:10px;
-                    color: #9999a0;
-                }
-         }
-        }
-    
+            text-align:center;
+           > p{
+               display:inline-block;
+               margin-top:2px;
+               color: #9999a0;
+               font-size:10px;
+               a{
+                   font-size:10px;
+                   color: #9999a0;
+               }
+            }
+         }              
     }
-
-    
 }
   
 @media (max-width: 768px) {
