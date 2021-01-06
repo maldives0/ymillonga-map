@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const input = form.querySelector('input');
     let inputVal = '';
     let posChoice = [];
-
     function PosChoice(lat, lng, content) {
         this.lat = lat;
         this.lng = lng;
@@ -46,10 +45,8 @@ window.addEventListener('DOMContentLoaded', function () {
             liToday += "<div class='thumb'><a class='thumbLink' id='" + idx + "' href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div>";
             liToday += "<div class='summary'><h3>" + en + "</h3>";
             liToday += "<small>" + address + "</small></div></li>";
-
             ulToday.innerHTML = liToday;
         });
-
         listLink();
         const listBox = document.querySelector('.data-wrap'),
             item = listBox.querySelectorAll('.item');
@@ -58,7 +55,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function listLink() {
         const itemLink = document.querySelectorAll('.today-list .thumbLink');
-
         itemLink.forEach((el) => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -71,7 +67,6 @@ window.addEventListener('DOMContentLoaded', function () {
     };
 
     const nearBox = document.querySelector('.nearbox');
-    ;
     const nH = nearBox.offsetTop;
     window.addEventListener('scroll', function () {
         if (nH - 400 <= window.scrollY) {
@@ -101,7 +96,6 @@ window.addEventListener('DOMContentLoaded', function () {
             ko = el.ko;
             lat = el.lat;
             lng = el.lng;
-
             let a = en.match(inputVal);
             let b = ko.match(inputVal);
 
@@ -174,11 +168,10 @@ window.addEventListener('DOMContentLoaded', function () {
         const listBox = document.querySelector('.listbox'),
             item = listBox.querySelectorAll('.item');
         drag(item, listBox, ulEle);
-
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
         const enChoice = document.querySelectorAll('#en');
-        const koChoice = document.querySelectorAll('#ko');
+        // const koChoice = document.querySelectorAll('#ko');
         const addressChoice = document.querySelectorAll('.address');
         const idxChoice = document.querySelectorAll('#idx');
 
@@ -186,13 +179,11 @@ window.addEventListener('DOMContentLoaded', function () {
             (function (n) {
                 idxChoice[n].append(n + 1);
             })(i);
-
             let latNum, lngNum = 0;
             latNum = Number(latChoice[i].textContent);
             lngNum = Number(lngChoice[i].textContent);
             posChoice.push(new PosChoice(latNum, lngNum, `${i + 1}. ` + koChoice[i].textContent));
         }
-
         // 주소-좌표 변환 객체를 생성합니다
         geocoder = new kakao.maps.services.Geocoder();
         // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
@@ -210,7 +201,6 @@ window.addEventListener('DOMContentLoaded', function () {
     //marker click
     function markerEvent(posChoice) {
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-
             mapOption = {
                 center: new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng), // 지도의 중심좌표
                 level: 5 // 지도의 확대 레벨
@@ -232,13 +222,11 @@ window.addEventListener('DOMContentLoaded', function () {
         const imageSrc = "img/map-marker-point.png",
             // 마커 이미지의 이미지 크기 입니다
             imageSize = new kakao.maps.Size(40, 55);
-
         // 마커 이미지를 생성합니다    
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
         const imageClick = "img/map-marker-click.png", // 마커이미지의 주소입니다    
             clickSize = new kakao.maps.Size(34, 43), // 마커이미지의 크기입니다
             clickOption = { offset: new kakao.maps.Point(15, 55) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
         // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
         markerClick = new kakao.maps.MarkerImage(imageClick, clickSize, clickOption);
         // 마커가 표시될 위치입니다
@@ -256,13 +244,11 @@ window.addEventListener('DOMContentLoaded', function () {
             });
             marker.normalImage = markerImage;
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-
             // 인포윈도우를 생성합니다
             infowindow = new kakao.maps.InfoWindow({
                 content: posChoice[i].content,
                 // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             });
-
             // 마커가 지도 위에 표시되도록 설정합니다
             // 마커에 mouseover 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'mouseover', function () {
@@ -275,7 +261,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     infowindow.setContent('<div style="padding:5px;">' + posChoice[idxMarker].content + '</div>');
                 }
             });
-
             // 마커에 mouseout 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'mouseout', function () {
                 // 클릭된 마커가 없고, mouseout된 마커가 클릭된 마커가 아니면
@@ -293,11 +278,9 @@ window.addEventListener('DOMContentLoaded', function () {
                 if (!selectedMarker || selectedMarker !== this) {
                     // 클릭된 마커 객체가 null이 아니면
                     // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
-                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage)
-                        ;
+                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = this;
                     // 현재 클릭된 마커의 이미지는 클릭 이미지로 변경합니다
-
                     infowindow.open(map, this);
                     infowindow.setContent(posChoice[idxMarker].content);
                     this.setImage(markerClick);
@@ -324,8 +307,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 if (!selectedMarker || selectedMarker !== arrMarker[c]) {
                     // 클릭된 마커 객체가 null이 아니면
                     // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
-                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage)
-                        ;
+                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = arrMarker[c];
                     infowindow.open(map, arrMarker[c]);
                     infowindow.setContent(posChoice[c].content);
@@ -346,7 +328,6 @@ window.addEventListener('DOMContentLoaded', function () {
     function getFindMe() {
         map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         let locPosition, message;
-
         // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
         if (navigator.geolocation) {
             // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -364,7 +345,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     answer = arrContent.filter((v, i) => {
                         return v !== arrContent[i + 1];
                     });
-
                     if (answer[j] === posChoice[j].content) {
                         posFilter.push(posChoice[j]);
                     }
@@ -388,12 +368,10 @@ window.addEventListener('DOMContentLoaded', function () {
         kakao.maps.event.addListener(map, 'idle', function () {
             searchAddrFromCoords(map.getCenter(), displayCenterInfo);
         });
-
         function searchAddrFromCoords(coords, callback) {
             // 좌표로 행정동 주소 정보를 요청합니다
             geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
         }
-
         // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
         function displayCenterInfo(result, status) {
             if (status === kakao.maps.services.Status.OK) {

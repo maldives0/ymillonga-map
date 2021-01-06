@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', function () {
-
     const data = new XMLHttpRequest();
     let response;
     const ulEle = document.querySelector('.items');
@@ -9,7 +8,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const input = form.querySelector('input');
     let inputVal = '';
     let posChoice = [];
-
     function PosChoice(lat, lng, content) {
         this.lat = lat;
         this.lng = lng;
@@ -30,7 +28,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', dataFun);
     const findMeBtn = form.querySelector('#findMe');
-
     function dataFun(e) {
         e.preventDefault();
         response = JSON.parse(data.responseText);
@@ -51,7 +48,6 @@ window.addEventListener('DOMContentLoaded', function () {
             ko = el.ko;
             lat = el.lat;
             lng = el.lng;
-
             let a = en.match(inputVal);
             let b = ko.match(inputVal);
 
@@ -78,7 +74,6 @@ window.addEventListener('DOMContentLoaded', function () {
     function drag(item) {
         const listBox = document.querySelector('.listbox');
         listLen = item.length;
-
         let isDown = false;
         let startX;
         let endX;
@@ -92,7 +87,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         listBox.addEventListener('mousemove', (e) => {
             endX = e.pageX - listBox.offsetLeft;
-
             if (!isDown) return endX;
             e.preventDefault();
         });
@@ -121,15 +115,12 @@ window.addEventListener('DOMContentLoaded', function () {
             }
             setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxList) + "px);"; }, 100);
         };
-
     }//list drag
 
     //map
-
     function mapSearch() {
         const item = document.querySelectorAll('.item');
         drag(item);
-
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
         // const enChoice = document.querySelectorAll('#en');
@@ -141,7 +132,6 @@ window.addEventListener('DOMContentLoaded', function () {
             (function (n) {
                 idxChoice[n].append(n + 1);
             })(i);
-
             let latNum, lngNum = 0;
             latNum = Number(latChoice[i].textContent);
             lngNum = Number(lngChoice[i].textContent);
@@ -164,12 +154,10 @@ window.addEventListener('DOMContentLoaded', function () {
     let mapContainer, mapOption, map;
     function markerEvent(posChoice) {
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-
             mapOption = {
                 center: new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng), // 지도의 중심좌표
                 level: 5 // 지도의 확대 레벨
             };
-
         const levelA = document.querySelectorAll('.level a'),
             levelInfo = document.querySelector('#mapLevel');
 
@@ -198,7 +186,6 @@ window.addEventListener('DOMContentLoaded', function () {
         let arrMarker = [];
         let selectedMarker = null; // 클릭한 마커를 담을 변수
         for (var i = 0; i < posChoice.length; i++) {
-
             // 마커를 생성합니다
             marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
@@ -208,16 +195,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 clickable: true,
                 zIndex: i,
             });
-
             marker.normalImage = markerImage;
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-
             // 인포윈도우를 생성합니다
             infowindow = new kakao.maps.InfoWindow({
                 content: posChoice[i].content,
                 // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             });
-
             // 마커가 지도 위에 표시되도록 설정합니다
             // 마커에 mouseover 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'mouseover', function () {
@@ -230,10 +214,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     infowindow.setContent('<div style="padding:5px;">' + posChoice[idxMarker].content + '</div>');
                 }
             });
-
             // 마커에 mouseout 이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'mouseout', function () {
-
                 // 클릭된 마커가 없고, mouseout된 마커가 클릭된 마커가 아니면
                 // 마커의 이미지를 기본 이미지로 변경합니다
                 if (!selectedMarker || selectedMarker !== this) {
@@ -241,7 +223,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     infowindow.close();
                 }
             });
-
             // 마커에 클릭이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function () {
                 idxMarker = this.getZIndex();
@@ -250,8 +231,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 if (!selectedMarker || selectedMarker !== this) {
                     // 클릭된 마커 객체가 null이 아니면
                     // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
-                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage)
-                        ;
+                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = this;
                     // 현재 클릭된 마커의 이미지는 클릭 이미지로 변경합니다
                     infowindow.open(map, this);
@@ -278,8 +258,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 if (!selectedMarker || selectedMarker !== arrMarker[c]) {
                     // 클릭된 마커 객체가 null이 아니면
                     // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
-                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage)
-                        ;
+                    !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
                     selectedMarker = arrMarker[c];
                     infowindow.open(map, arrMarker[c]);
                     infowindow.setContent(posChoice[c].content);
@@ -298,7 +277,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }//markerevent
 
     function getFindMe() {
-        // 
         map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         let locPosition, message;
         // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
@@ -312,13 +290,11 @@ window.addEventListener('DOMContentLoaded', function () {
                 // 마커와 인포윈도우를 표시합니다
                 posChoice.push(new PosChoice(lat, lon, message));
                 let arrContent = [], answer = [], posFilter = [];
-
                 for (let j = 0; j < posChoice.length; j++) {
                     arrContent.push(posChoice[j].content);
                     answer = arrContent.filter((v, i) => {
                         return v !== arrContent[i + 1];
                     });
-
                     if (answer[j] === posChoice[j].content) {
                         posFilter.push(posChoice[j]);
                     }
@@ -326,14 +302,12 @@ window.addEventListener('DOMContentLoaded', function () {
                 markerEvent(posFilter);
                 map.setCenter(locPosition);
             });
-
         } else { // HTML5의 GeoLocation을 사용할 수 없을 때 마커 표시 위치와 인포윈도우 내용을 설정합니다
             locPosition = new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng),
                 message = 'geolocation을 사용할수 없어요..'
             map.setCenter(locPosition);
         }
     }
-
 });//end
 
 
