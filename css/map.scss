@@ -75,8 +75,7 @@ $borc: #e6e6eb;
                 }
             }
         }
-    }
-  
+    }  
     .nearbox {
         background: #fff;
         .mapbox {
@@ -106,7 +105,6 @@ $borc: #e6e6eb;
                         color: #9999a0;
                       }
                 }
-
                 .level {
                     flex-wrap:wrap;
                   > a{
@@ -118,11 +116,9 @@ $borc: #e6e6eb;
                         p{
                             width:100%;
                          }
-                   }
+                    }
                 }
-               
-            }
-           
+            }           
             .map {
                 height: auto;
                margin-top:19vh;             
@@ -156,24 +152,22 @@ $borc: #e6e6eb;
     width: 100%;
     height:auto;
     overflow:hidden;
-
     .listbox {
         .items {           
             border-radius: 2px;
             padding: 10px 0;
             font-size: 14px;
             position: relative;
-           display:flex;
+            display:flex;
             z-index:100;
             width:100%;            transition:transform 3s ease-in-out;
-           white-space:nowrap;
-           transition:all .2s;
-           transform:scale(0.98);
-           will-change:transform;
-           user-select:none;
-           cursor:move;
-            margin-left: 20px;
-          
+            white-space:nowrap;
+            transition:all .2s;
+            transform:scale(0.98);
+            will-change:transform;
+            user-select:none;
+            cursor:move;
+            margin-left: 20px;          
             &.active{
                 cursor:grabbing;
                 transform:scale(1);
@@ -231,8 +225,7 @@ $borc: #e6e6eb;
                         > span {
                            display:none;
                         }
-                    }
-                   
+                    }                   
                    > h6 {                   
                         color: #9999a0;
                         margin-bottom: 10px;
@@ -243,15 +236,13 @@ $borc: #e6e6eb;
                         white-space:pre-wrap;
                     }
                 }
-            }
-         
+            }         
             .appraisal {
                 margin:10px auto 0;
                 padding-top:10px;
                 width:94%;
                 text-align:left;
                 border-top:1px solid  #f0f0f3;
-              
                 .like {
                     background: url(../img/ic_like.png) no-repeat;
                     background-size: 16px 16px;
@@ -265,7 +256,6 @@ $borc: #e6e6eb;
                 }
             }
           }//item
-        }//items
-    
+        }//items    
    }//list
 }//slider

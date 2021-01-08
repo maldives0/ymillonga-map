@@ -104,7 +104,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 liEle += "<div class='con f_b'> <div class='leftsec'><div class='thumb'><a href='" + url + "'><img src='" + thumb + "' alt='" + en + "'></a></div></div>";
                 liEle += " <div class='rightsec'> <div class='f_b'><h4 class='f_b'>" + en + "</h4><p id='idx'></p><span id='lat'>" + lat + "</span><span id='lng'>" + lng + "</span></div><h6 id='ko'>" + ko + "</h6>";
                 liEle += " <p class='address'>" + address + "</p></div> </div>";
-
                 ulEle.innerHTML += liEle;
                 input.value = '';
                 input.focus();
@@ -128,21 +127,17 @@ window.addEventListener('DOMContentLoaded', function () {
             startX = e.pageX - listBox.offsetLeft;
             scrollLeft = ulEle.scrollLeft;
         });
-
         listBox.addEventListener('mousemove', (e) => {
             endX = e.pageX - listBox.offsetLeft;
             if (!isDown) return endX;
             e.preventDefault();
         });
-
         listBox.addEventListener('mouseleave', (e) => {
             isDown = false;
             listBox.classList.remove('active');
         });
-
         item.forEach(function (el) {
             el.addEventListener('mouseup', (e) => {
-                console.log(e.currentTarget);
                 isDown = false;
                 listBox.classList.remove('active');
                 endPos();
@@ -161,7 +156,6 @@ window.addEventListener('DOMContentLoaded', function () {
         };
     }//list drag
 
-
     //map
     let mapContainer, mapOption, map, geocoder;
     function mapSearch() {
@@ -170,8 +164,8 @@ window.addEventListener('DOMContentLoaded', function () {
         drag(item, listBox, ulEle);
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
-        const enChoice = document.querySelectorAll('#en');
-        // const koChoice = document.querySelectorAll('#ko');
+        // const enChoice = document.querySelectorAll('#en');
+        const koChoice = document.querySelectorAll('#ko');
         const addressChoice = document.querySelectorAll('.address');
         const idxChoice = document.querySelectorAll('#idx');
 
@@ -194,11 +188,10 @@ window.addEventListener('DOMContentLoaded', function () {
                 markerEvent(posChoice);
                 findMeBtn.addEventListener('click', getFindMe);
                 regionNow();
-            }//if
+            }
         });
     }//mapsearch
 
-    //marker click
     function markerEvent(posChoice) {
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
@@ -298,7 +291,6 @@ window.addEventListener('DOMContentLoaded', function () {
             });//click
             arrMarker.push(marker);
         }//for
-
 
         const item = document.querySelectorAll('.listbox .item');
         item.forEach(function (b, c) {

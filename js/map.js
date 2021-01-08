@@ -60,8 +60,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 ulEle.innerHTML += liEle;
                 input.value = '';
                 input.focus();
-            }
-            else if (!a || !b) {
+            } else if (!a || !b) {
                 input.value = '';
                 input.focus();
             }
@@ -118,6 +117,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }//list drag
 
     //map
+    let mapContainer, mapOption, map;
     function mapSearch() {
         const item = document.querySelectorAll('.item');
         drag(item);
@@ -146,12 +146,10 @@ window.addEventListener('DOMContentLoaded', function () {
             if (status === kakao.maps.services.Status.OK) {
                 findMeBtn.addEventListener('click', getFindMe);
                 markerEvent(posChoice);
-            }//if
+            }
         });
     }//mapsearch
 
-    //marker click
-    let mapContainer, mapOption, map;
     function markerEvent(posChoice) {
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
