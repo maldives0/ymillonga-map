@@ -150,9 +150,15 @@ $borc: #e6e6eb;
     left:0px;
     z-index: 100;
     width: 100%;
-    height:auto;
+    height:100%;
     overflow:hidden;
+    cursor:grab; 
     .listbox {
+        &.active{
+            cursor:grabbing;
+            transform:scale(1.05);
+            background:rgba(255,255,255,0.3);
+        }         
         .items {           
             border-radius: 2px;
             padding: 10px 0;
@@ -166,17 +172,11 @@ $borc: #e6e6eb;
             transform:scale(0.98);
             will-change:transform;
             user-select:none;
-            cursor:move;
-            margin-left: 20px;          
-            &.active{
-                cursor:grabbing;
-                transform:scale(1);
-                background:rgba(255,255,255,0.3);
-            }           
+            margin-left: 20px;                           
            .item {              
                 border: 1px solid rgba(34, 34, 40, 0.15);
                 background:#fff;
-                margin-right: 20px;
+                margin-right: 40px;
                 padding: 10px;
                 border: 1px solid $borc;
                 width: 430px; 
@@ -255,7 +255,7 @@ $borc: #e6e6eb;
                     padding-left: 21px;
                 }
             }
-          }//item
-        }//items    
-   }//list
-}//slider
+          }
+        }   
+   }
+}

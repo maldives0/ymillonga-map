@@ -78,37 +78,30 @@ window.addEventListener('DOMContentLoaded', function () {
         let endX;
 
         listBox.addEventListener('mousedown', (e) => {
-            isDown = true;
             listBox.classList.add('active');
-            startX = e.pageX - listBox.offsetLeft;
-            scrollLeft = ulEle.scrollLeft;
+            isDown = true;
+            startX = e.pageX;
         });
-
         listBox.addEventListener('mousemove', (e) => {
-            endX = e.pageX - listBox.offsetLeft;
+            listBox.classList.add('active');
+            endX = e.pageX;
             if (!isDown) return endX;
             e.preventDefault();
         });
-
         listBox.addEventListener('mouseleave', (e) => {
             isDown = false;
             listBox.classList.remove('active');
         });
-
-        item.forEach(function (el) {
-            el.addEventListener('mouseup', (e) => {
-                // console.log(e.currentTarget);
-                isDown = false;
-                listBox.classList.remove('active');
-                endPos();
-            });
+        listBox.addEventListener('mouseup', (e) => {
+            isDown = false;
+            listBox.classList.remove('active');
+            endPos();
         });
-
         function endPos() {
             if (startX > endX) {
                 //next
                 if (idxList < listLen - 1) idxList++;
-            } else {
+            } else if (startX < endX) {
                 //prev
                 if (idxList != 0) idxList--;
             }

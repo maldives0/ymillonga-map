@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
         listLink();
         const listBox = document.querySelector('.data-wrap'),
             item = listBox.querySelectorAll('.item');
-        drag(item, listBox, ulToday);
+        drag(item, listBox, ulToday);//오늘의 밀롱가 드레그하기
     }//todaylist
 
     function listLink() {
@@ -124,11 +124,11 @@ window.addEventListener('DOMContentLoaded', function () {
         listBox.addEventListener('mousedown', (e) => {
             isDown = true;
             listBox.classList.add('active');
-            startX = e.pageX - listBox.offsetLeft;
-            scrollLeft = ulEle.scrollLeft;
+            startX = e.pageX;
         });
         listBox.addEventListener('mousemove', (e) => {
-            endX = e.pageX - listBox.offsetLeft;
+            listBox.classList.add('active');
+            endX = e.pageX;
             if (!isDown) return endX;
             e.preventDefault();
         });
@@ -136,19 +136,16 @@ window.addEventListener('DOMContentLoaded', function () {
             isDown = false;
             listBox.classList.remove('active');
         });
-        item.forEach(function (el) {
-            el.addEventListener('mouseup', (e) => {
-                isDown = false;
-                listBox.classList.remove('active');
-                endPos();
-            });
+        listBox.addEventListener('mouseup', (e) => {
+            isDown = false;
+            listBox.classList.remove('active');
+            endPos();
         });
-
         function endPos() {
             if (startX > endX) {
                 //next
                 if (idxList < listLen - 1) idxList++;
-            } else {
+            } else if (startX < endX) {
                 //prev
                 if (idxList != 0) idxList--;
             }
@@ -161,7 +158,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function mapSearch() {
         const listBox = document.querySelector('.listbox'),
             item = listBox.querySelectorAll('.item');
-        drag(item, listBox, ulEle);
+        drag(item, listBox, ulEle);//map안의 리스트 드레그하기
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
         // const enChoice = document.querySelectorAll('#en');
@@ -295,7 +292,6 @@ window.addEventListener('DOMContentLoaded', function () {
         const item = document.querySelectorAll('.listbox .item');
         item.forEach(function (b, c) {
             b.addEventListener('dblclick', function () {
-                window.scrollTo(0, nH - 200);
                 if (!selectedMarker || selectedMarker !== arrMarker[c]) {
                     // 클릭된 마커 객체가 null이 아니면
                     // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
