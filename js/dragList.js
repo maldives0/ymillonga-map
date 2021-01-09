@@ -10,7 +10,6 @@ function dragList(moveX, listLen, idxList, item, listBox, ulEle) {
         startX = e.pageX;
     });
     listBox.addEventListener('mousemove', (e) => {
-        listBox.classList.add('active');
         endX = e.pageX;
         if (!isDown) return endX;
         e.preventDefault();
@@ -32,6 +31,7 @@ function dragList(moveX, listLen, idxList, item, listBox, ulEle) {
             //prev
             if (idxList != 0) idxList--;
         }
+        console.log('idxList', idxList)
         setTimeout(function () { ulEle.style = "transform:translateX(" + (moveX * idxList) + "px);"; }, 100);
     };
 }

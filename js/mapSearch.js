@@ -1,11 +1,55 @@
+import dragList from './dragList';
 
-function markerEvent(posChoice, mapContainer, mapOption, map, idxList) {
-    let idxMarker = 0
+function PosChoice(lat, lng, content) {
+    this.lat = lat;
+    this.lng = lng;
+    this.content = content;
+};
+let mapContainer = document.getElementById('map'),
+    mapOption,
+    map;
+const geocoder = new kakao.maps.services.Geocoder();
+function mapSearch(moveX, listLen, idxList, posChoice, findMeBtn, ulEle) {
+    const listBox = document.querySelector('.listbox'),
+        item = document.querySelectorAll('.item');
+    dragList(moveX, listLen, idxList, item, listBox, ulEle);
+    const latChoice = document.querySelectorAll('#lat');
+    const lngChoice = document.querySelectorAll('#lng');
+
+    const koChoice = document.querySelectorAll('#ko');
+    const addressChoice = document.querySelectorAll('.address');
+    const idxChoice = document.querySelectorAll('#idx');
+
+    for (let i = 0; i < latChoice.length; i++) {
+        (function (n) {
+            idxChoice[n].append(n + 1);
+        })(i);
+        let latNum, lngNum = 0;
+        latNum = Number(latChoice[i].textContent);
+        lngNum = Number(lngChoice[i].textContent);
+        posChoice.push(new PosChoice(latNum, lngNum, `${i + 1}. ` + koChoice[i].textContent));
+    }
+
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch(addressChoice[0].textContent, function (result, status) {
+        // 정상적으로 검색이 완료됐으면 
+        if (status === kakao.maps.services.Status.OK) {
+            findMeBtn.addEventListener('click', (function (posChoice) {
+                return function (e) { getFindMe(e, posChoice) }
+            })(posChoice), false);
+            markerEvent(posChoice, idxList, moveX, ulEle);
+            regionNow(map);
+        }
+    });
+}
+
+function markerEvent(posChoice, idxList, moveX, ulEle) {
     mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
             center: new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng), // 지도의 중심좌표
             level: 5 // 지도의 확대 레벨
         };
+
     const levelA = document.querySelectorAll('.level a'),
         levelInfo = document.querySelector('#mapLevel');
 
@@ -31,6 +75,7 @@ function markerEvent(posChoice, mapContainer, mapOption, map, idxList) {
     // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
     markerClick = new kakao.maps.MarkerImage(imageClick, clickSize, clickOption);
     // 마커가 표시될 위치입니다
+    let idxMarker = 0;
     let arrMarker = [];
     let selectedMarker = null; // 클릭한 마커를 담을 변수
     for (var i = 0; i < posChoice.length; i++) {
@@ -86,8 +131,8 @@ function markerEvent(posChoice, mapContainer, mapOption, map, idxList) {
                 infowindow.setContent(posChoice[idxMarker].content);
                 this.setImage(markerClick);
                 map.setCenter(new kakao.maps.LatLng(posChoice[idxMarker].lat, posChoice[idxMarker].lng));
-                //리스트 드래그 좌표 움직이기
-                setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxMarker) + "px);"; }, 100);
+                //해당 리스트로 드래그 좌표 움직이기
+                setTimeout(function () { ulEle.style = "transform:translateX(" + (moveX * idxMarker) + "px);"; }, 100);
                 idxList = idxMarker;
             }
             else {
@@ -98,22 +143,22 @@ function markerEvent(posChoice, mapContainer, mapOption, map, idxList) {
             }
         });//click
         arrMarker.push(marker);
-    }//for
-    const ulEle = document.querySelector('.items');
-    const item = document.querySelectorAll('.item');
-    item.forEach(function (b, c) {
-        b.addEventListener('dblclick', function () {
-            if (!selectedMarker || selectedMarker !== arrMarker[c]) {
+    };
+
+    const item = document.querySelectorAll('.listbox .item');
+    item.forEach(function (clickedItem, itemIdx) {
+        clickedItem.addEventListener('dblclick', function () {
+            if (!selectedMarker || selectedMarker !== arrMarker[itemIdx]) {
                 // 클릭된 마커 객체가 null이 아니면
                 // 전에 클릭된 마커의 이미지를 기본 이미지로 변경하고
                 !!selectedMarker && selectedMarker.setImage(selectedMarker.normalImage);
-                selectedMarker = arrMarker[c];
-                infowindow.open(map, arrMarker[c]);
-                infowindow.setContent(posChoice[c].content);
-                arrMarker[c].setImage(markerClick);
-                map.setCenter(new kakao.maps.LatLng(posChoice[c].lat, posChoice[c].lng));
-                setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * c) + "px);"; }, 100);
-                idxList = c;
+                selectedMarker = arrMarker[itemIdx];
+                infowindow.open(map, arrMarker[itemIdx]);
+                infowindow.setContent(posChoice[itemIdx].content);
+                arrMarker[itemIdx].setImage(markerClick);
+                map.setCenter(new kakao.maps.LatLng(posChoice[itemIdx].lat, posChoice[itemIdx].lng));
+                setTimeout(function () { ulEle.style = "transform:translateX(" + (moveX * itemIdx) + "px);"; }, 100);
+                idxList = itemIdx;
             } else {
                 // 클릭된 마커가 있고, 전 click 마커가 현 클릭된 마커와 같다면
                 selectedMarker.setImage(selectedMarker.normalImage);
@@ -122,6 +167,68 @@ function markerEvent(posChoice, mapContainer, mapOption, map, idxList) {
             }
         });
     });
-}
+};
 
-export default markerEvent;
+
+export function getFindMe(e, posChoice) {
+    map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    let locPosition, message;
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+    if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+            locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                message = '여기에 계신가요?!'; // 인포윈도우에 표시될 내용입니다
+            // 마커와 인포윈도우를 표시합니다
+            posChoice.push(new PosChoice(lat, lon, message));
+            let arrContent = [], answer = [], posFilter = [];
+            for (let j = 0; j < posChoice.length; j++) {
+                arrContent.push(posChoice[j].content);
+                answer = arrContent.filter((v, i) => {
+                    return v !== arrContent[i + 1];
+                });
+                if (answer[j] === posChoice[j].content) {
+                    posFilter.push(posChoice[j]);
+                }
+            }
+            markerEvent(posFilter);
+            map.setCenter(locPosition);
+            regionNow(map);
+        });
+    } else { // HTML5의 GeoLocation을 사용할 수 없을 때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+        locPosition = new kakao.maps.LatLng(posChoice[0].lat, posChoice[0].lng),
+            message = 'geolocation을 사용할수 없어요..'
+        map.setCenter(locPosition);
+    }
+};
+function regionNow(map) {
+
+    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+    // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
+    kakao.maps.event.addListener(map, 'idle', function () {
+        searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+    });
+    function searchAddrFromCoords(coords, callback) {
+        // 좌표로 행정동 주소 정보를 요청합니다
+        geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+    }
+    // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+    function displayCenterInfo(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            const regionInfo = document.querySelector('#hereNow');
+            for (var i = 0; i < result.length; i++) {
+                // 행정동의 region_type 값은 'H' 이므로
+                if (result[i].region_type === 'H') {
+                    regionInfo.innerHTML = '현위치 : ' + result[i].address_name;
+                    break;
+                }
+            }
+        }
+    }
+};
+
+
+
+export default mapSearch;

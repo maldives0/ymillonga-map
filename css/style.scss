@@ -28,10 +28,28 @@ $borc: #e6e6eb;
             }           
        }
        .moremap {
-        display: block;
-              .desc{
-           font-size: 10px;
-           text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        > p{ 
+            display: none; 
+            font-size:12px;           
+                   }
+        &:hover{
+            .mapView{
+                transform:scale((1.2));
+                background: url(../img/ic_map-on.png) no-repeat;
+               }
+            > p{ 
+                display: block;
+                       }
+                   }
+         .mapView{
+            height: 50px;
+            width: 35px;
+           background: url(../img/ic_map.png) no-repeat;
+           background-size: 100% 100%;        
            img{
             widows: 50px;
             height: 50px;
@@ -201,8 +219,8 @@ $borc: #e6e6eb;
             border-top: 1px solid $borc;           
             .distance {
                 width:100%;
-                padding: 10px;
-                margin: 2% 0;
+                margin-top: 2%;
+                padding: 5px;
                 background:#fff;
                 flex-wrap:wrap;
                 .nearby {
@@ -214,9 +232,10 @@ $borc: #e6e6eb;
                     }
                     p {
                         color: #9999a0;
-                                     }            
+                                     }    
                 }
                 .level {
+                    width: 90%;
                     flex-wrap:wrap;
                   > a{
                        cursor:pointer;
@@ -224,6 +243,9 @@ $borc: #e6e6eb;
                         padding:3px 25px;
                         width:100%;
                         flex:1;
+                        &:hover{
+                            background-color: aliceblue;
+                        }
                         p{
                             width:100%;
                          }
@@ -242,13 +264,13 @@ $borc: #e6e6eb;
             height:20vh;  
             cursor:grab;                
             &.active{
-                cursor:grabbing;
+                cursor:-webkit-grabbing;
                 transform:scale(1.05);
                 background:rgba(255,255,255,0.3);
             }         
             .items {
                 border-radius: 2px;
-                padding: 10px 0;
+                padding-top: 10px;
                 font-size: 14px;
                 position: relative;
                 display:flex;
@@ -260,8 +282,8 @@ $borc: #e6e6eb;
                 transform:scale(0.98);
                 will-change:transform;
                 user-select:none;
-                margin-left: 20px;                            
-                .item {
+                margin-left: 20px; 
+                 .item {
                     background:#fff;
                     margin-right: 20px;
                     padding: 3px 5px;
@@ -328,6 +350,7 @@ $borc: #e6e6eb;
        }
        .mapInfo{
         text-align:center;
+        padding-bottom: 15px;
        > p{
            display:inline-block;
            margin-top:2px;
@@ -377,7 +400,8 @@ $borc: #e6e6eb;
                                 height: 40vw;         
                             }
                             .summary { 
-                                 > h3 { font-size: 4vw;
+                                 > h3 { 
+                                     font-size: 4vw;
                                   }
                                > small {
                                    font-size: 2.5vw;
@@ -390,148 +414,12 @@ $borc: #e6e6eb;
             }
         }
         .nearbox {
-            background: #fff;
             margin-top: 50px; 
-            .mapbox {
-                border-top: 1px solid $borc;
-        .distance {                    
-                    width:100%;
-                    padding: 10px;
-                    margin-bottom: 5px;
-                    background:#fff;
-                    flex-wrap:wrap;
-                    .nearby {
-                        width:100%;
-                        padding: 0 15px; 
-                        h3 {
-                            font-size: 18px;
-                            margin-bottom: 5px;
-                        }
-                        p {
-                            color: #9999a0;
-                                         }
+            .mapbox {              
+                .distance {                    
+                 margin-bottom: 5px;  
                     }    
-                    .level {
-                        flex-wrap:wrap;
-                      > a{
-                           cursor:pointer;
-                            text-align:center;
-                            padding:3px 25px;
-                            width:100%;
-                            flex:1;
-                            p{
-                                width:100%;
-                             }
-                         }
-                    }
-                   
-                }
-                .map {
-                    height: auto;
-                  
-                   }
-                }  
-            .listbox {
-                overflow:hidden;
-                width:100%;
-                height:20vh;
-             
-                .items {
-                    border-radius: 2px;
-                    padding: 10px 0;
-                    font-size: 14px;
-                    position: relative;
-                    display:flex;
-                    z-index:100;
-                    width:100%;               
-                    transition:transform 3s ease-in-out;
-                    white-space:nowrap;
-                    transition:all .2s;
-                    transform:scale(0.98);
-                    will-change:transform;
-                    user-select:none;
-                    cursor:move;
-                    margin-left: 20px; 
-                    &.active{
-                        cursor:grabbing;
-                        transform:scale(1);
-                        background:rgba(255,255,255,0.3);
-                    }                   
-                    .item {
-                        background:#fff;
-                        margin-right: 20px;
-                        padding: 3px 5px;
-                        border: 1px solid $borc;
-                        display:flex;
-                        flex-direction: column;
-                      .con{
-                       width:330px;
-                        .leftsec {
-                            display: inline-block;
-                            flex:2;
-                            font-size: 0;
-                            .thumb {
-                                width:100%; height:100%;
-                               > a{
-                                   width:100%; height:100%;
-                                }
-                                img {
-                                    width:100px; height:100px;
-                                    border-radius: 3vw; 
-                                  }
-                              }
-                            }
-                        .rightsec {
-                            flex:3;
-                            height:110px;
-                            display: inline-block;
-                            vertical-align: top;
-                            box-sizing: border-box;
-                           margin-left:3px;
-                            font-size: 0;
-                             > div{
-                                margin-bottom: 6px;
-                                > h4 {
-                                    font-size: 16px;
-                                    text-transform:uppercase;
-                                }
-                                #idx{
-                                    text-align:center;
-                                    vertical-align: center;
-                                    width:25px; height:25px;
-                                    border-radius:100%;
-                                    border: 2px solid #4aa0ec;
-                                }
-                                > span {
-                                   display:none;
-                                }
-                            }  
-                           > h6 {
-                                color: #9999a0;
-                                margin-bottom: 10px;
-                            }
-                            .address {
-                                font-size: 13px;
-                                color: #9999a0;
-                                white-space:pre-wrap;
-                            }
-                        }
-                     
-                    }
-                  }
-                }
-             }
-             .mapInfo{
-                > p{
-                    margin-top:3px;
-                    color: #9999a0;
-                    font-size:10px;
-                    a{
-                        font-size:10px;
-                        color: #9999a0;
-                    }
                 }
             }
-        }
    }
 }
