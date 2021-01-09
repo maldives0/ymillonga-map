@@ -1,0 +1,31 @@
+{
+  "name": "ymillonga-map",
+  "version": "1.0.0",
+  "description": "'오늘은 어디 밀롱가를 갈까?!'를 콘셉으로 Kakao Map API를 활용해 만든 장소검색 서비스입니다.밀롱가는 탱고라는 Social Dance를 추는 장소입니다. 서울에 있는 10곳의 밀롱가를 JSON형식의 데이터로 가져와 Kakao map에서 검색할 수 있는 반응형 App을 구현했습니다.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch",
+    "dev": "webpack serve --env development",
+    "start": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maldives0/ymillonga-map.git"
+  },
+  "author": "juyoung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maldives0/ymillonga-map/issues"
+  },
+  "homepage": "https://github.com/maldives0/ymillonga-map#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.8.2",
+    "regenerator-runtime": "^0.13.7",
+    "webpack": "^5.12.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
+}

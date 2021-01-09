@@ -1,8 +1,15 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+// import getFindMe from './getFindMe';
+// import markerEvent from './markerEvent';
+import dragList from './dragList';
+
 window.addEventListener('DOMContentLoaded', function () {
     const data = new XMLHttpRequest();
     let response;
     const ulEle = document.querySelector('.items');
-    let idxList = 0, idxMarker = 0;
+    let idxList = 0;
+    let listLen = 0;
     let liEle = '';
     const form = document.querySelector('.searchbox form');
     const input = form.querySelector('input');
@@ -13,7 +20,9 @@ window.addEventListener('DOMContentLoaded', function () {
         this.lng = lng;
         this.content = content;
     };
-
+    let mapContainer = document.getElementById('map'),
+        mapOption,
+        map;
     data.open('Get', 'millonga.json', true);
     data.send(null);
     data.addEventListener('load', dataFun);
@@ -64,56 +73,55 @@ window.addEventListener('DOMContentLoaded', function () {
                 input.value = '';
                 input.focus();
             }
-        });//foreach
+        });
         mapSearch();
-    }//datafun
+    }
 
 
-    //drag
-    function drag(item) {
-        const listBox = document.querySelector('.listbox');
-        listLen = item.length;
-        let isDown = false;
-        let startX;
-        let endX;
+    // function dragList(moveX, item, listBox) {
+    //     listLen = item.length;
+    //     let isDown = false;
+    //     let startX;
+    //     let endX;
 
-        listBox.addEventListener('mousedown', (e) => {
-            listBox.classList.add('active');
-            isDown = true;
-            startX = e.pageX;
-        });
-        listBox.addEventListener('mousemove', (e) => {
-            listBox.classList.add('active');
-            endX = e.pageX;
-            if (!isDown) return endX;
-            e.preventDefault();
-        });
-        listBox.addEventListener('mouseleave', (e) => {
-            isDown = false;
-            listBox.classList.remove('active');
-        });
-        listBox.addEventListener('mouseup', (e) => {
-            isDown = false;
-            listBox.classList.remove('active');
-            endPos();
-        });
-        function endPos() {
-            if (startX > endX) {
-                //next
-                if (idxList < listLen - 1) idxList++;
-            } else if (startX < endX) {
-                //prev
-                if (idxList != 0) idxList--;
-            }
-            setTimeout(function () { ulEle.style = "transform:translateX(" + (-420 * idxList) + "px);"; }, 100);
-        };
-    }//list drag
+    //     listBox.addEventListener('mousedown', (e) => {
+    //         listBox.classList.add('active');
+    //         isDown = true;
+    //         startX = e.pageX;
+    //     });
+    //     listBox.addEventListener('mousemove', (e) => {
+    //         listBox.classList.add('active');
+    //         endX = e.pageX;
+    //         if (!isDown) return endX;
+    //         e.preventDefault();
+    //     });
+    //     listBox.addEventListener('mouseleave', (e) => {
+    //         isDown = false;
+    //         listBox.classList.remove('active');
+    //     });
+    //     listBox.addEventListener('mouseup', (e) => {
+    //         isDown = false;
+    //         listBox.classList.remove('active');
+    //         endPos();
+    //     });
+    //     function endPos() {
+    //         if (startX > endX) {
+    //             //next
+    //             if (idxList < listLen - 1) idxList++;
+    //         } else if (startX < endX) {
+    //             //prev
+    //             if (idxList != 0) idxList--;
+    //         }
+    //         setTimeout(function () { ulEle.style = "transform:translateX(" + (moveX * idxList) + "px);"; }, 100);
+    //     };
+    // }
 
     //map
-    let mapContainer, mapOption, map;
+
     function mapSearch() {
-        const item = document.querySelectorAll('.item');
-        drag(item);
+        const listBox = document.querySelector('.listbox'),
+            item = document.querySelectorAll('.item');
+        dragList(-420, listLen, idxList, item, listBox, ulEle);
         const latChoice = document.querySelectorAll('#lat');
         const lngChoice = document.querySelectorAll('#lng');
         // const enChoice = document.querySelectorAll('#en');
@@ -141,7 +149,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 markerEvent(posChoice);
             }
         });
-    }//mapsearch
+    }
 
     function markerEvent(posChoice) {
         mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -265,7 +273,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
-    }//markerevent
+    };
 
     function getFindMe() {
         map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -298,7 +306,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 message = 'geolocation을 사용할수 없어요..'
             map.setCenter(locPosition);
         }
-    }
+    };
 });//end
 
 
