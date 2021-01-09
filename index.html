@@ -8,7 +8,7 @@
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0&libraries=services"></script>
     <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0"></script>   
-    <script src="js/active.js"></script>
+    <script src="/dist/active.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -18,10 +18,8 @@
                 <img src="img/logo.png" alt="logo">
             </a>
             <a class="moremap" href="map.html">
-                <div class="desc">
-                    <img src="img/ic_mapView.png" alt="mapView"><br />
-                    <span>지도로 더보기</span>
-                </div>
+                <div class="mapView"></div>
+                <p>지도크게보기</p>
             </a>
         </div>
         <div class="location f_b">
@@ -59,7 +57,7 @@
                     <div class="nearby">
                         <h3>내주변 밀롱가</h3>
                         <p>
-                            <span id="mapLevel">현재 지도 확대영역 : 250m</span>
+                            <span id="mapLevel">지도 확대영역 : 250m</span>
                         </p>
                     </div>
                     <div class="level f_a">

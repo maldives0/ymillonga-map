@@ -19,7 +19,7 @@
 
 ## 작업 툴  
 
-html5, css3, sass, javascript, git
+html5, css3, sass, javascript, git, webpack
   
 
 ## 구현기능  
@@ -34,4 +34,6 @@ html5, css3, sass, javascript, git
 (관련 블로그 글: https://maldives0.github.io/posts/onChange_match)
 * input값이 해당 json data에 있을 때 지도 아래 리스트 목록으로 넣어주면 해당 장소에 관한 정보를 보여주는 리스트를 drag할 수 있도록 하는 과정에서 mouseup event가 중복 발생하는 event-bubbling 문제가 발생했었습니다. 이를 해결하는 과정에서 이벤트 객체에 대해 확실히 이해하고 넘어갈 수 있었습니다.
 (관련 블로그 글: https://maldives0.github.io/posts/eventBubbling)
-* index와 map이라는 두 페이지에 각각 장소검색 기능과 드래그 기능을 적용하는 과정에서 각 페이지의 테그 명이 달라 페이지마다 함수를 따로 적용시키면서 코드량이 늘어나는 문제가 있었습니다. 후에 (1), (2), (3), (4)라는 네가지 함수를 리엑트의 component로 변환해 재사용성을 높여볼 계획입니다. 또한 calender API를 활용해 이번 달에 밀롱가가 열리는 날을 달력으로 한눈에 파악하고 오늘 열리는 밀롱가 목록을 리스트로 보여줌과 동시에 지도에 마커로 표시할 수 있도록 구현해볼 예정입니다.  
+* index와 map이라는 두 페이지에 각각 장소검색 기능과 드래그 기능을 적용하는 과정에서 각 페이지의 테그 명이 달라 페이지마다 함수를 따로 적용시키면서 코드량이 늘어나는 문제가 있었습니다. 이를 해결하기위해 module system을 도입해 중복되는 함수를 모듈로 쪼개어 webpack으로 bundling하였습니다.  
+(관련 블로그 글: https://maldives0.github.io/posts/module-bundling)
+* 후에 (1), (2), (3), (4)라는 네가지 함수를 리엑트의 component로 변환해 재사용성을 높여볼 계획입니다. 또한 calender API를 활용해 이번 달에 밀롱가가 열리는 날을 달력으로 한눈에 파악하고 오늘 열리는 밀롱가 목록을 리스트로 보여줌과 동시에 지도에 마커로 표시할 수 있도록 구현해볼 예정입니다.  

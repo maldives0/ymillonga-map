@@ -29,7 +29,10 @@ $borc: #e6e6eb;
             height: 50px;
             background: url(../img/ic_back.png) no-repeat;
             background-size: 100% 100%;
-        }
+            &:hover{
+                background: url(../img/ic_back-on.png) no-repeat;
+            }
+                  }
         position: fixed;
         z-index: 100;
         top: 0;
@@ -73,8 +76,9 @@ $borc: #e6e6eb;
                         width: 20px;
                     }
                 }
-            }
+            }          
         }
+       
     }  
     .nearbox {
         background: #fff;
@@ -91,6 +95,7 @@ $borc: #e6e6eb;
                 margin-bottom: 5px;
                 background:#fff;
                 flex-wrap:wrap;
+              
                 .nearby {
                     width:100%;
                     padding-top: 15px;   
@@ -101,11 +106,16 @@ $borc: #e6e6eb;
                     }
                     p {
                        margin-left:5px;
-                        display:inline-block;   
-                        color: #9999a0;
+                       display:inline-block;color: #9999a0;
                       }
+                      .location{  
+                        float:right;         background-color:whitesmoke;
+                        padding:2px;
+                        margin-top:5px;
+                  } 
                 }
                 .level {
+                    width: 90%;
                     flex-wrap:wrap;
                   > a{
                        cursor:pointer;
@@ -113,6 +123,9 @@ $borc: #e6e6eb;
                         padding:3px 25px;
                         width:100%;
                         flex:1;
+                        &:hover{
+                            background-color: aliceblue;
+                        }
                         p{
                             width:100%;
                          }
@@ -150,7 +163,6 @@ $borc: #e6e6eb;
     left:0px;
     z-index: 100;
     width: 100%;
-    height:100%;
     overflow:hidden;
     cursor:grab; 
     .listbox {
@@ -256,6 +268,6 @@ $borc: #e6e6eb;
                 }
             }
           }
-        }   
+       }   
    }
 }

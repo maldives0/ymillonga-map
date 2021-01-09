@@ -30,15 +30,44 @@
 }
 
 .header .morebox .moremap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .morebox .moremap > p {
+  display: none;
+  font-size: 12px;
+}
+
+.header .morebox .moremap:hover .mapView {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background: url(../img/ic_map-on.png) no-repeat;
+}
+
+.header .morebox .moremap:hover > p {
   display: block;
 }
 
-.header .morebox .moremap .desc {
-  font-size: 10px;
-  text-align: center;
+.header .morebox .moremap .mapView {
+  height: 50px;
+  width: 35px;
+  background: url(../img/ic_map.png) no-repeat;
+  background-size: 100% 100%;
 }
 
-.header .morebox .moremap .desc img {
+.header .morebox .moremap .mapView img {
   widows: 50px;
   height: 50px;
 }
@@ -249,8 +278,8 @@
 
 .background .nearbox .mapbox .distance {
   width: 100%;
-  padding: 10px;
-  margin: 2% 0;
+  margin-top: 2%;
+  padding: 5px;
   background: #fff;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -271,6 +300,7 @@
 }
 
 .background .nearbox .mapbox .distance .level {
+  width: 90%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -283,6 +313,10 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.background .nearbox .mapbox .distance .level > a:hover {
+  background-color: aliceblue;
 }
 
 .background .nearbox .mapbox .distance .level > a p {
@@ -306,7 +340,6 @@
 
 .background .nearbox .slider .listbox.active {
   cursor: -webkit-grabbing;
-  cursor: grabbing;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   background: rgba(255, 255, 255, 0.3);
@@ -314,7 +347,7 @@
 
 .background .nearbox .slider .listbox .items {
   border-radius: 2px;
-  padding: 10px 0;
+  padding-top: 10px;
   font-size: 14px;
   position: relative;
   display: -webkit-box;
@@ -429,6 +462,7 @@
 
 .background .nearbox .mapInfo {
   text-align: center;
+  padding-bottom: 15px;
 }
 
 .background .nearbox .mapInfo > p {
@@ -485,172 +519,10 @@
     height: 25px;
   }
   .background .nearbox {
-    background: #fff;
     margin-top: 50px;
   }
-  .background .nearbox .mapbox {
-    border-top: 1px solid #e6e6eb;
-  }
   .background .nearbox .mapbox .distance {
-    width: 100%;
-    padding: 10px;
     margin-bottom: 5px;
-    background: #fff;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .background .nearbox .mapbox .distance .nearby {
-    width: 100%;
-    padding: 0 15px;
-  }
-  .background .nearbox .mapbox .distance .nearby h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  .background .nearbox .mapbox .distance .nearby p {
-    color: #9999a0;
-  }
-  .background .nearbox .mapbox .distance .level {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .background .nearbox .mapbox .distance .level > a {
-    cursor: pointer;
-    text-align: center;
-    padding: 3px 25px;
-    width: 100%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-  .background .nearbox .mapbox .distance .level > a p {
-    width: 100%;
-  }
-  .background .nearbox .mapbox .map {
-    height: auto;
-  }
-  .background .nearbox .listbox {
-    overflow: hidden;
-    width: 100%;
-    height: 20vh;
-  }
-  .background .nearbox .listbox .items {
-    border-radius: 2px;
-    padding: 10px 0;
-    font-size: 14px;
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    z-index: 100;
-    width: 100%;
-    -webkit-transition: -webkit-transform 3s ease-in-out;
-    transition: -webkit-transform 3s ease-in-out;
-    transition: transform 3s ease-in-out;
-    transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
-    white-space: nowrap;
-    -webkit-transition: all .2s;
-    transition: all .2s;
-    -webkit-transform: scale(0.98);
-            transform: scale(0.98);
-    will-change: transform;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    cursor: move;
-    margin-left: 20px;
-  }
-  .background .nearbox .listbox .items.active {
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    background: rgba(255, 255, 255, 0.3);
-  }
-  .background .nearbox .listbox .items .item {
-    background: #fff;
-    margin-right: 20px;
-    padding: 3px 5px;
-    border: 1px solid #e6e6eb;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .background .nearbox .listbox .items .item .con {
-    width: 330px;
-  }
-  .background .nearbox .listbox .items .item .con .leftsec {
-    display: inline-block;
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2;
-    font-size: 0;
-  }
-  .background .nearbox .listbox .items .item .con .leftsec .thumb {
-    width: 100%;
-    height: 100%;
-  }
-  .background .nearbox .listbox .items .item .con .leftsec .thumb > a {
-    width: 100%;
-    height: 100%;
-  }
-  .background .nearbox .listbox .items .item .con .leftsec .thumb img {
-    width: 100px;
-    height: 100px;
-    border-radius: 3vw;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec {
-    -webkit-box-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
-    height: 110px;
-    display: inline-block;
-    vertical-align: top;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-left: 3px;
-    font-size: 0;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec > div {
-    margin-bottom: 6px;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec > div > h4 {
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec > div #idx {
-    text-align: center;
-    vertical-align: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    border: 2px solid #4aa0ec;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec > div > span {
-    display: none;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec > h6 {
-    color: #9999a0;
-    margin-bottom: 10px;
-  }
-  .background .nearbox .listbox .items .item .con .rightsec .address {
-    font-size: 13px;
-    color: #9999a0;
-    white-space: pre-wrap;
-  }
-  .background .nearbox .mapInfo > p {
-    margin-top: 3px;
-    color: #9999a0;
-    font-size: 10px;
-  }
-  .background .nearbox .mapInfo > p a {
-    font-size: 10px;
-    color: #9999a0;
   }
 }
 /*# sourceMappingURL=style.css.map */

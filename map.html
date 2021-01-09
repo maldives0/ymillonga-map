@@ -8,7 +8,7 @@
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0&libraries=services"></script>
     <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0"></script>
-    <script src="js/map.js"></script>
+    <script src="/dist/map.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
                         </a>
                     </div>
                 </div>
-            </form>
+            </form>           
         </div>
         <div class="nearbox">
             <div class="mapbox">
@@ -33,9 +33,12 @@
                     <div class="nearby">
                         <h3>내주변 밀롱가</h3>
                         <p>
-                            <span id="mapLevel">현재 지도 확대영역 : 250m</span>
+                            <span id="mapLevel"> 지도 확대영역 : 250m</span>                
                         </p>
-                    </div>
+                        <div class="location">
+                            <span id="hereNow">현위치 : 서울특별시 서초구 서초동</span>
+                        </div>
+                    </div>                   
                     <div class="level f_a">
                         <a>
                             <p>30m</p>
