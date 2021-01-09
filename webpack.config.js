@@ -1,8 +1,8 @@
 const path = require('path');
-
+const prod = process.env.NODE_ENV === 'production';
 module.exports = {
-    mode: 'development',
-    devtool: 'eval',
+    mode: prod ? 'production' : 'development',
+    devtool: prod ? 'eval' : 'hidden-source-map',
     resolve: {
         extensions: ['.js'],
     },
@@ -20,7 +20,6 @@ module.exports = {
         historyApiFallback: true,
         publicPath: '/dist',
     },
-
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'dist'),
