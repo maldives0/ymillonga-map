@@ -9,6 +9,7 @@ let mapContainer = document.getElementById('map'),
     mapOption,
     map;
 const geocoder = new kakao.maps.services.Geocoder();
+
 function mapSearch(moveX, listLen, idxList, posChoice, findMeBtn, ulEle) {
     const listBox = document.querySelector('.listbox'),
         item = document.querySelectorAll('.item');
@@ -169,7 +170,6 @@ function markerEvent(posChoice, idxList, moveX, ulEle) {
     });
 };
 
-
 export function getFindMe(e, posChoice) {
     map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
     let locPosition, message;
@@ -203,8 +203,8 @@ export function getFindMe(e, posChoice) {
         map.setCenter(locPosition);
     }
 };
-function regionNow(map) {
 
+function regionNow(map) {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
     // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
     kakao.maps.event.addListener(map, 'idle', function () {
@@ -228,7 +228,5 @@ function regionNow(map) {
         }
     }
 };
-
-
 
 export default mapSearch;

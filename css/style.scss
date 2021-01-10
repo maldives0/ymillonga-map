@@ -29,27 +29,25 @@ $borc: #e6e6eb;
        }
        .moremap {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         > p{ 
-            display: none; 
-            font-size:12px;           
+            text-align: center;
+            font-size:12px;
+            margin-right:5px;
+            color:#9999a0;           
                    }
         &:hover{
             .mapView{
                 transform:scale((1.2));
                 background: url(../img/ic_map-on.png) no-repeat;
                }
-            > p{ 
-                display: block;
-                       }
-                   }
+            }
          .mapView{
             height: 50px;
             width: 35px;
-           background: url(../img/ic_map.png) no-repeat;
-           background-size: 100% 100%;        
+            background: url(../img/ic_map.png) no-repeat;
+            background-size: 100% 100%;        
            img{
             widows: 50px;
             height: 50px;

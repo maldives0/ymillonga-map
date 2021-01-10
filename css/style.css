@@ -33,10 +33,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -46,18 +42,16 @@
 }
 
 .header .morebox .moremap > p {
-  display: none;
+  text-align: center;
   font-size: 12px;
+  margin-right: 5px;
+  color: #9999a0;
 }
 
 .header .morebox .moremap:hover .mapView {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   background: url(../img/ic_map-on.png) no-repeat;
-}
-
-.header .morebox .moremap:hover > p {
-  display: block;
 }
 
 .header .morebox .moremap .mapView {
@@ -105,7 +99,7 @@
 .header .searchbox {
   display: none;
   width: 100%;
-  padding: 2vw;
+  padding: 1vw;
   background: #fff;
 }
 
@@ -301,6 +295,7 @@
 
 .background .nearbox .mapbox .distance .level {
   width: 90%;
+  margin-top: 3%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
