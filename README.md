@@ -1,7 +1,7 @@
 # 프로젝트명 :  ymillonga map version 
   
 
-## URL: https://maldives0.github.io/ymillonga-map
+## URL: https://maldives0.github.io/ymillonga-map/index.html
   
 
 ## 작품 소개   
