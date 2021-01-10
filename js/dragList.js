@@ -31,7 +31,6 @@ function dragList(moveX, listLen, idxList, item, listBox, ulEle) {
             //prev
             if (idxList != 0) idxList--;
         }
-        console.log('idxList', idxList)
         setTimeout(function () { ulEle.style = "transform:translateX(" + (moveX * idxList) + "px);"; }, 100);
     };
 }
