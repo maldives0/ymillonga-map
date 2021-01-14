@@ -1,5 +1,5 @@
 @import url("common.css");
-.header {
+header {
   position: fixed;
   left: 0;
   top: 0;
@@ -8,28 +8,28 @@
   background: #fff;
 }
 
-.header .morebox {
+header .morebox {
   padding: 10px;
   margin-right: 2%;
 }
 
-.header .morebox a {
+header .morebox a {
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.header .morebox .logo {
+header .morebox .logo {
   display: block;
   float: left;
   width: 10vw;
 }
 
-.header .morebox .logo img {
+header .morebox .logo img {
   width: 100%;
 }
 
-.header .morebox .moremap {
+header .morebox .moremap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,80 +41,85 @@
           align-items: center;
 }
 
-.header .morebox .moremap > p {
+header .morebox .moremap > p {
   text-align: center;
   font-size: 12px;
   margin-right: 5px;
   color: #9999a0;
 }
 
-.header .morebox .moremap:hover .mapView {
+header .morebox .moremap:hover .mapView {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   background: url(../img/ic_map-on.png) no-repeat;
 }
 
-.header .morebox .moremap .mapView {
+header .morebox .moremap .mapView {
   height: 50px;
   width: 35px;
   background: url(../img/ic_map.png) no-repeat;
   background-size: 100% 100%;
 }
 
-.header .morebox .moremap .mapView img {
+header .morebox .moremap .mapView img {
   widows: 50px;
   height: 50px;
 }
 
-.header .location {
+header .location {
   width: 100%;
   padding: 20px;
   position: relative;
   background: linear-gradient(30deg, #000000, #e74c3c);
 }
 
-.header .location span {
+header .location > span {
   margin-left: 15px;
   display: inline-block;
   color: #fff;
   font-size: 17px;
 }
 
-.header .location button {
+header .location > button {
   margin-right: 15px;
   border-radius: 5px;
   border: 1px solid #fff;
-  color: #fff;
   background-color: rgba(0, 0, 0, 0);
   padding: 4px 6px 2px;
-  font-size: 17px;
-  width: 102px;
+  width: 122px;
   height: 44px;
 }
 
-.header .location button img {
-  width: 4vw;
+header .location > button > img {
+  width: 30%;
 }
 
-.header .searchbox {
+header .location > button > span {
+  font-size: 17px;
+  color: #fff;
+}
+
+header .searchbox {
   display: none;
   width: 100%;
   padding: 1vw;
   background: #fff;
 }
 
-.header .searchbox.active {
+header .searchbox.active {
   display: block;
 }
 
-.header .searchbox .inputarea {
+header .searchbox .inputarea {
   position: relative;
   padding: 10px 0;
   margin: 0 auto;
   border-bottom: 1px solid #222228;
 }
 
-.header .searchbox .inputarea:before {
+header .searchbox .inputarea:before {
   position: absolute;
   top: 13px;
   left: 0;
@@ -125,7 +130,7 @@
   background-size: 100% 100%;
 }
 
-.header .searchbox .inputarea input {
+header .searchbox .inputarea input {
   outline-style: none;
   border: none;
   margin-left: 5%;
@@ -139,12 +144,12 @@
   font-size: 18px;
 }
 
-.header .searchbox .inputarea div a {
+header .searchbox .inputarea div a {
   width: 20px;
   display: block;
 }
 
-.header .searchbox .inputarea div a img {
+header .searchbox .inputarea div a img {
   width: 20px;
 }
 
@@ -199,8 +204,8 @@
   transition: transform 3s ease-in-out;
   transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
   white-space: nowrap;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
   will-change: transform;
@@ -355,8 +360,8 @@
   transition: transform 3s ease-in-out;
   transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
   white-space: nowrap;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
   will-change: transform;
@@ -473,13 +478,13 @@
 }
 
 @media (max-width: 768px) {
-  .header .morebox .logo {
+  header .morebox .logo {
     width: 16vw;
   }
-  .header .location {
+  header .location {
     padding: 2vw;
   }
-  .header .searchbox {
+  header .searchbox {
     padding: 3vw 5vw;
   }
   .background .page {

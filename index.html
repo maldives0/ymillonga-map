@@ -7,29 +7,30 @@
     <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0&libraries=services"></script>
     <script type="text/javascript"
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0"></script>   
-    <script src="dist/active.js"></script>
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0"></script>
+    <script src="dist/active.js" ></script>
     <title>ymillonga</title>
 </head>
 <body>
-    <div class="header">
-        <div class="morebox f_b">
+    <header>
+        <section class="morebox f_b">
             <a class="logo" href="index.html">
                 <img src="img/logo.png" alt="logo">
             </a>
             <a class="moremap" href="map.html">
-                <p>지도<br /> 
+                <p>지도<br />
                     크게 보기</p>
-                <div class="mapView"></div>              
+                <div class="mapView"></div>
             </a>
-        </div>
-        <div class="location f_b">
+        </section>
+        <section class="location f_b">
             <span id="hereNow">현위치 : 서울특별시 서초구 서초동</span>
             <button class="hereBtn f_a">
-                <img src="img/ic_location.png" alt=""> 업데이트
+                <img src="img/ic_location.png" alt="">
+                <span>업데이트</span>
             </button>
-        </div>
-        <div class="searchbox">
+        </section>
+        <section class="searchbox">
             <form>
                 <div class="inputarea f_b">
                     <input type="text" placeholder="밀롱가 이름으로 검색해보세요">
@@ -41,19 +42,19 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-    <div class="background">
-        <div class="page">
+        </section>
+    </header>
+    <main class="background">
+        <section class="page">
             <div class="today-list">
                 <h2>오늘의 밀롱가</h2>
                 <div class="data-wrap">
                     <ul class="items"></ul>
                 </div>
             </div>
-        </div>
+        </section>
         <div class="nearbox">
-            <div class="mapbox">
+            <section class="mapbox">
                 <div class="distance f_a">
                     <div class="nearby">
                         <h3>내주변 밀롱가</h3>
@@ -82,13 +83,13 @@
                 <div class="map">
                     <div id="map" style="width:100%;height:35vh;"></div>
                 </div>
-            </div>
-            <div class="slider f_a">
+            </section>
+            <section class="slider f_a">
                 <div class="listbox">
                     <ul class="items"></ul>
                 </div>
-            </div>
-            <div class="mapInfo">
+            </section>
+            <section class="mapInfo">
                 <p>
                     <em class="link">
                         <a href="javascript:void(0);"
@@ -100,9 +101,9 @@
                 <p>
                     <b>Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b>
                 </p>
-            </div>
+            </section>
          </div>
       </div>
-    </div>
+    </main>
 </body>
 </html>

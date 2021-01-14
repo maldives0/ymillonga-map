@@ -1,424 +1,430 @@
 @import url("common.css");
-$mc:#e73827;
+$mc: #e73827;
 $bc: #e6e6eb;
 $borc: #e6e6eb;
 
-.header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  .morebox {
+    padding: 10px;
+    margin-right: 2%;
+    a {
+      display: inline-block;
+
+      box-sizing: border-box;
+    }
+    .logo {
+      display: block;
+      float: left;
+      width: 10vw;
+
+      img {
+        width: 100%;
+      }
+    }
+    .moremap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > p {
+        text-align: center;
+        font-size: 12px;
+        margin-right: 5px;
+        color: #9999a0;
+      }
+      &:hover {
+        .mapView {
+          transition: 0.5s;
+          transform: scale((1.2));
+          background: url(../img/ic_map-on.png) no-repeat;
+        }
+      }
+      .mapView {
+        height: 50px;
+        width: 35px;
+        background: url(../img/ic_map.png) no-repeat;
+        background-size: 100% 100%;
+        img {
+          widows: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+  .location {
     width: 100%;
-    background: #fff;    
-        .morebox {
-            padding: 10px;
-            margin-right: 2%;
-                 a {
-               display: inline-block;
-                  
-             box-sizing: border-box;
-           }
-           .logo {
-            display: block;
-            float: left;
-            width: 10vw;
-            
-            img {
-                width: 100%;
-            }           
-       }
-       .moremap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        > p{ 
-            text-align: center;
-            font-size:12px;
-            margin-right:5px;
-            color:#9999a0;           
-                   }
-        &:hover{
-            .mapView{
-                transform:scale((1.2));
-                background: url(../img/ic_map-on.png) no-repeat;
-               }
-            }
-         .mapView{
-            height: 50px;
-            width: 35px;
-            background: url(../img/ic_map.png) no-repeat;
-            background-size: 100% 100%;        
-           img{
-            widows: 50px;
-            height: 50px;
-                }  
-           }       
-        }
+    padding: 20px;
+    position: relative;
+    background: linear-gradient(30deg, #000000, #e74c3c);
+    > span {
+      margin-left: 15px;
+      display: inline-block;
+      color: #fff;
+      font-size: 17px;
     }
-    .location {
-        width: 100%;
-        padding: 20px;
-        position: relative;
-        background: linear-gradient(30deg, #000000,#e74c3c);
-        span {
-            margin-left: 15px;
-            display: inline-block;
-            color: #fff;
-            font-size: 17px;
-        }    
-        button {
-            margin-right: 15px;
-            border-radius: 5px;
-            border: 1px solid #fff;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0);
-            padding: 4px 6px 2px;
-            font-size: 17px;
-            width: 102px;
-            height: 44px;    
-            img {
-                width: 4vw;
-            }
-        }
+    > button {
+      margin-right: 15px;
+      border-radius: 5px;
+      border: 1px solid #fff;
+      background-color: rgba(0, 0, 0, 0);
+      padding: 4px 6px 2px;
+      width: 122px;
+      height: 44px;
+      > img {
+        width: 30%;
+      }
+      > span {
+        font-size: 17px;
+        color: #fff;
+      }
     }
-    .searchbox {
-        display:none;
-        width: 100%;
-        padding: 1vw;
-        background: #fff;
-        &.active{
-            display:block;
-        }
-        .inputarea {
-            position: relative;
-            padding: 10px 0;
-            margin: 0 auto;
-            border-bottom: 1px solid #222228;
-            &:before {
-                position: absolute;
-                top: 13px;
-                left: 0;
-                content: "";
-                width: 19px;
-                height: 19px;
-                background: url(../img/ic_glass-on.png) no-repeat;
-                background-size: 100% 100%;
-            }
-            input {
-                outline-style: none;
-                border: none;
-                margin-left: 5%;
-                padding-left: 5%;
-                width: 90%;
-                height: 28px;
-                box-sizing: border-box;
-                display: block;
-                margin: auto;
-                font-size: 18px;
-            }
-            div {
-                a {
-                    width: 20px;
-                    display:block;
-                    img {
-                        width: 20px;
-                    }
-                }
-            }
-        }
+  }
+  .searchbox {
+    display: none;
+    width: 100%;
+    padding: 1vw;
+    background: #fff;
+    &.active {
+      display: block;
     }
+    .inputarea {
+      position: relative;
+      padding: 10px 0;
+      margin: 0 auto;
+      border-bottom: 1px solid #222228;
+      &:before {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        content: "";
+        width: 19px;
+        height: 19px;
+        background: url(../../img/ic_glass-on.png) no-repeat;
+        background-size: 100% 100%;
+      }
+      input {
+        outline-style: none;
+        border: none;
+        margin-left: 5%;
+        padding-left: 5%;
+        width: 90%;
+        height: 28px;
+        box-sizing: border-box;
+        display: block;
+        margin: auto;
+        font-size: 18px;
+      }
+      div {
+        a {
+          width: 20px;
+          display: block;
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .background {
-    background: $bc;
-    padding-top: 20vh;  
-    .page {
-        margin: 3vw 2vw;
-        .today-list {
-            border-radius: 4vw;
-            box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
-            background: #fff;
-            padding: 2vw;            
-            h2 {
-                font-size: 30px;
-                font-weight: 900;
-                padding: 0 4vw;
-            }
-            .data-wrap {
-                background: #fff;
-                padding: 2vw;
-                width: 100%;
-                height: 30vw;
-                position: relative;
-                overflow:hidden;
-                &.active{
-                    cursor:grabbing;
-                    transform:scale(1);
-                    background:rgba(255,255,255,0.3);
-                }
-                .items {
-                    position: relative;
-                    width:100%;
-                    display:flex;
-                    transition:transform 3s ease-in-out;
-                   white-space:nowrap;
-                   transition:all .2s;
-                   transform:scale(0.98);
-                   will-change:transform;
-                   user-select:none;
-                   cursor:move; 
-                       .item {
-                        display:flex;
-                        flex-direction: column;
-                        width: 20vw;
-                        margin-right: 7vw;
-                        text-align:center;
-                        .thumb {
-                            width: 20vw;
-                            height: 20vw;
-                            img {
-                                width: 100%;
-                                height: 100%;
-                                border-radius: 3vw;
-                            }
-                        }
-                        .summary {
-                             margin-left:5px;
-                            > h3 {
-                                white-space: nowrap;
-                                font-size: 14px;
-                                margin-top: 2vw;
-                                font-weight: 500;
-                                width: 100%;
-                                text-transform:uppercase;
-                            }
-                           > small {
-                                opacity: 0.7;
-                                font-size: 13px;
-                                display: block;
-                                margin-top: 1.5vw;
-                                color: #898989;
-                                width: 100%;
-                                height: 15px;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                white-space: nowrap;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .nearbox {
+  background: $bc;
+  padding-top: 20vh;
+  .page {
+    margin: 3vw 2vw;
+    .today-list {
+      border-radius: 4vw;
+      box-shadow: 0.5vw 0.5vw 4vw 0.5vw rgba(59, 59, 59, 0.15);
+      background: #fff;
+      padding: 2vw;
+      h2 {
+        font-size: 30px;
+        font-weight: 900;
+        padding: 0 4vw;
+      }
+      .data-wrap {
         background: #fff;
-        margin-top: 60px;     
-        .mapbox {
-            border-top: 1px solid $borc;           
-            .distance {
-                width:100%;
-                margin-top: 2%;
-                padding: 5px;
-                background:#fff;
-                flex-wrap:wrap;
-                .nearby {
-                    width:100%;
-                    padding: 0 15px;
-                    h3 {
-                        font-size: 28px;
-                        margin: 15px 0;
-                    }
-                    p {
-                        color: #9999a0;
-                                     }    
-                }
-                .level {
-                    width: 90%;
-                    margin-top:3%;
-                    flex-wrap:wrap;
-                  > a{
-                       cursor:pointer;
-                        text-align:center;
-                        padding:3px 25px;
-                        width:100%;
-                        flex:1;
-                        &:hover{
-                            background-color: aliceblue;
-                        }
-                        p{
-                            width:100%;
-                         }
-                    }
-                }
-               
+        padding: 2vw;
+        width: 100%;
+        height: 30vw;
+        position: relative;
+        overflow: hidden;
+        &.active {
+          cursor: grabbing;
+          transform: scale(1);
+          background: rgba(255, 255, 255, 0.3);
+        }
+        .items {
+          position: relative;
+          width: 100%;
+          display: flex;
+          transition: transform 3s ease-in-out;
+          white-space: nowrap;
+          transition: all 0.2s;
+          transform: scale(0.98);
+          will-change: transform;
+          user-select: none;
+          cursor: move;
+          .item {
+            display: flex;
+            flex-direction: column;
+            width: 20vw;
+            margin-right: 7vw;
+            text-align: center;
+            .thumb {
+              width: 20vw;
+              height: 20vw;
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 3vw;
+              }
             }
-            .map {
-                height: auto;                      
-               }
-            }  
-     .slider {
-        overflow:hidden;
-        .listbox {              
-            width:100%;
-            height:20vh;  
-            cursor:grab;                
-            &.active{
-                cursor:-webkit-grabbing;
-                transform:scale(1.05);
-                background:rgba(255,255,255,0.3);
-            }         
-            .items {
-                border-radius: 2px;
-                padding-top: 10px;
+            .summary {
+              margin-left: 5px;
+              > h3 {
+                white-space: nowrap;
                 font-size: 14px;
-                position: relative;
-                display:flex;
-                z-index:100;
-                width:100%;           
-                transition:transform 3s ease-in-out;
-                white-space:nowrap;
-                transition:all .2s;
-                transform:scale(0.98);
-                will-change:transform;
-                user-select:none;
-                margin-left: 20px; 
-                 .item {
-                    background:#fff;
-                    margin-right: 20px;
-                    padding: 3px 5px;
-                    border: 1px solid $borc;
-                    display:flex;
-                    flex-direction: column;
-                  .con{
-                   width:330px;
-                    .leftsec {
-                        display: inline-block;
-                        flex:2;
-                        font-size: 0;
-                             .thumb {
-                            width:100%; height:100%;
-                           > a{
-                               width:100%; height:100%;
-                            }
-                            img {
-                                width:100px; height:100px;
-                              
-                                border-radius: 3vw;
-                            }
-                          }
-                        }
-                    .rightsec {
-                        flex:3;
-                        height:110px;
-                        display: inline-block;
-                        vertical-align: top;
-                        box-sizing: border-box;
-                        margin-left:3px;
-                        font-size: 0;
-                         > div{
-                            margin-bottom: 6px;
-                            > h4 {
-                                font-size: 16px;
-                                text-transform:uppercase;   }
-                            #idx{
-                                text-align:center;
-                                vertical-align: center;
-                                width:25px; height:25px;
-                                border-radius:100%;
-                                border: 2px solid #4aa0ec;
-                            }
-                            > span {
-                               display:none;
-                            }
-                        }                       
-                       > h6 {                       
-                            color: #9999a0;
-                            margin-bottom: 10px;
-                        }                        
-                        .address {
-                            font-size: 13px;
-                            color: #9999a0;
-                            white-space:pre-wrap;
-                        }
-                    }
-                 
+                margin-top: 2vw;
+                font-weight: 500;
+                width: 100%;
+                text-transform: uppercase;
+              }
+              > small {
+                opacity: 0.7;
+                font-size: 13px;
+                display: block;
+                margin-top: 1.5vw;
+                color: #898989;
+                width: 100%;
+                height: 15px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .nearbox {
+    background: #fff;
+    margin-top: 60px;
+    .mapbox {
+      border-top: 1px solid $borc;
+      .distance {
+        width: 100%;
+        margin-top: 2%;
+        padding: 5px;
+        background: #fff;
+        flex-wrap: wrap;
+        .nearby {
+          width: 100%;
+          padding: 0 15px;
+          h3 {
+            font-size: 28px;
+            margin: 15px 0;
+          }
+          p {
+            color: #9999a0;
+          }
+        }
+        .level {
+          width: 90%;
+          margin-top: 3%;
+          flex-wrap: wrap;
+          > a {
+            cursor: pointer;
+            text-align: center;
+            padding: 3px 25px;
+            width: 100%;
+            flex: 1;
+            &:hover {
+              background-color: aliceblue;
+            }
+            p {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .map {
+        height: auto;
+      }
+    }
+    .slider {
+      overflow: hidden;
+      .listbox {
+        width: 100%;
+        height: 20vh;
+        cursor: grab;
+        &.active {
+          cursor: -webkit-grabbing;
+          transform: scale(1.05);
+          background: rgba(255, 255, 255, 0.3);
+        }
+        .items {
+          border-radius: 2px;
+          padding-top: 10px;
+          font-size: 14px;
+          position: relative;
+          display: flex;
+          z-index: 100;
+          width: 100%;
+          transition: transform 3s ease-in-out;
+          white-space: nowrap;
+          transition: all 0.2s;
+          transform: scale(0.98);
+          will-change: transform;
+          user-select: none;
+          margin-left: 20px;
+          .item {
+            background: #fff;
+            margin-right: 20px;
+            padding: 3px 5px;
+            border: 1px solid $borc;
+            display: flex;
+            flex-direction: column;
+            .con {
+              width: 330px;
+              .leftsec {
+                display: inline-block;
+                flex: 2;
+                font-size: 0;
+                .thumb {
+                  width: 100%;
+                  height: 100%;
+                  > a {
+                    width: 100%;
+                    height: 100%;
+                  }
+                  img {
+                    width: 100px;
+                    height: 100px;
+
+                    border-radius: 3vw;
+                  }
+                }
+              }
+              .rightsec {
+                flex: 3;
+                height: 110px;
+                display: inline-block;
+                vertical-align: top;
+                box-sizing: border-box;
+                margin-left: 3px;
+                font-size: 0;
+                > div {
+                  margin-bottom: 6px;
+                  > h4 {
+                    font-size: 16px;
+                    text-transform: uppercase;
+                  }
+                  #idx {
+                    text-align: center;
+                    vertical-align: center;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 100%;
+                    border: 2px solid #4aa0ec;
+                  }
+                  > span {
+                    display: none;
+                  }
+                }
+                > h6 {
+                  color: #9999a0;
+                  margin-bottom: 10px;
+                }
+                .address {
+                  font-size: 13px;
+                  color: #9999a0;
+                  white-space: pre-wrap;
                 }
               }
             }
-         }        
-       }
-       .mapInfo{
-        text-align:center;
-        padding-bottom: 15px;
-       > p{
-           display:inline-block;
-           margin-top:2px;
-           color: #9999a0;
-           font-size:10px;
-           a{
-               font-size:10px;
-               color: #9999a0;
-           }
-        }     
-     }              
+          }
+        }
+      }
     }
+    .mapInfo {
+      text-align: center;
+      padding-bottom: 15px;
+      > p {
+        display: inline-block;
+        margin-top: 2px;
+        color: #9999a0;
+        font-size: 10px;
+        a {
+          font-size: 10px;
+          color: #9999a0;
+        }
+      }
+    }
+  }
 }
-  
+
 @media (max-width: 768px) {
-    .header {
-         .morebox {               
-               .logo {
-                width: 16vw;
-             }                   
-        }   
-        .location {            
-            padding: 2vw;        
-        }
-        .searchbox {
-                       padding: 3vw 5vw;
-                }
+  header {
+    .morebox {
+      .logo {
+        width: 16vw;
+      }
     }
-    .background {                 
-        .page {
-            margin: 6vw 4vw;
-            .today-list { 
-                    padding: 3vw;
-                h2 {
-                    font-size: 5vw;
-                                }
-                .data-wrap {
-                      padding: 4vw;
-                      height: 60vw;               
-                    .items {
-                        margin-left: 3vw;
-                        .item {
-                           width: 43vw;
-                            margin-right: 10vw;
-                            .thumb {
-                                width: 100%;
-                                height: 40vw;         
-                            }
-                            .summary { 
-                                 > h3 { 
-                                     font-size: 4vw;
-                                  }
-                               > small {
-                                   font-size: 2.5vw;
-                                   height: 25px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+    .location {
+      padding: 2vw;
+    }
+    .searchbox {
+      padding: 3vw 5vw;
+    }
+  }
+  .background {
+    .page {
+      margin: 6vw 4vw;
+      .today-list {
+        padding: 3vw;
+        h2 {
+          font-size: 5vw;
         }
-        .nearbox {
-            margin-top: 50px; 
-            .mapbox {              
-                .distance {                    
-                 margin-bottom: 5px;  
-                    }    
+        .data-wrap {
+          padding: 4vw;
+          height: 60vw;
+          .items {
+            margin-left: 3vw;
+            .item {
+              width: 43vw;
+              margin-right: 10vw;
+              .thumb {
+                width: 100%;
+                height: 40vw;
+              }
+              .summary {
+                > h3 {
+                  font-size: 4vw;
                 }
+                > small {
+                  font-size: 2.5vw;
+                  height: 25px;
+                }
+              }
             }
-   }
+          }
+        }
+      }
+    }
+    .nearbox {
+      margin-top: 50px;
+      .mapbox {
+        .distance {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
 }

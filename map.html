@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/map.css" text="text/css">
     <script type="text/javascript"
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0&libraries=services"></script>
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0&libraries=services" ></script>
     <script type="text/javascript"
-        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0"></script>
-    <script src="dist/map.js"></script>
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d2a50583f7c8076b96767a5364a8a1c0" ></script>
+    <script src="dist/map.js" ></script>
     <title>ymillonga</title>
 </head>
 <body>
+    <div>
     <div class="background">
-        <div class="searchbox">
+        <header class="searchbox">
             <a class="back" href="index.html"></a>
             <form>
                 <div class="inputarea f_b">
@@ -25,20 +26,20 @@
                         </a>
                     </div>
                 </div>
-            </form>           
-        </div>
-        <div class="nearbox">
+            </form>
+        </header>
+        <main class="nearbox">
             <div class="mapbox">
-                <div class="distance f_a">
+                <section class="distance f_a">
                     <div class="nearby">
                         <h3>내주변 밀롱가</h3>
                         <p>
-                            <span id="mapLevel"> 지도 확대영역 : 250m</span>                
+                            <span id="mapLevel"> 지도 확대영역 : 250m</span>
                         </p>
                         <div class="location">
                             <span id="hereNow">현위치 : 서울특별시 서초구 서초동</span>
                         </div>
-                    </div>                   
+                    </div>
                     <div class="level f_a">
                         <a>
                             <p>30m</p>
@@ -56,11 +57,11 @@
                             <p>8km</p>
                         </a>
                     </div>
-                </div>
-                <div class="map">
-                    <div id="map" style="width:100%;height:80vh;"></div>                   
-                </div>
-                <div class="mapInfo">
+                </section>
+                <section class="map">
+                    <div id="map" style="width:100%;height:80vh;"></div>
+                </section>
+                <section class="mapInfo">
                     <p>
                         <em class="link">
                             <a href="javascript:void(0);"
@@ -70,15 +71,16 @@
                         </em>
                     </p>
                     <p>                        Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.
-                    </p>        
-                </div> 
+                    </p>
+                </section>
             </div>
-        </div>
+        </main>
     </div>
-    <div class="slider">
+    <footer class="slider">
         <div class="listbox">
             <ul class="items"></ul>
         </div>
-    </div>
+    </footer>
+</div>
 </body>
 </html>
